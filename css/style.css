@@ -304,9 +304,14 @@ section:not(:last-child) {
   display: flex;
   gap: 6.25rem;
 }
+@media (max-width: 62.5em) {
+  .slide-subject__body {
+    gap: 1.25rem;
+  }
+}
 @media (max-width: 48em) {
   .slide-subject__body {
-    gap: 0rem;
+    gap: 0;
   }
 }
 .slide-subject__info {
@@ -361,6 +366,11 @@ section:not(:last-child) {
 }
 .slide-subject__button {
   align-self: start;
+}
+@media (max-width: 48em) {
+  .slide-subject__button {
+    align-self: stretch;
+  }
 }
 .slide-subject__background {
   position: absolute;
