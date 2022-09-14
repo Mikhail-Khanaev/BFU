@@ -222,14 +222,24 @@ section:not(:last-child) {
 .labs__body {
   border: 8px solid #fff;
 }
-@supports (padding: clamp( 2.5rem , 1.3157894737rem  +  5.2631578947vw , 6.25rem )) {
+@supports (padding: clamp( 3.125rem , 2.1381578947rem  +  4.3859649123vw , 6.25rem )) {
   .labs__body {
-    padding: clamp( 2.5rem , 1.3157894737rem  +  5.2631578947vw , 6.25rem );
+    padding: clamp( 3.125rem , 2.1381578947rem  +  4.3859649123vw , 6.25rem );
   }
 }
-@supports not (padding: clamp( 2.5rem , 1.3157894737rem  +  5.2631578947vw , 6.25rem )) {
+@supports not (padding: clamp( 3.125rem , 2.1381578947rem  +  4.3859649123vw , 6.25rem )) {
   .labs__body {
-    padding: calc(2.5rem + 3.75 * (100vw - 22.5rem) / 71.25);
+    padding: calc(3.125rem + 3.125 * (100vw - 22.5rem) / 71.25);
+  }
+}
+@supports (padding-right: clamp( 1.25rem , -0.3289473684rem  +  7.0175438596vw , 6.25rem )) {
+  .labs__body {
+    padding-right: clamp( 1.25rem , -0.3289473684rem  +  7.0175438596vw , 6.25rem );
+  }
+}
+@supports not (padding-right: clamp( 1.25rem , -0.3289473684rem  +  7.0175438596vw , 6.25rem )) {
+  .labs__body {
+    padding-right: calc(1.25rem + 5 * (100vw - 22.5rem) / 71.25);
   }
 }
 @supports (font-size: clamp( 1rem , 0.6842105263rem  +  1.4035087719vw , 2rem )) {
