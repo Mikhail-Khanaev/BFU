@@ -205,6 +205,20 @@ section:not(:last-child) {
   background-color: #fff;
 }
 
+.text {
+  line-height: 120%;
+}
+@supports (font-size: clamp( 1.125rem , 0.8486842105rem  +  1.2280701754vw , 2rem )) {
+  .text {
+    font-size: clamp( 1.125rem , 0.8486842105rem  +  1.2280701754vw , 2rem );
+  }
+}
+@supports not (font-size: clamp( 1.125rem , 0.8486842105rem  +  1.2280701754vw , 2rem )) {
+  .text {
+    font-size: calc(1.125rem + 0.875 * (100vw - 22.5rem) / 71.25);
+  }
+}
+
 @supports (margin-top: clamp( 1.875rem , 1.2828947368rem  +  2.6315789474vw , 3.75rem )) {
   section:nth-child(1) {
     margin-top: clamp( 1.875rem , 1.2828947368rem  +  2.6315789474vw , 3.75rem );
@@ -295,6 +309,13 @@ section:not(:last-child) {
 .card {
   color: #fff;
 }
+.card-text .card-article {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 70px;
+  gap: 50px;
+}
 .card__body {
   position: relative;
   z-index: 1;
@@ -341,6 +362,30 @@ section:not(:last-child) {
 }
 .card-rts {
   background-color: #4282af;
+}
+.card-article {
+  color: #1e1e1e;
+  background-color: #fff;
+}
+
+.code {
+  color: #fff;
+}
+.code__body {
+  display: flex;
+}
+.code__lines {
+  display: flex;
+  flex-direction: column;
+  font-size: 1.5rem;
+  text-align: right;
+  border-radius: 2px;
+  border-right: 4px solid #1e1e1e;
+  padding-right: 20px;
+}
+.code pre {
+  display: flex;
+  gap: 1.25rem;
 }
 
 .header {
@@ -813,6 +858,130 @@ section:not(:last-child) {
 }
 .exams__item span {
   background: transparent !important;
+}
+
+/* PrismJS 1.29.0
+https://prismjs.com/download.html#themes=prism-okaidia&languages=clike+javascript+c+cpp+python */
+/**
+ * okaidia theme for JavaScript, CSS and HTML
+ * Loosely based on Monokai textmate theme by http://www.monokai.nl/
+ * @author ocodia
+ */
+code[class*=language-],
+pre[class*=language-] {
+  color: #f8f8f2;
+  background: none;
+  text-shadow: 0 1px rgba(0, 0, 0, 0.3);
+  font-family: "NeueMachina";
+  font-size: 1em;
+  font-size: 1.5rem;
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  word-wrap: normal;
+  line-height: 1.5;
+  -moz-tab-size: 4;
+  -o-tab-size: 4;
+  tab-size: 4;
+  -webkit-hyphens: none;
+  -moz-hyphens: none;
+  -ms-hyphens: none;
+  hyphens: none;
+}
+
+/* Code blocks */
+pre[class*=language-] {
+  padding: 1em;
+  overflow: auto;
+  border-radius: 0.3em;
+}
+
+:not(pre) > code[class*=language-],
+pre[class*=language-] {
+  background: #444444;
+}
+
+/* Inline code */
+:not(pre) > code[class*=language-] {
+  padding: 0.1em;
+  border-radius: 0.3em;
+  white-space: normal;
+}
+
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+  color: #8292a2;
+}
+
+.token.punctuation {
+  color: #f8f8f2;
+}
+
+.token.namespace {
+  opacity: 0.7;
+}
+
+.token.property,
+.token.tag,
+.token.constant,
+.token.symbol,
+.token.deleted {
+  color: #f92672;
+}
+
+.token.boolean,
+.token.number {
+  color: #ae81ff;
+}
+
+.token.selector,
+.token.attr-name,
+.token.string,
+.token.char,
+.token.builtin,
+.token.inserted {
+  color: #efd26d;
+}
+
+.token.operator,
+.token.entity,
+.token.url,
+.language-css .token.string,
+.style .token.string,
+.token.variable {
+  color: #f8f8f2;
+}
+
+.token.atrule,
+.token.attr-value,
+.token.function,
+.token.class-name {
+  color: #6bb7ef;
+}
+
+.token.keyword {
+  color: #e06363;
+}
+
+.token.regex,
+.token.important {
+  color: #fd971f;
+}
+
+.token.important,
+.token.bold {
+  font-weight: bold;
+}
+
+.token.italic {
+  font-style: italic;
+}
+
+.token.entity {
+  cursor: help;
 }
 .swiper {
   overflow: hidden;
