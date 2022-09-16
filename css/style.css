@@ -313,8 +313,17 @@ section:not(:last-child) {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 70px;
   gap: 50px;
+}
+@supports (padding: clamp( 1.875rem , 1.0855263158rem  +  3.5087719298vw , 4.375rem )) {
+  .card-text .card-article {
+    padding: clamp( 1.875rem , 1.0855263158rem  +  3.5087719298vw , 4.375rem );
+  }
+}
+@supports not (padding: clamp( 1.875rem , 1.0855263158rem  +  3.5087719298vw , 4.375rem )) {
+  .card-text .card-article {
+    padding: calc(1.875rem + 2.5 * (100vw - 22.5rem) / 71.25);
+  }
 }
 .card__body {
   position: relative;
@@ -368,24 +377,151 @@ section:not(:last-child) {
   background-color: #fff;
 }
 
+.article {
+  color: #fff;
+}
+.article__body {
+  border: 8px solid #fff;
+}
+@supports (padding: clamp( 1.25rem , -0.3289473684rem  +  7.0175438596vw , 6.25rem )) {
+  .article__body {
+    padding: clamp( 1.25rem , -0.3289473684rem  +  7.0175438596vw , 6.25rem );
+  }
+}
+@supports not (padding: clamp( 1.25rem , -0.3289473684rem  +  7.0175438596vw , 6.25rem )) {
+  .article__body {
+    padding: calc(1.25rem + 5 * (100vw - 22.5rem) / 71.25);
+  }
+}
+.article__title {
+  font-weight: 900;
+  line-height: 120%;
+}
+@supports (font-size: clamp( 2rem , 1.3684210526rem  +  2.8070175439vw , 4rem )) {
+  .article__title {
+    font-size: clamp( 2rem , 1.3684210526rem  +  2.8070175439vw , 4rem );
+  }
+}
+@supports not (font-size: clamp( 2rem , 1.3684210526rem  +  2.8070175439vw , 4rem )) {
+  .article__title {
+    font-size: calc(2rem + 2 * (100vw - 22.5rem) / 71.25);
+  }
+}
+@supports (margin-bottom: clamp( 1.875rem , 1.4802631579rem  +  1.7543859649vw , 3.125rem )) {
+  .article__title {
+    margin-bottom: clamp( 1.875rem , 1.4802631579rem  +  1.7543859649vw , 3.125rem );
+  }
+}
+@supports not (margin-bottom: clamp( 1.875rem , 1.4802631579rem  +  1.7543859649vw , 3.125rem )) {
+  .article__title {
+    margin-bottom: calc(1.875rem + 1.25 * (100vw - 22.5rem) / 71.25);
+  }
+}
+.article__subtitle {
+  font-weight: 900;
+  line-height: 120%;
+}
+@supports (font-size: clamp( 1.25rem , 0.8552631579rem  +  1.7543859649vw , 2.5rem )) {
+  .article__subtitle {
+    font-size: clamp( 1.25rem , 0.8552631579rem  +  1.7543859649vw , 2.5rem );
+  }
+}
+@supports not (font-size: clamp( 1.25rem , 0.8552631579rem  +  1.7543859649vw , 2.5rem )) {
+  .article__subtitle {
+    font-size: calc(1.25rem + 1.25 * (100vw - 22.5rem) / 71.25);
+  }
+}
+@supports (margin-bottom: clamp( 1.875rem , 1.4802631579rem  +  1.7543859649vw , 3.125rem )) {
+  .article__subtitle {
+    margin-bottom: clamp( 1.875rem , 1.4802631579rem  +  1.7543859649vw , 3.125rem );
+  }
+}
+@supports not (margin-bottom: clamp( 1.875rem , 1.4802631579rem  +  1.7543859649vw , 3.125rem )) {
+  .article__subtitle {
+    margin-bottom: calc(1.875rem + 1.25 * (100vw - 22.5rem) / 71.25);
+  }
+}
+.article__text {
+  margin-bottom: 3.125rem;
+}
+@supports (margin-bottom: clamp( 4.375rem , 3.3881578947rem  +  4.3859649123vw , 7.5rem )) {
+  .article__section:not(:last-child) {
+    margin-bottom: clamp( 4.375rem , 3.3881578947rem  +  4.3859649123vw , 7.5rem );
+  }
+}
+@supports not (margin-bottom: clamp( 4.375rem , 3.3881578947rem  +  4.3859649123vw , 7.5rem )) {
+  .article__section:not(:last-child) {
+    margin-bottom: calc(4.375rem + 3.125 * (100vw - 22.5rem) / 71.25);
+  }
+}
+
 .code {
   color: #fff;
 }
 .code__body {
   display: flex;
+  flex-direction: column;
 }
 .code__lines {
   display: flex;
   flex-direction: column;
-  font-size: 1.5rem;
   text-align: right;
   border-radius: 2px;
   border-right: 4px solid #1e1e1e;
   padding-right: 20px;
 }
+@supports (font-size: clamp( 1rem , 0.8421052632rem  +  0.701754386vw , 1.5rem )) {
+  .code__lines {
+    font-size: clamp( 1rem , 0.8421052632rem  +  0.701754386vw , 1.5rem );
+  }
+}
+@supports not (font-size: clamp( 1rem , 0.8421052632rem  +  0.701754386vw , 1.5rem )) {
+  .code__lines {
+    font-size: calc(1rem + 0.5 * (100vw - 22.5rem) / 71.25);
+  }
+}
+.code__text {
+  flex: 1 1 auto;
+}
+@supports (font-size: clamp( 1rem , 0.8421052632rem  +  0.701754386vw , 1.5rem )) {
+  .code__text {
+    font-size: clamp( 1rem , 0.8421052632rem  +  0.701754386vw , 1.5rem );
+  }
+}
+@supports not (font-size: clamp( 1rem , 0.8421052632rem  +  0.701754386vw , 1.5rem )) {
+  .code__text {
+    font-size: calc(1rem + 0.5 * (100vw - 22.5rem) / 71.25);
+  }
+}
 .code pre {
   display: flex;
   gap: 1.25rem;
+}
+
+.button-copy {
+  padding: 0.625rem 1.25rem;
+  align-self: end;
+  border-radius: 0 0 1.25rem 1.25rem;
+  border-left: 4px solid #444;
+  border-right: 4px solid #444;
+  border-bottom: 4px solid #444;
+  transition: all 0.3s ease 0s;
+}
+@supports (font-size: clamp( 1rem , 0.8421052632rem  +  0.701754386vw , 1.5rem )) {
+  .button-copy {
+    font-size: clamp( 1rem , 0.8421052632rem  +  0.701754386vw , 1.5rem );
+  }
+}
+@supports not (font-size: clamp( 1rem , 0.8421052632rem  +  0.701754386vw , 1.5rem )) {
+  .button-copy {
+    font-size: calc(1rem + 0.5 * (100vw - 22.5rem) / 71.25);
+  }
+}
+@media (any-hover: hover) {
+  .button-copy:hover {
+    background-color: #d0722e;
+    border-color: #d0722e;
+  }
 }
 
 .header {
@@ -873,7 +1009,6 @@ pre[class*=language-] {
   background: none;
   text-shadow: 0 1px rgba(0, 0, 0, 0.3);
   font-family: "NeueMachina";
-  font-size: 1em;
   font-size: 1.5rem;
   text-align: left;
   white-space: pre;
@@ -889,12 +1024,38 @@ pre[class*=language-] {
   -ms-hyphens: none;
   hyphens: none;
 }
+@supports (font-size: clamp( 1rem , 0.8421052632rem  +  0.701754386vw , 1.5rem )) {
+  code[class*=language-],
+pre[class*=language-] {
+    font-size: clamp( 1rem , 0.8421052632rem  +  0.701754386vw , 1.5rem );
+  }
+}
+@supports not (font-size: clamp( 1rem , 0.8421052632rem  +  0.701754386vw , 1.5rem )) {
+  code[class*=language-],
+pre[class*=language-] {
+    font-size: calc(1rem + 0.5 * (100vw - 22.5rem) / 71.25);
+  }
+}
 
 /* Code blocks */
 pre[class*=language-] {
-  padding: 1em;
   overflow: auto;
-  border-radius: 0.3em;
+  border-radius: 1.25rem 1.25rem 0 1.25rem;
+}
+@supports (padding: clamp( 1.25rem , 1.0526315789rem  +  0.8771929825vw , 1.875rem )) {
+  pre[class*=language-] {
+    padding: clamp( 1.25rem , 1.0526315789rem  +  0.8771929825vw , 1.875rem );
+  }
+}
+@supports not (padding: clamp( 1.25rem , 1.0526315789rem  +  0.8771929825vw , 1.875rem )) {
+  pre[class*=language-] {
+    padding: calc(1.25rem + 0.625 * (100vw - 22.5rem) / 71.25);
+  }
+}
+@media (min-width: 30em) {
+  pre[class*=language-] {
+    border-radius: 3.125rem 3.125rem 0 3.125rem;
+  }
 }
 
 :not(pre) > code[class*=language-],

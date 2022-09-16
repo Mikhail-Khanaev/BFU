@@ -6407,7 +6407,11 @@
         "string-interpolation"
       ].inside.interpolation.inside.rest = fe.languages.python),
       (fe.languages.py = fe.languages.python),
-      new (n(152))(".btn"),
+      new (n(152))(".button-copy", {
+        target: function (e) {
+          return e.previousElementSibling.querySelector("code");
+        },
+      }),
       n(711).init({
         disable: !1,
         startEvent: "DOMContentLoaded",
