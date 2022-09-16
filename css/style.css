@@ -7,6 +7,13 @@
   font-style: normal;
 }
 @font-face {
+  font-family: icons;
+  font-display: swap;
+  src: url("../fonts/icons.woff2") format("woff2"), url("../fonts/icons.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
   font-family: NeueMachina;
   font-display: swap;
   src: url("../fonts/NeueMachina-Light.woff2") format("woff2"), url("../fonts/NeueMachina-Light.woff") format("woff");
@@ -17,7 +24,7 @@
   font-family: NeueMachina;
   font-display: swap;
   src: url("../fonts/NeueMachina-Ultrabold.woff2") format("woff2"), url("../fonts/NeueMachina-Ultrabold.woff") format("woff");
-  font-weight: 900;
+  font-weight: 400;
   font-style: normal;
 }
 @font-face {
@@ -27,6 +34,55 @@
   font-weight: 400;
   font-style: normal;
 }
+[class*=_icon-]:before {
+  font-family: "icons";
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+[class*=_icon-]:before {
+  display: block;
+}
+
+._icon-save:before {
+  content: "\e903";
+  color: #fff;
+}
+
+._icon-4:before {
+  content: "\e900";
+  color: #fff;
+}
+
+._icon-arrow:before {
+  content: "\e901";
+}
+
+._icon-download:before {
+  content: "\e902";
+  color: #fff;
+}
+
+._icon-1:before {
+  content: "\e904";
+  color: #fff;
+}
+
+._icon-2:before {
+  content: "\e905";
+  color: #fff;
+}
+
+._icon-3:before {
+  content: "\e906";
+  color: #fff;
+}
+
 * {
   padding: 0px;
   margin: 0px;
@@ -506,6 +562,10 @@ section:not(:last-child) {
   border-right: 4px solid #444;
   border-bottom: 4px solid #444;
   transition: all 0.3s ease 0s;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.625rem;
 }
 @supports (font-size: clamp( 1rem , 0.8421052632rem  +  0.701754386vw , 1.5rem )) {
   .button-copy {
@@ -515,6 +575,16 @@ section:not(:last-child) {
 @supports not (font-size: clamp( 1rem , 0.8421052632rem  +  0.701754386vw , 1.5rem )) {
   .button-copy {
     font-size: calc(1rem + 0.5 * (100vw - 22.5rem) / 71.25);
+  }
+}
+@supports (font-size: clamp( 0.875rem , 0.7565789474rem  +  0.5263157895vw , 1.25rem )) {
+  .button-copy::before {
+    font-size: clamp( 0.875rem , 0.7565789474rem  +  0.5263157895vw , 1.25rem );
+  }
+}
+@supports not (font-size: clamp( 0.875rem , 0.7565789474rem  +  0.5263157895vw , 1.25rem )) {
+  .button-copy::before {
+    font-size: calc(0.875rem + 0.375 * (100vw - 22.5rem) / 71.25);
   }
 }
 @media (any-hover: hover) {
@@ -534,16 +604,42 @@ section:not(:last-child) {
   display: inline-flex;
   justify-content: center;
   align-items: center;
+  flex-direction: row-reverse;
   transition: all 0.3s ease 0s;
 }
-@supports (font-size: clamp( 2rem , 1.3684210526rem  +  2.8070175439vw , 4rem )) {
+@supports (font-size: clamp( 1.125rem , 0.2171052632rem  +  4.0350877193vw , 4rem )) {
   .button-download {
-    font-size: clamp( 2rem , 1.3684210526rem  +  2.8070175439vw , 4rem );
+    font-size: clamp( 1.125rem , 0.2171052632rem  +  4.0350877193vw , 4rem );
   }
 }
-@supports not (font-size: clamp( 2rem , 1.3684210526rem  +  2.8070175439vw , 4rem )) {
+@supports not (font-size: clamp( 1.125rem , 0.2171052632rem  +  4.0350877193vw , 4rem )) {
   .button-download {
-    font-size: calc(2rem + 2 * (100vw - 22.5rem) / 71.25);
+    font-size: calc(1.125rem + 2.875 * (100vw - 22.5rem) / 71.25);
+  }
+}
+@supports (gap: clamp( 1.25rem , 0.8552631579rem  +  1.7543859649vw , 2.5rem )) {
+  .button-download {
+    gap: clamp( 1.25rem , 0.8552631579rem  +  1.7543859649vw , 2.5rem );
+  }
+}
+@supports not (gap: clamp( 1.25rem , 0.8552631579rem  +  1.7543859649vw , 2.5rem )) {
+  .button-download {
+    gap: calc(1.25rem + 1.25 * (100vw - 22.5rem) / 71.25);
+  }
+}
+@supports (font-size: clamp( 1.875rem , 1.3815789474rem  +  2.1929824561vw , 3.4375rem )) {
+  .button-download::before {
+    font-size: clamp( 1.875rem , 1.3815789474rem  +  2.1929824561vw , 3.4375rem );
+  }
+}
+@supports not (font-size: clamp( 1.875rem , 1.3815789474rem  +  2.1929824561vw , 3.4375rem )) {
+  .button-download::before {
+    font-size: calc(1.875rem + 1.5625 * (100vw - 22.5rem) / 71.25);
+  }
+}
+@media (max-width: 48em) {
+  .button-download {
+    display: none;
   }
 }
 @media (any-hover: hover) {
@@ -582,7 +678,7 @@ section:not(:last-child) {
   width: 100%;
   height: 100vh;
   z-index: 8;
-  background: rgba(30, 30, 30, 0.97);
+  background: rgba(30, 30, 30, 0.98);
   transition: all 0.3s ease 0s;
 }
 .menu-open .menu__list {
@@ -613,7 +709,7 @@ section:not(:last-child) {
 
 .menu-socials__list {
   display: flex;
-  font-size: 50px;
+  gap: 0.625rem;
 }
 
 .icon-menu-wrapper {
@@ -709,6 +805,7 @@ section:not(:last-child) {
     flex-direction: column;
     align-items: center;
     text-align: center;
+    gap: 1.25rem;
   }
 }
 .footer__column-socials {
@@ -777,7 +874,27 @@ section:not(:last-child) {
 }
 .socials__list {
   display: flex;
+  gap: 0.625rem;
 }
+.socials__link {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  border: 2px solid #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.3s ease 0s;
+}
+.socials__link::before {
+  font-size: 1rem;
+}
+@media (any-hover: hover) {
+  .socials__link:hover {
+    background-color: #d0722e;
+  }
+}
+
 .copyright {
   margin-top: 3.125rem;
   padding: 3.125rem 0;
@@ -951,17 +1068,52 @@ section:not(:last-child) {
     display: none;
   }
 }
+.slide-subject .swiper-button-prev::before {
+  transform: rotate(-180deg);
+}
 .slide-subject .swiper-button-prev,
 .slide-subject .swiper-button-next {
   width: 60px;
   height: 60px;
   border-radius: 50%;
   background-color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid #fff;
+  transition: all 0.3s ease 0s;
+}
+.slide-subject .swiper-button-prev::before,
+.slide-subject .swiper-button-next::before {
+  transition: all 0.3s ease 0s;
+  color: #1e1e1e;
 }
 @media (max-width: 48em) {
   .slide-subject .swiper-button-prev,
 .slide-subject .swiper-button-next {
     display: none;
+  }
+}
+@media (any-hover: hover) {
+  .slide-subject .swiper-button-prev:hover,
+.slide-subject .swiper-button-next:hover {
+    background-color: transparent;
+  }
+  .slide-subject .swiper-button-prev:hover::before,
+.slide-subject .swiper-button-next:hover::before {
+    color: #fff;
+  }
+}
+.slide-subject .swiper-button-disabled {
+  opacity: 0.7;
+  cursor: default;
+}
+@media (any-hover: hover) {
+  .slide-subject .swiper-button-disabled:hover {
+    background-color: #fff;
+  }
+  .slide-subject .swiper-button-disabled:hover::before {
+    color: #1e1e1e;
   }
 }
 
