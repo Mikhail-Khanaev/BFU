@@ -723,11 +723,11 @@ section:not(:last-child) {
 .footer__list {
   display: flex;
   flex-direction: column;
+  gap: 1.875rem;
 }
 @media (max-width: 48em) {
   .footer__list {
     align-items: center;
-    gap: 1.875rem;
   }
 }
 .footer__container {
