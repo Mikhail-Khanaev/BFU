@@ -6,7 +6,7 @@
 	<meta charset="UTF-8">
 	<meta name="format-detection" content="telephone=no">
 	<!-- <style>body{opacity: 0;}</style> -->
-	<link rel="stylesheet" href="css/style.min.css?_v=20220916210559">
+	<link rel="stylesheet" href="css/style.min.css?_v=20220918010156">
 	<link rel="shortcut icon" href="favicon.ico">
 	<!-- <meta name="robots" content="noindex, nofollow"> -->
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -109,22 +109,55 @@
                                             <span>9</span>
                                             <span>10</span>
                                             <span>11</span>
+                                            <span>12</span>
+                                            <span>13</span>
+                                            <span>14</span>
+                                            <span>15</span>
+                                            <span>16</span>
+                                            <span>17</span>
+                                            <span>18</span>
+                                            <span>19</span>
+                                            <span>20</span>
+                                            <span>21</span>
+                                            <span>22</span>
+                                            <span>23</span>
                                         </div>
-                                        <code class="code__text language-javascript">let name = "John";
+                                        <code class="code__text language-javascript">function checkBrackets(str) {
+    let stack = [];
+    let obj = {
+        "{" : "}",
+        "(" : ")",
+        "[" : "]",
+    }
 
-console.log(name);
+    for (let i = 0; i &lt; str.length; i++) {
+        const bracket = str[i];
 
-if (name == "John") {
-    alert(`hello ${name}`);
-} else {
-    alert("enter your name");
-}
+        if (bracket === "(" || bracket === "{" || bracket === "[") {
+            stack.push(bracket);
+        } else {
+            const lastElement = stack.pop();
 
-console.log("hello");</code>
+            if (bracket !== obj[lastElement]) return false;
+        }
+    }
+
+    if (stack.length !== 0) return false;
+    return true;
+}</code>
                                     </pre>
 									<button class="button-copy _icon-save">скопировать</button>
 								</div>
 							</div>
+						</section>
+						<section class="article__section">
+							<h2 class="article__title">Пример работы</h2>
+							<h4 class="article__subtitle">Введите строку</h4>
+							<div class="article__example article__text">
+								<input class="article__input" placeholder="" type="text" id="string">
+								<button class="button" id="setString">проверить</button>
+							</div>
+							<h2 class="article__result text article__subtitle" id="code-result"></h2>
 						</section>
 						<section class="article__section">
 							<h2 class="article__title">Python</h2>
@@ -237,6 +270,10 @@ std::cout &lt;&lt; counter &lt;&lt; std::endl
 			</div>
 		</footer>
 
+
+		<script>
+
+		</script>
 	</div>
 	<!-- <div id="popup" aria-hidden="true" class="popup">
 	<div class="popup__wrapper">
@@ -248,39 +285,9 @@ std::cout &lt;&lt; counter &lt;&lt; std::endl
 		</div>
 	</div>
 </div> -->
-	<script src="js/app.min.js?_v=20220916210559"></script>
+	<script src="js/app.min.js?_v=20220918010156"></script>
+
+
 </body>
-
-<!-- <div class="code">
-                            <div class="code__body">
-                                <pre>
-                                    <div class="code__lines">
-                                        <span>1</span>
-                                        <span>2</span>
-                                        <span>3</span>
-                                        <span>4</span>
-                                        <span>5</span>
-                                        <span>6</span>
-                                        <span>7</span>
-                                        <span>8</span>
-                                        <span>9</span>
-                                        <span>10</span>
-                                        <span>11</span>
-                                    </div>
-                                    <code class="code__text language-javascript">let name = "John";
-
-console.log(name);
-
-if (name == "John") {
-    alert(`hello ${name}`);
-} else {
-    alert("enter your name");
-}
-
-console.log("hello");</code>
-                                </pre>
-                                <button class="button-copy _icon-save">скопировать</button>
-                            </div>
-                        </div> -->
 
 </html>

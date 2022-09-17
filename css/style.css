@@ -510,7 +510,25 @@ section:not(:last-child) {
     margin-bottom: calc(4.375rem + 3.125 * (100vw - 22.5rem) / 71.25);
   }
 }
-
+.article__input {
+  padding: 0.625rem 1.875rem;
+  font-size: 1.5rem;
+  line-height: 120%;
+  background-color: transparent;
+  color: #fff;
+  flex: 1 1 auto;
+  border: 2px solid #fff;
+  border-radius: 1.25rem;
+}
+.article__example {
+  display: flex;
+  gap: 1.25rem;
+}
+@media (max-width: 48em) {
+  .article__example {
+    flex-direction: column;
+  }
+}
 .code {
   color: #fff;
 }

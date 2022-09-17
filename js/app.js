@@ -2395,7 +2395,7 @@
         O
       );
     }
-    function M(e) {
+    function L(e) {
       return (
         void 0 === e && (e = {}),
         $ ||
@@ -2443,7 +2443,7 @@
         $
       );
     }
-    function L() {
+    function M() {
       return (
         A ||
           (A = (function () {
@@ -3823,7 +3823,7 @@
         n.updateProgress(i.currentTranslate),
         n.setTranslate(i.currentTranslate));
     }
-    function G(e) {
+    function q(e) {
       const t = this,
         n = t.touchEventsData,
         {
@@ -3934,7 +3934,7 @@
             "prev" === t.swipeDirection && t.slideTo(null !== m ? m : p));
       }
     }
-    function q() {
+    function G() {
       const e = this,
         { params: t, el: n } = e;
       if (n && 0 === n.offsetWidth) return;
@@ -4026,10 +4026,10 @@
               o.ios || o.android
                 ? "resize orientationchange observerUpdate"
                 : "resize observerUpdate",
-              q,
+              G,
               !0
             )
-          : e[p]("observerUpdate", q, !0);
+          : e[p]("observerUpdate", G, !0);
     };
     const X = {
         attachEvents: function () {
@@ -4038,7 +4038,7 @@
             { params: n, support: i } = e;
           (e.onTouchStart = N.bind(e)),
             (e.onTouchMove = B.bind(e)),
-            (e.onTouchEnd = G.bind(e)),
+            (e.onTouchEnd = q.bind(e)),
             n.cssMode && (e.onScroll = R.bind(e)),
             (e.onClick = H.bind(e)),
             i.touch && !W && (t.addEventListener("touchstart", V), (W = !0)),
@@ -4439,8 +4439,8 @@
         const r = this;
         (r.__swiper__ = !0),
           (r.support = _()),
-          (r.device = M({ userAgent: t.userAgent })),
-          (r.browser = L()),
+          (r.device = L({ userAgent: t.userAgent })),
+          (r.browser = M()),
           (r.eventsListeners = {}),
           (r.eventsAnyListeners = []),
           (r.modules = [...r.__modules__]),
@@ -5909,16 +5909,16 @@
                       k--, (E = e.slice(C, A)), (T.index -= C);
                     } else if (!(T = a(x, 0, E, v))) continue;
                     O = T.index;
-                    var M = T[0],
-                      L = E.slice(0, O),
-                      P = E.slice(O + M.length),
+                    var L = T[0],
+                      M = E.slice(0, O),
+                      P = E.slice(O + L.length),
                       F = C + E.length;
                     u && F > u.reach && (u.reach = F);
                     var z = S.prev;
                     if (
-                      (L && ((z = d(t, z, L)), (C += L.length)),
+                      (M && ((z = d(t, z, M)), (C += M.length)),
                       c(t, z, k),
-                      (S = d(t, z, new r(p, g ? s.tokenize(M, g) : M, y, M))),
+                      (S = d(t, z, new r(p, g ? s.tokenize(L, g) : L, y, L))),
                       P && d(t, S, P),
                       k > 1)
                     ) {
@@ -6428,6 +6428,33 @@
         once: !1,
         mirror: !1,
         anchorPlacement: "top-bottom",
+      }),
+      console.log("Задача о скобках"),
+      document.querySelector("#setString").addEventListener("click", () => {
+        let e = document.getElementById("string").value;
+        console.log(typeof e),
+          0 == e.length
+            ? ((document.querySelector("#code-result").style.color = "#D0722E"),
+              (document.querySelector("#code-result").innerHTML =
+                "Я же вижу, что это пустая строка..."))
+            : !(function (e) {
+                let t = [],
+                  n = { "{": "}", "(": ")", "[": "]" };
+                for (let i = 0; i < e.length; i++) {
+                  const s = e[i];
+                  if ("(" === s || "{" === s || "[" === s) t.push(s);
+                  else {
+                    if (s !== n[t.pop()]) return !1;
+                  }
+                }
+                return 0 === t.length;
+              })(e)
+            ? ((document.querySelector("#code-result").style.color = "#E06363"),
+              (document.querySelector("#code-result").innerHTML =
+                "Такой строки не может быть!"))
+            : ((document.querySelector("#code-result").style.color = "#3CA478"),
+              (document.querySelector("#code-result").innerHTML =
+                "Такая строка существует!"));
       }),
       (window.FLS = !0),
       (function (e) {
