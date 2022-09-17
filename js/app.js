@@ -6429,8 +6429,10 @@
         mirror: !1,
         anchorPlacement: "top-bottom",
       }),
-      console.log("Задача о скобках"),
-      document.querySelector("#setString").addEventListener("click", () => {
+      console.log("Задача о скобках");
+    let he = document.querySelector("#setString");
+    null != he &&
+      he.addEventListener("click", () => {
         let e = document.getElementById("string").value;
         console.log(typeof e),
           0 == e.length
