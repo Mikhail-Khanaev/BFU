@@ -487,14 +487,14 @@ section:not(:last-child) {
     font-size: calc(1.25rem + 1.25 * (100vw - 22.5rem) / 71.25);
   }
 }
-@supports (margin-bottom: clamp( 1.875rem , 1.4802631579rem  +  1.7543859649vw , 3.125rem )) {
+@supports (margin-bottom: clamp( 0.625rem , 0.4276315789rem  +  0.8771929825vw , 1.25rem )) {
   .article__subtitle {
-    margin-bottom: clamp( 1.875rem , 1.4802631579rem  +  1.7543859649vw , 3.125rem );
+    margin-bottom: clamp( 0.625rem , 0.4276315789rem  +  0.8771929825vw , 1.25rem );
   }
 }
-@supports not (margin-bottom: clamp( 1.875rem , 1.4802631579rem  +  1.7543859649vw , 3.125rem )) {
+@supports not (margin-bottom: clamp( 0.625rem , 0.4276315789rem  +  0.8771929825vw , 1.25rem )) {
   .article__subtitle {
-    margin-bottom: calc(1.875rem + 1.25 * (100vw - 22.5rem) / 71.25);
+    margin-bottom: calc(0.625rem + 0.625 * (100vw - 22.5rem) / 71.25);
   }
 }
 .article__text {

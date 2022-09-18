@@ -6441,12 +6441,13 @@
                 "Я же вижу, что это пустая строка..."))
             : !(function (e) {
                 let t = [],
-                  n = { "{": "}", "(": ")", "[": "]" };
-                for (let i = 0; i < e.length; i++) {
-                  const s = e[i];
-                  if ("(" === s || "{" === s || "[" === s) t.push(s);
+                  n = ["[", "(", "{"],
+                  i = { "{": "}", "(": ")", "[": "]" };
+                for (let s = 0; s < e.length; s++) {
+                  const r = e[s];
+                  if (n.includes(r)) t.push(r);
                   else {
-                    if (s !== n[t.pop()]) return !1;
+                    if (r !== i[t.pop()]) return !1;
                   }
                 }
                 return 0 === t.length;
