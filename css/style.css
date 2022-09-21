@@ -1302,6 +1302,7 @@ section:not(:last-child) {
 }
 .tabs__navigation {
   display: flex;
+  justify-content: center;
   align-items: center;
   overflow: auto;
 }
@@ -1313,6 +1314,11 @@ section:not(:last-child) {
 @supports not (gap: clamp( 0.625rem , 0.4276315789rem  +  0.8771929825vw , 1.25rem )) {
   .tabs__navigation {
     gap: calc(0.625rem + 0.625 * (100vw - 22.5rem) / 71.25);
+  }
+}
+@media (max-width: 48em) {
+  .tabs__navigation {
+    justify-content: start;
   }
 }
 .tabs__title {
@@ -1378,6 +1384,16 @@ section:not(:last-child) {
     gap: calc(1.25rem + 1.25 * (100vw - 22.5rem) / 71.25);
   }
 }
+@supports (font-size: clamp( 1rem , 0.9605263158rem  +  0.1754385965vw , 1.125rem )) {
+  .row-table {
+    font-size: clamp( 1rem , 0.9605263158rem  +  0.1754385965vw , 1.125rem );
+  }
+}
+@supports not (font-size: clamp( 1rem , 0.9605263158rem  +  0.1754385965vw , 1.125rem )) {
+  .row-table {
+    font-size: calc(1rem + 0.125 * (100vw - 22.5rem) / 71.25);
+  }
+}
 .row-table-stroked {
   background-color: rgba(74, 44, 97, 0.5);
 }
@@ -1395,6 +1411,7 @@ section:not(:last-child) {
   display: inline-flex;
   justify-content: space-between;
   align-items: center;
+  gap: 0.625rem;
 }
 /* PrismJS 1.29.0
 https://prismjs.com/download.html#themes=prism-okaidia&languages=clike+javascript+c+cpp+python */
