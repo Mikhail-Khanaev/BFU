@@ -686,7 +686,7 @@ section:not(:last-child) {
   width: 100%;
   color: #fff;
   position: fixed;
-  top: 0;
+  top: -150px;
   left: 0;
   z-index: 5;
 }
@@ -724,7 +724,8 @@ section:not(:last-child) {
   padding: 3.125rem;
   display: flex;
   flex-direction: column;
-  gap: 6.25rem;
+  justify-content: space-between;
+  gap: 3.125rem;
   overflow: auto;
 }
 @media (max-width: 48em) {
@@ -749,7 +750,7 @@ section:not(:last-child) {
 .icon-menu-wrapper {
   overflow: hidden;
   position: relative;
-  top: 3.75rem;
+  top: 12.5rem;
   right: 5%;
   z-index: 10;
   background-color: #1e1e1e;
