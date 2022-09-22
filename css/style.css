@@ -1421,6 +1421,116 @@ section:not(:last-child) {
   align-items: center;
   gap: 0.625rem;
 }
+.settings__body {
+  color: #fff;
+  background-color: #2067d1;
+}
+@supports (padding-left: clamp( 1.875rem , 0.8881578947rem  +  4.3859649123vw , 5rem )) {
+  .settings__body {
+    padding-left: clamp( 1.875rem , 0.8881578947rem  +  4.3859649123vw , 5rem );
+  }
+}
+@supports not (padding-left: clamp( 1.875rem , 0.8881578947rem  +  4.3859649123vw , 5rem )) {
+  .settings__body {
+    padding-left: calc(1.875rem + 3.125 * (100vw - 22.5rem) / 71.25);
+  }
+}
+@supports (padding-right: clamp( 1.875rem , 0.8881578947rem  +  4.3859649123vw , 5rem )) {
+  .settings__body {
+    padding-right: clamp( 1.875rem , 0.8881578947rem  +  4.3859649123vw , 5rem );
+  }
+}
+@supports not (padding-right: clamp( 1.875rem , 0.8881578947rem  +  4.3859649123vw , 5rem )) {
+  .settings__body {
+    padding-right: calc(1.875rem + 3.125 * (100vw - 22.5rem) / 71.25);
+  }
+}
+@supports (padding-top: clamp( 3.125rem , 2.5328947368rem  +  2.6315789474vw , 5rem )) {
+  .settings__body {
+    padding-top: clamp( 3.125rem , 2.5328947368rem  +  2.6315789474vw , 5rem );
+  }
+}
+@supports not (padding-top: clamp( 3.125rem , 2.5328947368rem  +  2.6315789474vw , 5rem )) {
+  .settings__body {
+    padding-top: calc(3.125rem + 1.875 * (100vw - 22.5rem) / 71.25);
+  }
+}
+@supports (padding-bottom: clamp( 3.125rem , 2.5328947368rem  +  2.6315789474vw , 5rem )) {
+  .settings__body {
+    padding-bottom: clamp( 3.125rem , 2.5328947368rem  +  2.6315789474vw , 5rem );
+  }
+}
+@supports not (padding-bottom: clamp( 3.125rem , 2.5328947368rem  +  2.6315789474vw , 5rem )) {
+  .settings__body {
+    padding-bottom: calc(3.125rem + 1.875 * (100vw - 22.5rem) / 71.25);
+  }
+}
+.form {
+  color: #fff;
+  display: flex;
+  column-gap: 5rem;
+  row-gap: 2.5rem;
+}
+@media (max-width: 48em) {
+  .form {
+    flex-direction: column;
+  }
+}
+.form__item {
+  flex: 0 1 400px;
+  display: inline-flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+@media (max-width: 48em) {
+  .form__item {
+    flex: 1 1 auto;
+    gap: 0.625rem;
+  }
+}
+.form__label {
+  width: 100%;
+  font-family: "NeueMachina";
+}
+@supports (font-size: clamp( 1.125rem , 0.8486842105rem  +  1.2280701754vw , 2rem )) {
+  .form__label {
+    font-size: clamp( 1.125rem , 0.8486842105rem  +  1.2280701754vw , 2rem );
+  }
+}
+@supports not (font-size: clamp( 1.125rem , 0.8486842105rem  +  1.2280701754vw , 2rem )) {
+  .form__label {
+    font-size: calc(1.125rem + 0.875 * (100vw - 22.5rem) / 71.25);
+  }
+}
+.form__select {
+  width: 100%;
+  font-family: "NeueMachina";
+  padding: 10px 20px;
+  appearance: none;
+  outline: none;
+  cursor: pointer;
+  background-color: #2067d1;
+  border-radius: 20px;
+  border: 2px solid #fff;
+  position: relative;
+  background: url("../img/icons/arrow-select.svg") no-repeat;
+  background-position: right 20px center;
+  transition: all 0.3s ease 0s;
+}
+@supports (font-size: clamp( 1.125rem , 0.8486842105rem  +  1.2280701754vw , 2rem )) {
+  .form__select {
+    font-size: clamp( 1.125rem , 0.8486842105rem  +  1.2280701754vw , 2rem );
+  }
+}
+@supports not (font-size: clamp( 1.125rem , 0.8486842105rem  +  1.2280701754vw , 2rem )) {
+  .form__select {
+    font-size: calc(1.125rem + 0.875 * (100vw - 22.5rem) / 71.25);
+  }
+}
+.form__select option {
+  color: #000;
+}
+
 /* PrismJS 1.29.0
 https://prismjs.com/download.html#themes=prism-okaidia&languages=clike+javascript+c+cpp+python */
 /**

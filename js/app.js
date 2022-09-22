@@ -6116,20 +6116,21 @@
         }
       }
     }
-    if (document.getElementById("form")) {
-      let e = document.querySelector("select");
-      (e.value = localStorage.getItem("area")),
+    if (document.querySelector("#settings-form")) {
+      let e = document.querySelector(".form__select");
+      (e.value = localStorage.getItem("group")),
         (e.oninput = () => {
           localStorage.setItem("group", e.value);
         });
     }
-    let be = localStorage.getItem("group"),
-      ye = document.querySelectorAll(".tabs__title");
+    let be = localStorage.getItem("group");
+    be = +be[0];
+    let ye = document.querySelectorAll(".tabs__title");
     if (null != be)
       for (let e = 0; e < ye.length; e++) {
         const t = ye[e];
         t.classList.remove("_tab-active"),
-          e == +be[0] && t.classList.add("_tab-active");
+          e == be && t.classList.add("_tab-active");
       }
     (window.FLS = !0),
       (function (e) {
