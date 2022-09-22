@@ -6125,11 +6125,12 @@
     }
     let be = localStorage.getItem("group"),
       ye = document.querySelectorAll(".tabs__title");
-    for (let e = 0; e < ye.length; e++) {
-      const t = ye[e];
-      t.classList.remove("_tab-active"),
-        e == +be[0] && t.classList.add("_tab-active");
-    }
+    if (null != be)
+      for (let e = 0; e < ye.length; e++) {
+        const t = ye[e];
+        t.classList.remove("_tab-active"),
+          e == +be[0] && t.classList.add("_tab-active");
+      }
     (window.FLS = !0),
       (function (e) {
         let t = new Image();
