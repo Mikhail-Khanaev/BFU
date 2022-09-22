@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+	<title>Личный кабинет</title>
+	<meta charset="UTF-8">
+	<meta name="format-detection" content="telephone=no">
+	<!-- <style>body{opacity: 0;}</style> -->
+	<link rel="stylesheet" href="css/style.min.css?_v=20220922202801">
+	<link rel="shortcut icon" href="favicon.ico">
+	<!-- <meta name="robots" content="noindex, nofollow"> -->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+	<div class="wrapper">
+		<header data-lp class="header">
+			<div class="header__menu menu">
+				<nav class="menu__body">
+					<div class="menu__list">
+						<div class="menu-wrapper__container">
+							<h2 class="header__title title">Лабораторные работы</h2>
+							<ul class="menu-list">
+								<li class="menu__item footer__item"><a href="account.html">Личный кабинет</a></li>
+								<li class="menu__item footer__item"><a href="index.html">Главная</a></li>
+								<li class="menu__item footer__item"><a href="ADS.html">Алгоритмы и структуры данных</a></li>
+								<li class="menu__item footer__item"><a href="RTS.html">Системы реального времени</a></li>
+								<li class="menu__item footer__item"><a href="basic-programming.html">Основы программирования</a>
+								</li>
+								<li class="menu__item footer__item"><a href="python.html">Язык Python</a></li>
+							</ul>
+							<div class="menu__socials menu-socials">
+								<ul class="menu-socials__list">
+									<a target="_blank" class="socials__link menu-socials__item _icon-1" href="https://vk.com/berl1ngo"></a>
+									<a target="_blank" class="socials__link menu-socials__item _icon-2" href="https://t.me/Berl1ngo"></a>
+									<a target="_blank" class="socials__link menu-socials__item _icon-3" href="https://github.com/Mikhail-Khanaev"></a>
+									<a target="_blank" class="socials__link menu-socials__item _icon-4" href="#"></a>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</nav>
+				<div class="icon-menu-wrapper">
+					<button type="button" class="menu__icon icon-menu">
+						<div><span></span></div>
+					</button>
+				</div>
+			</div>
+		</header>
+		<main class="page">
+
+			<section class="intro">
+				<div class="intro__container">
+					<div class="intro__body border-radius">
+						<div class="intro__top"></div>
+						<h1 class="intro__title title">Личный кабинет</h1>
+						<div class="intro__bottom"></div>
+					</div>
+				</div>
+			</section>
+			<!-- END Intro -->
+
+			<section class="settings">
+				<div class="settings__container">
+					<div class="settings__body border-radius">
+
+						<form action="#" id="form" class="settings__form form">
+							<div class="form__item">
+								<label for="formGroup" class="form__label">номер подгруппы</label>
+								<select name="formGroup" id="select" class="form__select">
+									<option value="0 group">1 подгруппа</option>
+									<option value="1 group">2 подгруппа</option>
+									<option value="2 group">3 подгруппа</option>
+									<option value="3 group">4 подгруппа</option>
+								</select>
+							</div>
+						</form>
+
+					</div>
+				</div>
+			</section>
+
+			<section class="schedule">
+				<div class="schedule__container">
+					<div class="schedule__body border-radius">
+						<h1 class="schedule__title title">Расписание</h1>
+						<div data-tabs class="tabs">
+							<nav data-tabs-titles class="tabs__navigation">
+								<button type="button" class="tabs__title _tab-active button">1 подгруппа</button>
+								<button type="button" class="tabs__title button">2 подгруппа</button>
+								<button type="button" class="tabs__title button">3 подгруппа</button>
+								<button type="button" class="tabs__title button">4 подгруппа</button>
+							</nav>
+							<div data-tabs-body class="tabs__content">
+								<div class="tabs__body">
+									<div id="table-schedule-today-first" class="table-schedule table-schedule-today">
+										<h6 class="table-schedule__title text"></h6>
+										<div class="table-schedule__body">
+											<div class="table-schedule__row row-table text">
+												<time class="row-table__time">8:30 - 10:00</time>
+												<div class="row-table__subject">
+													<div class="row-table__name"></div>
+													<div class="row-table__auditorium"></div>
+												</div>
+											</div>
+											<div class="table-schedule__row row-table row-table-stroked text">
+												<time class="row-table__time">10:10 - 11:40</time>
+												<div class="row-table__subject">
+													<div class="row-table__name"></div>
+													<div class="row-table__auditorium"></div>
+												</div>
+											</div>
+											<div class="table-schedule__row row-table text">
+												<time class="row-table__time">11:50 - 13:20</time>
+												<div class="row-table__subject">
+													<div class="row-table__name"></div>
+													<div class="row-table__auditorium"></div>
+												</div>
+											</div>
+											<div class="table-schedule__row row-table row-table-stroked text">
+												<time class="row-table__time">13:50 - 15:20</time>
+												<div class="row-table__subject">
+													<div class="row-table__name"></div>
+													<div class="row-table__auditorium"></div>
+												</div>
+											</div>
+											<div class="table-schedule__row row-table text">
+												<time class="row-table__time">15:30 - 17:00</time>
+												<div class="row-table__subject">
+													<div class="row-table__name"></div>
+													<div class="row-table__auditorium"></div>
+												</div>
+											</div>
+											<div class="table-schedule__row row-table row-table-stroked text">
+												<time class="row-table__time">17:10 - 18:40</time>
+												<div class="row-table__subject">
+													<div class="row-table__name"></div>
+													<div class="row-table__auditorium"></div>
+												</div>
+											</div>
+											<div class="table-schedule__row row-table text">
+												<time class="row-table__time">18:50 - 20:20</time>
+												<div class="row-table__subject">
+													<div class="row-table__name"></div>
+													<div class="row-table__auditorium"></div>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div id="table-schedule-tomorrow-first" class="table-schedule table-schedule-tomorrow">
+										<h6 class="table-schedule__title text"></h6>
+										<div class="table-schedule__body">
+											<div class="table-schedule__row row-table text">
+												<time class="row-table__time">8:30 - 10:00</time>
+												<div class="row-table__subject">
+													<div class="row-table__name"></div>
+													<div class="row-table__auditorium"></div>
+												</div>
+											</div>
+											<div class="table-schedule__row row-table row-table-stroked text">
+												<time class="row-table__time">10:10 - 11:40</time>
+												<div class="row-table__subject">
+													<div class="row-table__name"></div>
+													<div class="row-table__auditorium"></div>
+												</div>
+											</div>
+											<div class="table-schedule__row row-table text">
+												<time class="row-table__time">11:50 - 13:20</time>
+												<div class="row-table__subject">
+													<div class="row-table__name"></div>
+													<div class="row-table__auditorium"></div>
+												</div>
+											</div>
+											<div class="table-schedule__row row-table row-table-stroked text">
+
+												<time class="row-table__time">13:50 - 15:20</time>
+												<div class="row-table__subject">
+													<div class="row-table__name"></div>
+													<div class="row-table__auditorium"></div>
+												</div>
+											</div>
+											<div class="table-schedule__row row-table text">
+												<time class="row-table__time">15:30 - 17:00</time>
+												<div class="row-table__subject">
+													<div class="row-table__name"></div>
+													<div class="row-table__auditorium"></div>
+												</div>
+											</div>
+											<div class="table-schedule__row row-table row-table-stroked text">
+												<time class="row-table__time">17:10 - 18:40</time>
+												<div class="row-table__subject">
+													<div class="row-table__name"></div>
+													<div class="row-table__auditorium"></div>
+												</div>
+											</div>
+											<div class="table-schedule__row row-table text">
+												<time class="row-table__time">18:50 - 20:20</time>
+												<div class="row-table__subject">
+													<div class="row-table__name"></div>
+													<div class="row-table__auditorium"></div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="tabs__body">
+									<div id="table-schedule-today-second" class="table-schedule table-schedule-today">
+										<h6 class="table-schedule__title text"></h6>
+										<div class="table-schedule__body">
+											<div class="table-schedule__row row-table text">
+												<time class="row-table__time">8:30 - 10:00</time>
+												<div class="row-table__subject">
+													<div class="row-table__name"></div>
+													<div class="row-table__auditorium"></div>
+												</div>
+											</div>
+											<div class="table-schedule__row row-table row-table-stroked text">
+												<time class="row-table__time">10:10 - 11:40</time>
+												<div class="row-table__subject">
+													<div class="row-table__name"></div>
+													<div class="row-table__auditorium"></div>
+												</div>
+											</div>
+											<div class="table-schedule__row row-table text">
+												<time class="row-table__time">11:50 - 13:20</time>
+												<div class="row-table__subject">
+													<div class="row-table__name"></div>
+													<div class="row-table__auditorium"></div>
+												</div>
+											</div>
+											<div class="table-schedule__row row-table row-table-stroked text">
+												<time class="row-table__time">13:50 - 15:20</time>
+												<div class="row-table__subject">
+													<div class="row-table__name"></div>
+													<div class="row-table__auditorium"></div>
+												</div>
+											</div>
+											<div class="table-schedule__row row-table text">
+												<time class="row-table__time">15:30 - 17:00</time>
+												<div class="row-table__subject">
+													<div class="row-table__name"></div>
+													<div class="row-table__auditorium"></div>
+												</div>
+											</div>
+											<div class="table-schedule__row row-table row-table-stroked text">
+												<time class="row-table__time">17:10 - 18:40</time>
+												<div class="row-table__subject">
+													<div class="row-table__name"></div>
+													<div class="row-table__auditorium"></div>
+												</div>
+											</div>
+											<div class="table-schedule__row row-table text">
+												<time class="row-table__time">18:50 - 20:20</time>
+												<div class="row-table__subject">
+													<div class="row-table__name"></div>
+													<div class="row-table__auditorium"></div>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div id="table-schedule-tomorrow-second" class="table-schedule table-schedule-tomorrow">
+										<h6 class="table-schedule__title text"></h6>
+										<div class="table-schedule__body">
+											<div class="table-schedule__row row-table text">
+												<time class="row-table__time">8:30 - 10:00</time>
+												<div class="row-table__subject">
+													<div class="row-table__name"></div>
+													<div class="row-table__auditorium"></div>
+												</div>
+											</div>
+											<div class="table-schedule__row row-table row-table-stroked text">
+												<time class="row-table__time">10:10 - 11:40</time>
+												<div class="row-table__subject">
+													<div class="row-table__name"></div>
+													<div class="row-table__auditorium"></div>
+												</div>
+											</div>
+											<div class="table-schedule__row row-table text">
+												<time class="row-table__time">11:50 - 13:20</time>
+												<div class="row-table__subject">
+													<div class="row-table__name"></div>
+													<div class="row-table__auditorium"></div>
+												</div>
+											</div>
+											<div class="table-schedule__row row-table row-table-stroked text">
+												<time class="row-table__time">13:50 - 15:20</time>
+												<div class="row-table__subject">
+													<div class="row-table__name"></div>
+													<div class="row-table__auditorium"></div>
+												</div>
+											</div>
+											<div class="table-schedule__row row-table text">
+												<time class="row-table__time">15:30 - 17:00</time>
+												<div class="row-table__subject">
+													<div class="row-table__name"></div>
+													<div class="row-table__auditorium"></div>
+												</div>
+											</div>
+											<div class="table-schedule__row row-table row-table-stroked text">
+												<time class="row-table__time">17:10 - 18:40</time>
+												<div class="row-table__subject">
+													<div class="row-table__name"></div>
+													<div class="row-table__auditorium"></div>
+												</div>
+											</div>
+											<div class="table-schedule__row row-table text">
+												<time class="row-table__time">18:50 - 20:20</time>
+												<div class="row-table__subject">
+													<div class="row-table__name"></div>
+													<div class="row-table__auditorium"></div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="tabs__body">
+									<div id="table-schedule-today-third" class="table-schedule table-schedule-today">
+										<h6 class="table-schedule__title text"></h6>
+										<div class="table-schedule__body">
+											<div class="table-schedule__row row-table text">
+												<time class="row-table__time">8:30 - 10:00</time>
+												<div class="row-table__subject">
+													<div class="row-table__name"></div>
+													<div class="row-table__auditorium"></div>
+												</div>
+											</div>
+											<div class="table-schedule__row row-table row-table-stroked text">
+												<time class="row-table__time">10:10 - 11:40</time>
+												<div class="row-table__subject">
+													<div class="row-table__name"></div>
+													<div class="row-table__auditorium"></div>
+												</div>
+											</div>
+											<div class="table-schedule__row row-table text">
+												<time class="row-table__time">11:50 - 13:20</time>
+												<div class="row-table__subject">
+													<div class="row-table__name"></div>
+													<div class="row-table__auditorium"></div>
+												</div>
+											</div>
+											<div class="table-schedule__row row-table row-table-stroked text">
+												<time class="row-table__time">13:50 - 15:20</time>
+												<div class="row-table__subject">
+													<div class="row-table__name"></div>
+													<div class="row-table__auditorium"></div>
+												</div>
+											</div>
+											<div class="table-schedule__row row-table text">
+												<time class="row-table__time">15:30 - 17:00</time>
+												<div class="row-table__subject">
+													<div class="row-table__name"></div>
+													<div class="row-table__auditorium"></div>
+												</div>
+											</div>
+											<div class="table-schedule__row row-table row-table-stroked text">
+												<time class="row-table__time">17:10 - 18:40</time>
+												<div class="row-table__subject">
+													<div class="row-table__name"></div>
+													<div class="row-table__auditorium"></div>
+												</div>
+											</div>
+											<div class="table-schedule__row row-table text">
+												<time class="row-table__time">18:50 - 20:20</time>
+												<div class="row-table__subject">
+													<div class="row-table__name"></div>
+													<div class="row-table__auditorium"></div>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div id="table-schedule-tomorrow-third" class="table-schedule table-schedule-tomorrow">
+										<h6 class="table-schedule__title text"></h6>
+										<div class="table-schedule__body">
+											<div class="table-schedule__row row-table text">
+												<time class="row-table__time">8:30 - 10:00</time>
+												<div class="row-table__subject">
+													<div class="row-table__name"></div>
+													<div class="row-table__auditorium"></div>
+												</div>
+											</div>
+											<div class="table-schedule__row row-table row-table-stroked text">
+												<time class="row-table__time">10:10 - 11:40</time>
+												<div class="row-table__subject">
+													<div class="row-table__name"></div>
+													<div class="row-table__auditorium"></div>
+												</div>
+											</div>
+											<div class="table-schedule__row row-table text">
+												<time class="row-table__time">11:50 - 13:20</time>
+												<div class="row-table__subject">
+													<div class="row-table__name"></div>
+													<div class="row-table__auditorium"></div>
+												</div>
+											</div>
+											<div class="table-schedule__row row-table row-table-stroked text">
+												<time class="row-table__time">13:50 - 15:20</time>
+												<div class="row-table__subject">
+													<div class="row-table__name"></div>
+													<div class="row-table__auditorium"></div>
+												</div>
+											</div>
+											<div class="table-schedule__row row-table text">
+												<time class="row-table__time">15:30 - 17:00</time>
+												<div class="row-table__subject">
+													<div class="row-table__name"></div>
+													<div class="row-table__auditorium"></div>
+												</div>
+											</div>
+											<div class="table-schedule__row row-table row-table-stroked text">
+												<time class="row-table__time">17:10 - 18:40</time>
+												<div class="row-table__subject">
+													<div class="row-table__name"></div>
+													<div class="row-table__auditorium"></div>
+												</div>
+											</div>
+											<div class="table-schedule__row row-table text">
+												<time class="row-table__time">18:50 - 20:20</time>
+												<div class="row-table__subject">
+													<div class="row-table__name"></div>
+													<div class="row-table__auditorium"></div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="tabs__body">
+									<div id="table-schedule-today-fourth" class="table-schedule table-schedule-today">
+										<h6 class="table-schedule__title text"></h6>
+										<div class="table-schedule__body">
+											<div class="table-schedule__row row-table text">
+												<time class="row-table__time">8:30 - 10:00</time>
+												<div class="row-table__subject">
+													<div class="row-table__name"></div>
+													<div class="row-table__auditorium"></div>
+												</div>
+											</div>
+											<div class="table-schedule__row row-table row-table-stroked text">
+												<time class="row-table__time">10:10 - 11:40</time>
+												<div class="row-table__subject">
+													<div class="row-table__name"></div>
+													<div class="row-table__auditorium"></div>
+												</div>
+											</div>
+											<div class="table-schedule__row row-table text">
+												<time class="row-table__time">11:50 - 13:20</time>
+												<div class="row-table__subject">
+													<div class="row-table__name"></div>
+													<div class="row-table__auditorium"></div>
+												</div>
+											</div>
+											<div class="table-schedule__row row-table row-table-stroked text">
+												<time class="row-table__time">13:50 - 15:20</time>
+												<div class="row-table__subject">
+													<div class="row-table__name"></div>
+													<div class="row-table__auditorium"></div>
+												</div>
+											</div>
+											<div class="table-schedule__row row-table text">
+												<time class="row-table__time">15:30 - 17:00</time>
+												<div class="row-table__subject">
+													<div class="row-table__name"></div>
+													<div class="row-table__auditorium"></div>
+												</div>
+											</div>
+											<div class="table-schedule__row row-table row-table-stroked text">
+												<time class="row-table__time">17:10 - 18:40</time>
+												<div class="row-table__subject">
+													<div class="row-table__name"></div>
+													<div class="row-table__auditorium"></div>
+												</div>
+											</div>
+											<div class="table-schedule__row row-table text">
+												<time class="row-table__time">18:50 - 20:20</time>
+												<div class="row-table__subject">
+													<div class="row-table__name"></div>
+													<div class="row-table__auditorium"></div>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div id="table-schedule-tomorrow-fourth" class="table-schedule table-schedule-tomorrow">
+										<h6 class="table-schedule__title text"></h6>
+										<div class="table-schedule__body">
+											<div class="table-schedule__row row-table text">
+												<time class="row-table__time">8:30 - 10:00</time>
+												<div class="row-table__subject">
+													<div class="row-table__name"></div>
+													<div class="row-table__auditorium"></div>
+												</div>
+											</div>
+											<div class="table-schedule__row row-table row-table-stroked text">
+												<time class="row-table__time">10:10 - 11:40</time>
+												<div class="row-table__subject">
+													<div class="row-table__name"></div>
+													<div class="row-table__auditorium"></div>
+												</div>
+											</div>
+											<div class="table-schedule__row row-table text">
+												<time class="row-table__time">11:50 - 13:20</time>
+												<div class="row-table__subject">
+													<div class="row-table__name"></div>
+													<div class="row-table__auditorium"></div>
+												</div>
+											</div>
+											<div class="table-schedule__row row-table row-table-stroked text">
+												<time class="row-table__time">13:50 - 15:20</time>
+												<div class="row-table__subject">
+													<div class="row-table__name"></div>
+													<div class="row-table__auditorium"></div>
+												</div>
+											</div>
+											<div class="table-schedule__row row-table text">
+												<time class="row-table__time">15:30 - 17:00</time>
+												<div class="row-table__subject">
+													<div class="row-table__name"></div>
+													<div class="row-table__auditorium"></div>
+												</div>
+											</div>
+											<div class="table-schedule__row row-table row-table-stroked text">
+												<time class="row-table__time">17:10 - 18:40</time>
+												<div class="row-table__subject">
+													<div class="row-table__name"></div>
+													<div class="row-table__auditorium"></div>
+												</div>
+											</div>
+											<div class="table-schedule__row row-table text">
+												<time class="row-table__time">18:50 - 20:20</time>
+												<div class="row-table__subject">
+													<div class="row-table__name"></div>
+													<div class="row-table__auditorium"></div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<img src="img/subjects/2.svg" alt="1">
+					</div>
+				</div>
+			</section>
+			<!-- END Schedule -->
+		</main>
+		<footer class="footer">
+			<div class="footer__container">
+				<div class="footer__links">
+					<div class="footer__column">
+						<ul class="footer__list">
+							<li class="footer__item"><a href="account.html">Личный кабинет</a></li>
+							<li class="footer__item"><a href="index.html">Главная</a></li>
+							<li class="footer__item"><a href="ADS.html">Алгоритмы и структуры данных</a></li>
+							<li class="footer__item"><a href="RTS.html">Системы реального времени</a></li>
+							<li class="footer__item"><a href="basic-programming.html">Основы программирования</a></li>
+							<li class="footer__item"><a href="python.html">Язык Python</a></li>
+						</ul>
+					</div>
+					<div class="footer__column footer__column-socials">
+						<div class="footer__socials socials">
+							<div class="socials__list">
+								<a target="_blank" class="socials__link _icon-1" href="https://vk.com/berl1ngo"></a>
+								<a target="_blank" class="socials__link _icon-2" href="https://t.me/Berl1ngo"></a>
+								<a target="_blank" class="socials__link _icon-3" href="https://github.com/Mikhail-Khanaev"></a>
+								<a target="_blank" class="socials__link _icon-4" href="#"></a>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="footer__copyright copyright">
+					<p class="copyright__text">Надизайнил - Михаил Ханаев</p>
+					<p class="copyright__text">Программирование - тоже Михаил Ханаев :)</p>
+					<p class="copyright__text">© 2022</p>
+				</div>
+			</div>
+		</footer>
+	</div>
+	<!-- <div id="popup" aria-hidden="true" class="popup">
+	<div class="popup__wrapper">
+		<div class="popup__content">
+			<button data-close type="button" class="popup__close">Закрыть</button>
+			<div class="popup__text">
+				Text
+			</div>
+		</div>
+	</div>
+</div> -->
+	<script src="js/app.min.js?_v=20220922202801"></script>
+</body>
+
+
+</html>
