@@ -6116,20 +6116,21 @@
         }
       }
     }
-    let be = document.querySelector("select");
-    (be.value = localStorage.getItem("area")),
-      (be.oninput = () => {
-        localStorage.setItem("group", be.value);
-      });
-    let ye = localStorage.getItem("group"),
-      we = document.querySelectorAll(".tabs__title");
-    for (let e = 0; e < we.length; e++) {
-      const t = we[e];
-      t.classList.remove("_tab-active"),
-        e == +ye[0] && t.classList.add("_tab-active");
+    if (document.getElementById("form")) {
+      let e = document.querySelector("select");
+      (e.value = localStorage.getItem("area")),
+        (e.oninput = () => {
+          localStorage.setItem("group", e.value);
+        });
     }
-    console.log(+ye[0]),
-      (window.FLS = !0),
+    let be = localStorage.getItem("group"),
+      ye = document.querySelectorAll(".tabs__title");
+    for (let e = 0; e < ye.length; e++) {
+      const t = ye[e];
+      t.classList.remove("_tab-active"),
+        e == +be[0] && t.classList.add("_tab-active");
+    }
+    (window.FLS = !0),
       (function (e) {
         let t = new Image();
         (t.onload = t.onerror =
