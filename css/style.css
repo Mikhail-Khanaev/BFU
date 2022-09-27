@@ -878,6 +878,7 @@ section:not(:last-child) {
 .header__title {
   text-align: left;
   width: 85%;
+  line-height: 100%;
 }
 @media (max-width: 48em) {
   .header__title {
