@@ -682,6 +682,14 @@ section:not(:last-child) {
   }
 }
 
+.test__body {
+  color: #000;
+  background-color: #fff;
+  padding: 50px;
+  font-size: 2rem;
+  line-height: 120%;
+}
+
 .header {
   width: 100%;
   color: #fff;

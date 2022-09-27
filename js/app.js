@@ -6124,14 +6124,15 @@
         });
     }
     let be = localStorage.getItem("group");
-    be = +be[0];
-    let ye = document.querySelectorAll(".tabs__title");
-    if (null != be)
-      for (let e = 0; e < ye.length; e++) {
-        const t = ye[e];
-        t.classList.remove("_tab-active"),
-          e == be && t.classList.add("_tab-active");
+    if (null != be) {
+      be = +be[0];
+      let e = document.querySelectorAll(".tabs__title");
+      for (let t = 0; t < e.length; t++) {
+        const n = e[t];
+        n.classList.remove("_tab-active"),
+          t == be && n.classList.add("_tab-active");
       }
+    }
     (window.FLS = !0),
       (function (e) {
         let t = new Image();
