@@ -772,6 +772,11 @@ section:not(:last-child) {
     padding: calc(0.625rem + 1.875 * (100vw - 22.5rem) / 71.25);
   }
 }
+@media (max-width: 48em) {
+  .examples__body {
+    padding: 0;
+  }
+}
 .examples__list {
   display: flex;
   justify-content: center;
@@ -840,14 +845,14 @@ section:not(:last-child) {
     padding-bottom: calc(1.25rem + 1.25 * (100vw - 22.5rem) / 71.25);
   }
 }
-@supports (font-size: clamp( 1.75rem , 1.5131578947rem  +  1.0526315789vw , 2.5rem )) {
+@supports (font-size: clamp( 1.5rem , 1.1842105263rem  +  1.4035087719vw , 2.5rem )) {
   .examples__item {
-    font-size: clamp( 1.75rem , 1.5131578947rem  +  1.0526315789vw , 2.5rem );
+    font-size: clamp( 1.5rem , 1.1842105263rem  +  1.4035087719vw , 2.5rem );
   }
 }
-@supports not (font-size: clamp( 1.75rem , 1.5131578947rem  +  1.0526315789vw , 2.5rem )) {
+@supports not (font-size: clamp( 1.5rem , 1.1842105263rem  +  1.4035087719vw , 2.5rem )) {
   .examples__item {
-    font-size: calc(1.75rem + 0.75 * (100vw - 22.5rem) / 71.25);
+    font-size: calc(1.5rem + 1 * (100vw - 22.5rem) / 71.25);
   }
 }
 .examples__item:nth-child(2n+1) {
