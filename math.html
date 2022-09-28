@@ -6,15 +6,15 @@
 	<meta charset="UTF-8">
 	<meta name="format-detection" content="telephone=no">
 	<!-- <style>body{opacity: 0;}</style> -->
-	<link rel="stylesheet" href="css/style.min.css?_v=20220927233942">
+	<link rel="stylesheet" href="css/style.min.css?_v=20220928170311">
 	<link rel="shortcut icon" href="favicon.ico">
 	<!-- <meta name="robots" content="noindex, nofollow"> -->
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 
 <body>
-	<script src="https://polyfill.io/v3/polyfill.min.js?features=es6&_v=20220927233942"></script>
-	<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js?_v=20220927233942"></script>
+	<script src="https://polyfill.io/v3/polyfill.min.js?features=es6&_v=20220928170311"></script>
+	<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js?_v=20220928170311"></script>
 	<div class="wrapper">
 		<header data-lp class="header">
 			<div class="header__menu menu">
@@ -71,7 +71,7 @@
 							<li class="labs__item"><a data-goto=".integral" href="#">Таблица интегралов</a></li>
 							<li class="labs__item"><a data-goto=".equivalences" href="#">Таблица эквивалентностей</a>
 							</li>
-							<!-- <li class="labs__item"><a data-goto=".taylor" href="#">Ряды Тейлора</a> -->
+							<li class="labs__item"><a data-goto=".taylor" href="#">Ряды Тейлора</a>
 							</li>
 						</ol>
 					</div>
@@ -190,39 +190,57 @@
 			</section>
 			<!-- END equivalences -->
 
-			<!-- <section class="taylor">
-                <div class="taylor__container">
-                    <div class="taylor__body math__section border-radius">
-                        <h2 class="title">Ряды Тейлора</h2>
-                        <div class="examples">
-                            <div class="examples__body">
-                                <div class="examples__list">
-                                    <div class="examples__column">
-                                        <p class="examples__item"></p>
-                                        <p class="examples__item"></p>
-                                        <p class="examples__item"></p>
-                                        <p class="examples__item"></p>
-                                        <p class="examples__item"></p>
-                                        <p class="examples__item"></p>
-                                        <p class="examples__item"></p>
-                                        <p class="examples__item"> </p>
-                                    </div>
-                                    <div class="examples__column">
-                                        <p class="examples__item"></p>
-                                        <p class="examples__item"></p>
-                                        <p class="examples__item"></p>
-                                        <p class="examples__item"></p>
-                                        <p class="examples__item"></p>
-                                        <p class="examples__item"></p>
-                                        <p class="examples__item"></p>
-                                        <p class="examples__item"> </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section> -->
+			<section class="taylor">
+				<div class="taylor__container">
+					<div class="taylor__body math__section border-radius">
+						<h2 class="title">Ряды Тейлора</h2>
+						<div class="examples">
+							<div class="examples__body">
+								<div class="examples__list">
+									<div class="examples__column">
+										<p class="examples__item">\(e^x = 1 + x + \frac{x^2}{2!} + \dots +
+											\frac{x^n}{n!} + \dots \)</p>
+										<p class="examples__item">\(ln(1+x) = x - \frac{x^2}{2} + \frac{x^3}{3} - \dots
+											+ (-1)^{n-1}\cdot \frac{x^n}{n} \)</p>
+										<p class="examples__item">\(sin(x) = x - \frac{x^3}{3!} + \frac{x^5}{5!} - \dots
+											+ (-1)^{n-1}\cdot \frac{x^{2n-1}}{(2n - 1)!} \)</p>
+										<p class="examples__item">\(cos(x) = 1 - \frac{x^2}{2!} + \frac{x^4}{4!} - \dots
+											+ (-1)^{n-1}\cdot\frac{x^{2n-2}}{(2n - 2)!} \)</p>
+										<p class="examples__item">\(arctg(x) = x - \frac{x^3}{3} + \frac{x^5}{5} - \dots
+											+ (-1)^{n-1}\cdot\frac{x^{2n-1}}{(2n-1)} \)</p>
+										<p class="examples__item">\(arcsin(x) = x +
+											\displaystyle\sum_{n=1}^{\infty}\frac{(2n - 1)!! \cdot x^{2n+1}}{(2n)!!\cdot
+											(2n+1)}\)
+										</p>
+										<p class="examples__item">\(sh(x) = x + \frac{x^3}{3!} + \frac{x^5}{5!} + \dots
+											+ \frac{x^{2n-1}}{(2n-1)!} + \dots \)</p>
+										<p class="examples__item">\(ch(x) = 1 + \frac{x^2}{2!} + \frac{x^4}{4!} + \dots
+											+ \frac{x^{2n}}{(2n)!} + \dots \)</p>
+										<p class="examples__item">\(\frac{1}{1+x} = 1 - x + x^2 - x^3 + \dots +
+											(-1)^n\cdot x^n + \dots\)</p>
+										<p class="examples__item">\(\frac{1}{1-x} = 1 + x + x^2 + \dots + x^n + \dots\)
+										</p>
+										<div class="examples__item">
+											<p>
+
+												\begin{equation}
+												(1+x)^m = 1 + \frac{m}{1!}x + \frac{m(m-1)}{2!}x^2 + \dots +
+												\end{equation}
+											</p>
+											<p>
+												\begin{equation}
+												+\frac{m(m-1) \dots (m - (n-1))}{n!}x^n + \dots
+												\end{equation}
+											</p>
+
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
 			<!-- END taylor -->
 
 		</main>
@@ -273,7 +291,7 @@
 		</div>
 	</div>
 </div> -->
-	<script src="js/app.min.js?_v=20220927233942"></script>
+	<script src="js/app.min.js?_v=20220928170311"></script>
 </body>
 
 
