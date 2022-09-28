@@ -761,14 +761,14 @@ section:not(:last-child) {
 .taylor__body {
   background-color: #4282af;
 }
-@supports (font-size: clamp( 0.875rem , 0.5197368421rem  +  1.5789473684vw , 2rem )) {
+@supports (font-size: clamp( 0.875rem , 0.3618421053rem  +  2.2807017544vw , 2.5rem )) {
   .taylor .examples__item {
-    font-size: clamp( 0.875rem , 0.5197368421rem  +  1.5789473684vw , 2rem );
+    font-size: clamp( 0.875rem , 0.3618421053rem  +  2.2807017544vw , 2.5rem );
   }
 }
-@supports not (font-size: clamp( 0.875rem , 0.5197368421rem  +  1.5789473684vw , 2rem )) {
+@supports not (font-size: clamp( 0.875rem , 0.3618421053rem  +  2.2807017544vw , 2.5rem )) {
   .taylor .examples__item {
-    font-size: calc(0.875rem + 1.125 * (100vw - 22.5rem) / 71.25);
+    font-size: calc(0.875rem + 1.625 * (100vw - 22.5rem) / 71.25);
   }
 }
 
