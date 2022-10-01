@@ -538,6 +538,7 @@ section:not(:last-child) {
 }
 .article__example {
   display: flex;
+  flex-wrap: wrap;
   gap: 1.25rem;
 }
 @media (max-width: 48em) {
@@ -545,6 +546,30 @@ section:not(:last-child) {
     flex-direction: column;
   }
 }
+@media (max-width: 30em) {
+  .article__example {
+    flex-wrap: nowrap;
+  }
+}
+.array-length-wrapper {
+  flex-wrap: nowrap;
+}
+
+.array-length {
+  align-self: start;
+  max-width: 10rem;
+}
+@media (max-width: 48em) {
+  .array-length {
+    max-width: 100%;
+    width: 100%;
+  }
+}
+
+.array-describtion {
+  flex: 1 1 100%;
+}
+
 .code {
   color: #fff;
 }

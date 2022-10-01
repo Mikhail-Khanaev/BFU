@@ -6,14 +6,14 @@
 	<meta charset="UTF-8">
 	<meta name="format-detection" content="telephone=no">
 	<!-- <style>body{opacity: 0;}</style> -->
-	<link rel="stylesheet" href="css/style.min.css?_v=20220927233942">
+	<link rel="stylesheet" href="css/style.min.css?_v=20221002004320">
 	<link rel="shortcut icon" href="favicon.ico">
 	<!-- <meta name="robots" content="noindex, nofollow"> -->
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 
 <body>
-	<div class="wrapper">
+	<div class="wrapper ADS" id="ADS-5">
 		<header data-lp class="header">
 			<div class="header__menu menu">
 				<nav class="menu__body">
@@ -79,6 +79,80 @@
 								двигаем число на позиции pos влево, пока число перед ним не будет больше
 								либо пока число не встанет на 1 место массива</p>
 							<p class="article__text text"></p>
+						</section>
+						<section class="article__section">
+							<h2 class="article__title">JavaScript</h2>
+							<p class="article__text text"></p>
+							<div class="code">
+								<div class="code__body">
+									<pre>
+                                                                <div class="code__lines">
+                                                                    <span>1</span>
+                                                                    <span>2</span>
+                                                                    <span>3</span>
+                                                                    <span>4</span>
+                                                                    <span>5</span>
+                                                                    <span>6</span>
+                                                                    <span>7</span>
+                                                                    <span>8</span>
+                                                                    <span>9</span>
+                                                                    <span>10</span>
+                                                                    <span>11</span>
+                                                                    <span>12</span>
+                                                                </div>
+                                                                <code class="code__text language-javascript">value = value.split(" ").map(item => +item);
+
+for (let i = 0; i < value.length; i++) {
+    let x = value[i];
+    let j = i;
+
+    while (j > 0 && value[j - 1] > x) {
+        value[j] = value[j - 1];
+        j -= 1;
+    }
+
+    value[j] = x;
+}</code>
+                                                            </pre>
+									<button class="button-copy _icon-save">скопировать</button>
+								</div>
+							</div>
+						</section>
+						<section class="article__section">
+							<h2 class="article__title">Пример работы</h2>
+							<form action="#">
+								<h4 class="article__subtitle">Введите последовательность</h4>
+
+								<div class="article__example article__text">
+									<input class="article__input" placeholder="" type="text" id="array">
+									<button type="button" class="button" id="sortArray">сортировать</button>
+								</div>
+
+								<p class="article__text text" id="showResult"></p>
+
+								<h4 class="article__subtitle">Или можете сгенерировать её</h4>
+
+
+								<div class="article__example article__text array-length-wrapper">
+									<p class="text array-describtion">По умолчанию длина последовательности равна 10, но
+										в
+										этом поле вы можете изменить это значение</p>
+									<input class="article__input array-length" placeholder="" type="text" id="arrayLength" value="10">
+								</div>
+
+
+								<div class="article__example article__text">
+									<input class="article__input" placeholder="" type="text" id="generatedArray">
+									<button type="button" class="button" id="setGeneratedArray">сгенерировать</button>
+									<button type="button" class="button" id="sortGeneratedArray">сортировать</button>
+								</div>
+
+								<p class="article__text text" id="showResultGenerated"></p>
+
+
+								<button class="button" id="buttonReset" type="button">сбросить</button>
+							</form>
+
 						</section>
 						<section class="article__section">
 							<h2 class="article__title">Python</h2>
@@ -300,7 +374,7 @@ int main() {
 		</div>
 	</div>
 </div> -->
-	<script src="js/app.min.js?_v=20220927233942"></script>
+	<script src="js/app.min.js?_v=20221002004320"></script>
 
 
 </body>

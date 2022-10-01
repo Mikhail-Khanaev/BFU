@@ -10,7 +10,7 @@
                   "use strict";
                   n.d(t, {
                     default: function () {
-                      return C;
+                      return T;
                     },
                   });
                   var s = n(279),
@@ -386,7 +386,7 @@
                         r
                       );
                     })(i()),
-                    C = x;
+                    T = x;
                 },
                 828: function (e) {
                   if (
@@ -1412,8 +1412,8 @@
     Object.keys(x).forEach((e) => {
       Object.defineProperty(y.fn, e, { value: x[e], writable: !0 });
     });
-    const C = y;
-    function T(e, t) {
+    const T = y;
+    function C(e, t) {
       return void 0 === t && (t = 0), setTimeout(e, t);
     }
     function E() {
@@ -1727,7 +1727,7 @@
         );
       },
     };
-    const N = {
+    const q = {
       updateSize: function () {
         const e = this;
         let t, n;
@@ -1808,9 +1808,9 @@
             s.cssMode &&
             (M(e.wrapperEl, "--swiper-centered-offset-before", ""),
             M(e.wrapperEl, "--swiper-centered-offset-after", ""));
-        const C = s.grid && s.grid.rows > 1 && e.grid;
-        let T;
-        C && e.grid.initSlides(u);
+        const T = s.grid && s.grid.rows > 1 && e.grid;
+        let C;
+        T && e.grid.initSlides(u);
         const E =
           "auto" === s.slidesPerView &&
           s.breakpoints &&
@@ -1818,10 +1818,10 @@
             (e) => void 0 !== s.breakpoints[e].slidesPerView
           ).length > 0;
         for (let i = 0; i < u; i += 1) {
-          T = 0;
+          C = 0;
           const a = c.eq(i);
           if (
-            (C && e.grid.updateSlide(i, a, u, t), "none" !== a.css("display"))
+            (T && e.grid.updateSlide(i, a, u, t), "none" !== a.css("display"))
           ) {
             if ("auto" === s.slidesPerView) {
               E && (c[i].style[t("width")] = "");
@@ -1833,7 +1833,7 @@
                 l && (a[0].style.webkitTransform = "none"),
                 s.roundLengths)
               )
-                T = e.isHorizontal() ? a.outerWidth(!0) : a.outerHeight(!0);
+                C = e.isHorizontal() ? a.outerWidth(!0) : a.outerHeight(!0);
               else {
                 const e = n(r, "width"),
                   t = n(r, "padding-left"),
@@ -1841,23 +1841,23 @@
                   i = n(r, "margin-left"),
                   o = n(r, "margin-right"),
                   l = r.getPropertyValue("box-sizing");
-                if (l && "border-box" === l) T = e + i + o;
+                if (l && "border-box" === l) C = e + i + o;
                 else {
                   const { clientWidth: n, offsetWidth: r } = a[0];
-                  T = e + t + s + i + o + (r - n);
+                  C = e + t + s + i + o + (r - n);
                 }
               }
               o && (a[0].style.transform = o),
                 l && (a[0].style.webkitTransform = l),
-                s.roundLengths && (T = Math.floor(T));
+                s.roundLengths && (C = Math.floor(C));
             } else
-              (T = (r - (s.slidesPerView - 1) * y) / s.slidesPerView),
-                s.roundLengths && (T = Math.floor(T)),
-                c[i] && (c[i].style[t("width")] = `${T}px`);
-            c[i] && (c[i].swiperSlideSize = T),
-              h.push(T),
+              (C = (r - (s.slidesPerView - 1) * y) / s.slidesPerView),
+                s.roundLengths && (C = Math.floor(C)),
+                c[i] && (c[i].style[t("width")] = `${C}px`);
+            c[i] && (c[i].swiperSlideSize = C),
+              h.push(C),
               s.centeredSlides
-                ? ((w = w + T / 2 + S / 2 + y),
+                ? ((w = w + C / 2 + S / 2 + y),
                   0 === S && 0 !== i && (w = w - r / 2 - y),
                   0 === i && (w = w - r / 2 - y),
                   Math.abs(w) < 0.001 && (w = 0),
@@ -1869,9 +1869,9 @@
                     e.params.slidesPerGroup ==
                     0 && p.push(w),
                   f.push(w),
-                  (w = w + T + y)),
-              (e.virtualSize += T + y),
-              (S = T),
+                  (w = w + C + y)),
+              (e.virtualSize += C + y),
+              (S = C),
               (x += 1);
           }
         }
@@ -1883,7 +1883,7 @@
             i.css({ width: `${e.virtualSize + s.spaceBetween}px` }),
           s.setWrapperSize &&
             i.css({ [t("width")]: `${e.virtualSize + s.spaceBetween}px` }),
-          C && e.grid.updateWrapperSize(T, p, t),
+          T && e.grid.updateWrapperSize(C, p, t),
           !s.centeredSlides)
         ) {
           const t = [];
@@ -1983,7 +1983,7 @@
             : t.slides.eq(e)[0];
         if ("auto" !== t.params.slidesPerView && t.params.slidesPerView > 1)
           if (t.params.centeredSlides)
-            (t.visibleSlides || C([])).each((e) => {
+            (t.visibleSlides || T([])).each((e) => {
               n.push(e);
             });
           else
@@ -2041,7 +2041,7 @@
             (o.progress = i ? -d : d),
             (o.originalProgress = i ? -c : c);
         }
-        t.visibleSlides = C(t.visibleSlides);
+        t.visibleSlides = T(t.visibleSlides);
       },
       updateProgress: function (e) {
         const t = this;
@@ -2196,7 +2196,7 @@
       updateClickedSlide: function (e) {
         const t = this,
           n = t.params,
-          s = C(e).closest(`.${n.slideClass}`)[0];
+          s = T(e).closest(`.${n.slideClass}`)[0];
         let i,
           r = !1;
         if (s)
@@ -2210,7 +2210,7 @@
         (t.clickedSlide = s),
           t.virtual && t.params.virtual.enabled
             ? (t.clickedIndex = parseInt(
-                C(s).attr("data-swiper-slide-index"),
+                T(s).attr("data-swiper-slide-index"),
                 10
               ))
             : (t.clickedIndex = i),
@@ -2220,7 +2220,7 @@
             t.slideToClickedSlide();
       },
     };
-    const q = {
+    const N = {
       getTranslate: function (e) {
         void 0 === e && (e = this.isHorizontal() ? "x" : "y");
         const {
@@ -2337,7 +2337,7 @@
         );
       },
     };
-    function j(e) {
+    function G(e) {
       let { swiper: t, runCallbacks: n, direction: s, step: i } = e;
       const { activeIndex: r, previousIndex: a } = t;
       let o = s;
@@ -2353,7 +2353,7 @@
             : t.emit(`slidePrevTransition${i}`);
       }
     }
-    const G = {
+    const j = {
       slideTo: function (e, t, n, s, i) {
         if (
           (void 0 === e && (e = 0),
@@ -2621,7 +2621,7 @@
           r = e.clickedIndex;
         if (t.loop) {
           if (e.animating) return;
-          (i = parseInt(C(e.clickedSlide).attr("data-swiper-slide-index"), 10)),
+          (i = parseInt(T(e.clickedSlide).attr("data-swiper-slide-index"), 10)),
             t.centeredSlides
               ? r < e.loopedSlides - s / 2 ||
                 r > e.slides.length - e.loopedSlides + s / 2
@@ -2632,7 +2632,7 @@
                     )
                     .eq(0)
                     .index()),
-                  T(() => {
+                  C(() => {
                     e.slideTo(r);
                   }))
                 : e.slideTo(r)
@@ -2644,7 +2644,7 @@
                   )
                   .eq(0)
                   .index()),
-                T(() => {
+                C(() => {
                   e.slideTo(r);
                 }))
               : e.slideTo(r);
@@ -2656,14 +2656,14 @@
         const e = this,
           t = f(),
           { params: n, $wrapperEl: s } = e,
-          i = s.children().length > 0 ? C(s.children()[0].parentNode) : s;
+          i = s.children().length > 0 ? T(s.children()[0].parentNode) : s;
         i.children(`.${n.slideClass}.${n.slideDuplicateClass}`).remove();
         let r = i.children(`.${n.slideClass}`);
         if (n.loopFillGroupWithBlank) {
           const e = n.slidesPerGroup - (r.length % n.slidesPerGroup);
           if (e !== n.slidesPerGroup) {
             for (let s = 0; s < e; s += 1) {
-              const e = C(t.createElement("div")).addClass(
+              const e = T(t.createElement("div")).addClass(
                 `${n.slideClass} ${n.slideBlankClass}`
               );
               i.append(e);
@@ -2684,16 +2684,16 @@
         const a = [],
           o = [];
         r.each((e, t) => {
-          C(e).attr("data-swiper-slide-index", t);
+          T(e).attr("data-swiper-slide-index", t);
         });
         for (let t = 0; t < e.loopedSlides; t += 1) {
           const e = t - Math.floor(t / r.length) * r.length;
           o.push(r.eq(e)[0]), a.unshift(r.eq(r.length - e - 1)[0]);
         }
         for (let e = 0; e < o.length; e += 1)
-          i.append(C(o[e].cloneNode(!0)).addClass(n.slideDuplicateClass));
+          i.append(T(o[e].cloneNode(!0)).addClass(n.slideDuplicateClass));
         for (let e = a.length - 1; e >= 0; e -= 1)
-          i.prepend(C(a[e].cloneNode(!0)).addClass(n.slideDuplicateClass));
+          i.prepend(T(a[e].cloneNode(!0)).addClass(n.slideDuplicateClass));
       },
       loopFix: function () {
         const e = this;
@@ -2744,7 +2744,7 @@
       !t.animating && r.cssMode && r.loop && t.loopFix();
       let l = e;
       l.originalEvent && (l = l.originalEvent);
-      let d = C(l.target);
+      let d = T(l.target);
       if ("wrapper" === r.touchEventsTarget && !d.closest(t.wrapperEl).length)
         return;
       if (
@@ -2760,7 +2760,7 @@
         l.target.shadowRoot &&
         e.path &&
         e.path[0] &&
-        (d = C(e.path[0]));
+        (d = T(e.path[0]));
       const c = r.noSwipingSelector
           ? r.noSwipingSelector
           : `.${r.noSwipingClass}`,
@@ -2818,7 +2818,7 @@
         d.is(i.focusableElements) &&
           ((e = !1), "SELECT" === d[0].nodeName && (i.isTouched = !1)),
           n.activeElement &&
-            C(n.activeElement).is(i.focusableElements) &&
+            T(n.activeElement).is(i.focusableElements) &&
             n.activeElement !== d[0] &&
             n.activeElement.blur();
         const s = e && t.allowTouchMove && r.touchStartPreventDefault;
@@ -2857,7 +2857,7 @@
       if (l.preventedByNestedSwiper) return (r.startX = c), void (r.startY = u);
       if (!n.allowTouchMove)
         return (
-          C(l.target).is(s.focusableElements) || (n.allowClick = !1),
+          T(l.target).is(s.focusableElements) || (n.allowClick = !1),
           void (
             s.isTouched &&
             (Object.assign(r, {
@@ -2885,7 +2885,7 @@
         s.isTouchEvent &&
         t.activeElement &&
         l.target === t.activeElement &&
-        C(l.target).is(s.focusableElements)
+        T(l.target).is(s.focusableElements)
       )
         return (s.isMoved = !0), void (n.allowClick = !1);
       if (
@@ -3038,7 +3038,7 @@
       }
       if (
         ((n.lastClickTime = E()),
-        T(() => {
+        C(() => {
           t.destroyed || (t.allowClick = !0);
         }),
         !n.isTouched ||
@@ -3469,8 +3469,8 @@
     }
     const re = {
         eventsEmitter: B,
-        update: N,
-        translate: q,
+        update: q,
+        translate: N,
         transition: {
           setTransition: function (e, t) {
             const n = this;
@@ -3483,7 +3483,7 @@
               { params: s } = n;
             s.cssMode ||
               (s.autoHeight && n.updateAutoHeight(),
-              j({ swiper: n, runCallbacks: e, direction: t, step: "Start" }));
+              G({ swiper: n, runCallbacks: e, direction: t, step: "Start" }));
           },
           transitionEnd: function (e, t) {
             void 0 === e && (e = !0);
@@ -3492,10 +3492,10 @@
             (n.animating = !1),
               s.cssMode ||
                 (n.setTransition(0),
-                j({ swiper: n, runCallbacks: e, direction: t, step: "End" }));
+                G({ swiper: n, runCallbacks: e, direction: t, step: "End" }));
           },
         },
-        slide: G,
+        slide: j,
         loop: H,
         grabCursor: {
           setGrabCursor: function (e) {
@@ -3548,7 +3548,7 @@
             function l() {
               r && r();
             }
-            C(e).parent("picture")[0] || (e.complete && i)
+            T(e).parent("picture")[0] || (e.complete && i)
               ? l()
               : t
               ? ((o = new a.Image()),
@@ -3600,11 +3600,11 @@
           t || (t = {}),
           (t = L({}, t)),
           e && !t.el && (t.el = e),
-          t.el && C(t.el).length > 1)
+          t.el && T(t.el).length > 1)
         ) {
           const e = [];
           return (
-            C(t.el).each((n) => {
+            T(t.el).each((n) => {
               const s = L({}, t, { el: n });
               e.push(new oe(s));
             }),
@@ -3642,12 +3642,12 @@
               r.on(e, r.params.on[e]);
             }),
           r.params && r.params.onAny && r.onAny(r.params.onAny),
-          (r.$ = C),
+          (r.$ = T),
           Object.assign(r, {
             enabled: r.params.enabled,
             el: e,
             classNames: [],
-            slides: C(),
+            slides: T(),
             slidesGrid: [],
             snapGrid: [],
             slidesSizesGrid: [],
@@ -3869,21 +3869,21 @@
       mount(e) {
         const t = this;
         if (t.mounted) return !0;
-        const n = C(e || t.params.el);
+        const n = T(e || t.params.el);
         if (!(e = n[0])) return !1;
         e.swiper = t;
         const s = () =>
           `.${(t.params.wrapperClass || "").trim().split(" ").join(".")}`;
         let i = (() => {
           if (e && e.shadowRoot && e.shadowRoot.querySelector) {
-            const t = C(e.shadowRoot.querySelector(s()));
+            const t = T(e.shadowRoot.querySelector(s()));
             return (t.children = (e) => n.children(e)), t;
           }
-          return n.children ? n.children(s()) : C(n).children(s());
+          return n.children ? n.children(s()) : T(n).children(s());
         })();
         if (0 === i.length && t.params.createElements) {
           const e = f().createElement("div");
-          (i = C(e)),
+          (i = T(e)),
             (e.className = t.params.wrapperClass),
             n.append(e),
             n.children(`.${t.params.slideClass}`).each((e) => {
@@ -4129,7 +4129,7 @@
         let n;
         return (
           e &&
-            ((n = C(e)),
+            ((n = T(e)),
             t.params.uniqueNavElements &&
               "string" == typeof e &&
               n.length > 1 &&
@@ -4239,7 +4239,7 @@
         s("click", (e, n) => {
           const { $nextEl: s, $prevEl: r } = t.navigation,
             a = n.target;
-          if (t.params.navigation.hideOnClick && !C(a).is(r) && !C(a).is(s)) {
+          if (t.params.navigation.hideOnClick && !T(a).is(r) && !T(a).is(s)) {
             if (
               t.pagination &&
               t.params.pagination &&
@@ -4383,7 +4383,7 @@
             r.length > 1)
           )
             s.each((e) => {
-              const t = C(e),
+              const t = T(e),
                 s = t.index();
               s === c && t.addClass(n.bulletActiveClass),
                 n.dynamicBullets &&
@@ -4494,14 +4494,14 @@
         );
         const e = t.params.pagination;
         if (!e.el) return;
-        let n = C(e.el);
+        let n = T(e.el);
         0 !== n.length &&
           (t.params.uniqueNavElements &&
             "string" == typeof e.el &&
             n.length > 1 &&
             ((n = t.$el.find(e.el)),
             n.length > 1 &&
-              (n = n.filter((e) => C(e).parents(".swiper")[0] === t.el))),
+              (n = n.filter((e) => T(e).parents(".swiper")[0] === t.el))),
           "bullets" === e.type && e.clickable && n.addClass(e.clickableClass),
           n.addClass(e.modifierClass + e.type),
           n.addClass(t.isHorizontal() ? e.horizontalClass : e.verticalClass),
@@ -4516,7 +4516,7 @@
           e.clickable &&
             n.on("click", ue(e.bulletClass), function (e) {
               e.preventDefault();
-              let n = C(this).index() * t.params.slidesPerGroup;
+              let n = T(this).index() * t.params.slidesPerGroup;
               t.params.loop && (n += t.loopedSlides), t.slideTo(n);
             }),
           Object.assign(t.pagination, { $el: n, el: n[0] }),
@@ -4570,7 +4570,7 @@
             t.params.pagination.hideOnClick &&
             r &&
             r.length > 0 &&
-            !C(s).hasClass(t.params.pagination.bulletClass)
+            !T(s).hasClass(t.params.pagination.bulletClass)
           ) {
             if (
               t.navigation &&
@@ -4620,7 +4620,7 @@
         e.attr("data-swiper-autoplay") &&
           (s = e.attr("data-swiper-autoplay") || n.params.autoplay.delay),
           clearTimeout(t),
-          (t = T(() => {
+          (t = C(() => {
             let e;
             n.params.autoplay.reverseDirection
               ? n.params.loop
@@ -5057,23 +5057,23 @@
                   g.pattern = RegExp(g.pattern.source, w + "g");
                 }
                 for (
-                  var S = g.pattern || g, x = s.next, C = l;
-                  x !== t.tail && !(u && C >= u.reach);
-                  C += x.value.length, x = x.next
+                  var S = g.pattern || g, x = s.next, T = l;
+                  x !== t.tail && !(u && T >= u.reach);
+                  T += x.value.length, x = x.next
                 ) {
-                  var T = x.value;
+                  var C = x.value;
                   if (t.length > e.length) return;
-                  if (!(T instanceof r)) {
+                  if (!(C instanceof r)) {
                     var E,
                       k = 1;
                     if (b) {
-                      if (!(E = a(S, C, e, v)) || E.index >= e.length) break;
+                      if (!(E = a(S, T, e, v)) || E.index >= e.length) break;
                       var $ = E.index,
                         A = E.index + E[0].length,
-                        L = C;
+                        L = T;
                       for (L += x.value.length; $ >= L; )
                         L += (x = x.next).value.length;
-                      if (((C = L -= x.value.length), x.value instanceof r))
+                      if (((T = L -= x.value.length), x.value instanceof r))
                         continue;
                       for (
                         var M = x;
@@ -5081,24 +5081,24 @@
                         M = M.next
                       )
                         k++, (L += M.value.length);
-                      k--, (T = e.slice(C, L)), (E.index -= C);
-                    } else if (!(E = a(S, 0, T, v))) continue;
+                      k--, (C = e.slice(T, L)), (E.index -= T);
+                    } else if (!(E = a(S, 0, C, v))) continue;
                     $ = E.index;
                     var _ = E[0],
-                      P = T.slice(0, $),
-                      O = T.slice($ + _.length),
-                      F = C + T.length;
+                      P = C.slice(0, $),
+                      O = C.slice($ + _.length),
+                      F = T + C.length;
                     u && F > u.reach && (u.reach = F);
                     var D = x.prev;
                     if (
-                      (P && ((D = d(t, D, P)), (C += P.length)),
+                      (P && ((D = d(t, D, P)), (T += P.length)),
                       c(t, D, k),
                       (x = d(t, D, new r(p, m ? i.tokenize(_, m) : _, y, _))),
                       O && d(t, x, O),
                       k > 1)
                     ) {
                       var I = { cause: p + "," + h, reach: F };
-                      o(e, t, n, x.prev, C, I),
+                      o(e, t, n, x.prev, T, I),
                         u && I.reach > u.reach && (u.reach = I.reach);
                     }
                   }
@@ -5590,15 +5590,16 @@
       console.log("Задача о скобках");
     let ye = document.querySelector("#setString");
     function we(e) {
-      return [
-        "воскресенье",
-        "понедельник",
-        "вторник",
-        "среда",
-        "четверг",
-        "пятница",
-        "суббота",
-      ][e.getDay()];
+      for (let t = 0; t < e.length; t++) if (isNaN((e[t] = +e[t]))) return !1;
+      return !0;
+    }
+    function Se(e) {
+      for (let t = 0; t < e.length; t++) {
+        let n = e[t],
+          s = t;
+        for (; s > 0 && e[s - 1] > n; ) (e[s] = e[s - 1]), (s -= 1);
+        e[s] = n;
+      }
     }
     if (
       (null != ye &&
@@ -5632,7 +5633,82 @@
                 (document.querySelector("#code-result").innerHTML =
                   "Такая строка существует!"));
         }),
-      (Date.prototype.getWeek = function () {
+      document.querySelector(".ADS"))
+    ) {
+      let e = document.getElementById("array"),
+        t = document.getElementById("sortArray"),
+        n = Number(document.getElementById("arrayLength").value),
+        s = document.getElementById("generatedArray"),
+        i = document.getElementById("setGeneratedArray"),
+        r = document.getElementById("sortGeneratedArray"),
+        a = document.getElementById("buttonReset"),
+        o = document.querySelector(".ADS");
+      document.getElementById("arrayLength").oninput = () => {
+        n = Number(document.getElementById("arrayLength").value);
+      };
+      let l = [];
+      i.addEventListener("click", function () {
+        for (let t = 0; t < n; t++)
+          l.push(((e = 1e3), Math.floor(Math.random() * e)));
+        var e;
+        (s.value = l.join(" ")), (l = []);
+      }),
+        r.addEventListener("click", () => {
+          let e = s.value.split(" ").map((e) => +e);
+          we(e)
+            ? ("ADS-5" == o.getAttribute("id") ? Se(e) : console.log(""),
+              (document.querySelector("#showResultGenerated").style.color =
+                "#3CA478"),
+              (document.querySelector("#showResultGenerated").innerHTML =
+                e.join(", ")))
+            : ((document.querySelector("#showResultGenerated").style.color =
+                "#E06363"),
+              (document.querySelector("#showResultGenerated").innerHTML =
+                "В последовательности есть ошибка"));
+        }),
+        a.addEventListener("click", () => {
+          (document.querySelector("#showResultGenerated").innerHTML = " "),
+            (document.querySelector("#showResult").innerHTML = " "),
+            (s.value = " "),
+            (array.value = " ");
+        }),
+        r.addEventListener("click", () => {
+          let e = s.value.split(" ").map((e) => +e);
+          we(e)
+            ? ("ADS-5" == o.getAttribute("id") ? Se(e) : console.log(""),
+              (document.querySelector("#showResultGenerated").style.color =
+                "#3CA478"),
+              (document.querySelector("#showResultGenerated").innerHTML =
+                e.join(", ")))
+            : ((document.querySelector("#showResultGenerated").style.color =
+                "#E06363"),
+              (document.querySelector("#showResultGenerated").innerHTML =
+                "В последовательности есть ошибка"));
+        }),
+        t.addEventListener("click", () => {
+          let t = e.value.split(" ").map((e) => +e);
+          we(t)
+            ? ("ADS-5" == o.getAttribute("id") ? Se(t) : console.log(""),
+              (document.querySelector("#showResult").style.color = "#3CA478"),
+              (document.querySelector("#showResult").innerHTML = t.join(", ")))
+            : ((document.querySelector("#showResult").style.color = "#E06363"),
+              (document.querySelector("#showResult").innerHTML =
+                "В последовательности есть ошибка"));
+        });
+    }
+    function xe(e) {
+      return [
+        "воскресенье",
+        "понедельник",
+        "вторник",
+        "среда",
+        "четверг",
+        "пятница",
+        "суббота",
+      ][e.getDay()];
+    }
+    if (
+      ((Date.prototype.getWeek = function () {
         var e = new Date(this.getFullYear(), 0, 1);
         return Math.floor(((this - e) / 864e5 + e.getDay() + 1) / 7);
       }),
@@ -5645,7 +5721,7 @@
           s = document.querySelectorAll(".table-schedule__title");
         for (let i = 0; i < s.length; i++) {
           s[i].innerHTML =
-            i % 2 == 0 ? `${we(e)}, ${n} неделя` : `${we(t)}, ${n} неделя`;
+            i % 2 == 0 ? `${xe(e)}, ${n} неделя` : `${xe(t)}, ${n} неделя`;
         }
       })();
       let e = new Date().getWeek() % 2 == 0 ? "верхняя" : "нижняя",
@@ -6160,14 +6236,14 @@
           localStorage.setItem("group", e.value);
         });
     }
-    let Se = localStorage.getItem("group");
-    if (null != Se) {
-      Se = +Se[0];
+    let Te = localStorage.getItem("group");
+    if (null != Te) {
+      Te = +Te[0];
       let e = document.querySelectorAll(".tabs__title");
       for (let t = 0; t < e.length; t++) {
         const n = e[t];
         n.classList.remove("_tab-active"),
-          t == Se && n.classList.add("_tab-active");
+          t == Te && n.classList.add("_tab-active");
       }
     }
     (window.FLS = !0),
