@@ -266,6 +266,30 @@ section:not(:last-child) {
   background-color: #fff;
 }
 
+.link {
+  color: #d0722e;
+  position: relative;
+  transition: all 0.3s ease 0s;
+}
+.link::after {
+  content: "";
+  position: absolute;
+  width: 0%;
+  height: 4px;
+  bottom: -2px;
+  left: 0;
+  background-color: #d0722e;
+  transition: all 0.3s ease 0s;
+}
+@media (any-hover: hover) {
+  .link:hover {
+    color: #d0722e;
+  }
+  .link:hover::after {
+    width: 100%;
+  }
+}
+
 .text {
   line-height: 120%;
 }
@@ -365,6 +389,18 @@ section:not(:last-child) {
 }
 .labs__item a:visited {
   color: #d0722e;
+}
+
+.disabled {
+  color: gray;
+  pointer-events: none;
+  cursor: none;
+}
+.disabled a {
+  color: gray;
+}
+.disabled a:visited {
+  color: gray;
 }
 
 .card {
@@ -551,6 +587,23 @@ section:not(:last-child) {
     flex-wrap: nowrap;
   }
 }
+.article__image {
+  position: relative;
+  width: 100%;
+  height: 30vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.article__image img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  object-fit: contain;
+}
+
 .array-length-wrapper {
   flex-wrap: nowrap;
 }
@@ -1445,10 +1498,6 @@ section:not(:last-child) {
     margin-top: calc(2.5rem + 1.875 * (100vw - 22.5rem) / 71.25);
   }
 }
-.exams__list :nth-child(2n) {
-  background: rgba(39, 64, 82, 0.4);
-  border-radius: 12px;
-}
 @media (max-width: 48em) {
   .exams__list {
     gap: 0.625rem;
@@ -1461,6 +1510,10 @@ section:not(:last-child) {
   gap: 0.625rem;
   line-height: 120%;
   padding: 0.625rem 1.25rem;
+}
+.exams__item:nth-child(2n) {
+  background: rgba(39, 64, 82, 0.4);
+  border-radius: 12px;
 }
 @supports (font-size: clamp( 1rem , 0.6842105263rem  +  1.4035087719vw , 2rem )) {
   .exams__item {
@@ -1476,9 +1529,6 @@ section:not(:last-child) {
   .exams__item {
     padding: 0.625rem 0.625rem;
   }
-}
-.exams__item span {
-  background: transparent !important;
 }
 
 .schedule {

@@ -1467,7 +1467,7 @@
         i || 0
       );
     }
-    function $(e) {
+    function A(e) {
       return (
         "object" == typeof e &&
         null !== e &&
@@ -1475,7 +1475,7 @@
         "Object" === Object.prototype.toString.call(e).slice(8, -1)
       );
     }
-    function A(e) {
+    function $(e) {
       return "undefined" != typeof window && void 0 !== window.HTMLElement
         ? e instanceof HTMLElement
         : e && (1 === e.nodeType || 11 === e.nodeType);
@@ -1485,18 +1485,18 @@
         t = ["__proto__", "constructor", "prototype"];
       for (let n = 1; n < arguments.length; n += 1) {
         const s = n < 0 || arguments.length <= n ? void 0 : arguments[n];
-        if (null != s && !A(s)) {
+        if (null != s && !$(s)) {
           const n = Object.keys(Object(s)).filter((e) => t.indexOf(e) < 0);
           for (let t = 0, i = n.length; t < i; t += 1) {
             const i = n[t],
               r = Object.getOwnPropertyDescriptor(s, i);
             void 0 !== r &&
               r.enumerable &&
-              ($(e[i]) && $(s[i])
+              (A(e[i]) && A(s[i])
                 ? s[i].__swiper__
                   ? (e[i] = s[i])
                   : L(e[i], s[i])
-                : !$(e[i]) && $(s[i])
+                : !A(e[i]) && A(s[i])
                 ? ((e[i] = {}), s[i].__swiper__ ? (e[i] = s[i]) : L(e[i], s[i]))
                 : (e[i] = s[i]));
           }
@@ -5068,25 +5068,25 @@
                       k = 1;
                     if (b) {
                       if (!(E = a(S, T, e, v)) || E.index >= e.length) break;
-                      var $ = E.index,
-                        A = E.index + E[0].length,
+                      var A = E.index,
+                        $ = E.index + E[0].length,
                         L = T;
-                      for (L += x.value.length; $ >= L; )
+                      for (L += x.value.length; A >= L; )
                         L += (x = x.next).value.length;
                       if (((T = L -= x.value.length), x.value instanceof r))
                         continue;
                       for (
                         var M = x;
-                        M !== t.tail && (L < A || "string" == typeof M.value);
+                        M !== t.tail && (L < $ || "string" == typeof M.value);
                         M = M.next
                       )
                         k++, (L += M.value.length);
                       k--, (C = e.slice(T, L)), (E.index -= T);
                     } else if (!(E = a(S, 0, C, v))) continue;
-                    $ = E.index;
+                    A = E.index;
                     var _ = E[0],
-                      P = C.slice(0, $),
-                      O = C.slice($ + _.length),
+                      P = C.slice(0, A),
+                      O = C.slice(A + _.length),
                       F = T + C.length;
                     u && F > u.reach && (u.reach = F);
                     var D = x.prev;
@@ -5594,12 +5594,46 @@
       return !0;
     }
     function Se(e) {
+      let t = e.length,
+        n = t / 1.247;
+      for (; n > 1; ) {
+        for (let s = 0, i = Math.round(n); i < t; s++, i++)
+          e[s] > e[i] && ([e[s], e[i]] = [e[i], e[s]]);
+        n /= 1.247;
+      }
+      return e;
+    }
+    function xe(e) {
       for (let t = 0; t < e.length; t++) {
         let n = e[t],
           s = t;
         for (; s > 0 && e[s - 1] > n; ) (e[s] = e[s - 1]), (s -= 1);
         e[s] = n;
       }
+    }
+    function Te(e) {
+      let t = e.length,
+        n = t - 1;
+      for (let s = 0; s < n; s++) {
+        let n = s;
+        for (let i = s + 1; i < t; i++) e[n] > e[i] && (n = i);
+        n !== s && ([e[s], e[n]] = [e[n], e[s]]);
+      }
+      return e;
+    }
+    function Ce(e) {
+      const t = e.length;
+      let n = Math.floor(t / 2);
+      for (; n >= 1; ) {
+        for (let s = n; s < t; s++) {
+          const t = e[s];
+          let i = s;
+          for (; i > 0 && e[i - n] > t; ) (e[i] = e[i - n]), (i -= n);
+          e[i] = t;
+        }
+        n = Math.floor(n / 2);
+      }
+      return e;
     }
     if (
       (null != ye &&
@@ -5656,7 +5690,7 @@
         r.addEventListener("click", () => {
           let e = s.value.split(" ").map((e) => +e);
           we(e)
-            ? ("ADS-5" == o.getAttribute("id") ? Se(e) : console.log(""),
+            ? ("ADS-5" == o.getAttribute("id") ? xe(e) : console.log(""),
               (document.querySelector("#showResultGenerated").style.color =
                 "#3CA478"),
               (document.querySelector("#showResultGenerated").innerHTML =
@@ -5675,7 +5709,13 @@
         r.addEventListener("click", () => {
           let e = s.value.split(" ").map((e) => +e);
           we(e)
-            ? ("ADS-5" == o.getAttribute("id") ? Se(e) : console.log(""),
+            ? ("ADS-4" == o.getAttribute("id")
+                ? Se(e)
+                : "ADS-5" == o.getAttribute("id")
+                ? xe(e)
+                : "ADS-6" == o.getAttribute("id")
+                ? Te(e)
+                : "ADS-7" == o.getAttribute("id") && Ce(e),
               (document.querySelector("#showResultGenerated").style.color =
                 "#3CA478"),
               (document.querySelector("#showResultGenerated").innerHTML =
@@ -5688,7 +5728,13 @@
         t.addEventListener("click", () => {
           let t = e.value.split(" ").map((e) => +e);
           we(t)
-            ? ("ADS-5" == o.getAttribute("id") ? Se(t) : console.log(""),
+            ? ("ADS-4" == o.getAttribute("id")
+                ? Se(t)
+                : "ADS-5" == o.getAttribute("id")
+                ? xe(t)
+                : "ADS-6" == o.getAttribute("id")
+                ? Te(t)
+                : "ADS-7" == o.getAttribute("id") && Ce(t),
               (document.querySelector("#showResult").style.color = "#3CA478"),
               (document.querySelector("#showResult").innerHTML = t.join(", ")))
             : ((document.querySelector("#showResult").style.color = "#E06363"),
@@ -5696,7 +5742,7 @@
                 "В последовательности есть ошибка"));
         });
     }
-    function xe(e) {
+    function Ee(e) {
       return [
         "воскресенье",
         "понедельник",
@@ -5721,7 +5767,7 @@
           s = document.querySelectorAll(".table-schedule__title");
         for (let i = 0; i < s.length; i++) {
           s[i].innerHTML =
-            i % 2 == 0 ? `${xe(e)}, ${n} неделя` : `${xe(t)}, ${n} неделя`;
+            i % 2 == 0 ? `${Ee(e)}, ${n} неделя` : `${Ee(t)}, ${n} неделя`;
         }
       })();
       let e = new Date().getWeek() % 2 == 0 ? "верхняя" : "нижняя",
@@ -6236,14 +6282,14 @@
           localStorage.setItem("group", e.value);
         });
     }
-    let Te = localStorage.getItem("group");
-    if (null != Te) {
-      Te = +Te[0];
+    let ke = localStorage.getItem("group");
+    if (null != ke) {
+      ke = +ke[0];
       let e = document.querySelectorAll(".tabs__title");
       for (let t = 0; t < e.length; t++) {
         const n = e[t];
         n.classList.remove("_tab-active"),
-          t == Te && n.classList.add("_tab-active");
+          t == ke && n.classList.add("_tab-active");
       }
     }
     (window.FLS = !0),

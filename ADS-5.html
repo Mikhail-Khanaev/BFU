@@ -6,9 +6,10 @@
 	<meta charset="UTF-8">
 	<meta name="format-detection" content="telephone=no">
 	<!-- <style>body{opacity: 0;}</style> -->
-	<link rel="stylesheet" href="css/style.min.css?_v=20221002004320">
+	<link rel="stylesheet" href="css/style.min.css?_v=20221208180237">
 	<link rel="shortcut icon" href="favicon.ico">
-	<!-- <meta name="robots" content="noindex, nofollow"> -->
+
+	<meta name="robots" content="index, follow">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 
@@ -74,11 +75,14 @@
 						<section class="article__section">
 							<h2 class="article__title">Принцип алгоритма</h2>
 							<h4 class="article__subtitle"></h4>
-							<p class="article__text text">Смотрим элементы массива от 2 до последнего
-								если число на позиции pos-1 больше числа на позиции pos
-								двигаем число на позиции pos влево, пока число перед ним не будет больше
-								либо пока число не встанет на 1 место массива</p>
-							<p class="article__text text"></p>
+							<p class="article__text text">Суть его заключается в том, что в цикле один за другим
+								выбираются элементы массива и сравниваются с элементами, стоящими
+								перед ними, до тех пор пока не будет найдет элемент, меньший текущего, или мы не дойдем
+								до начала массива. Перед ним мы
+								и вставляем текущий, для этого предварительно сдвинув все элементы, которые оказались
+								больше текущего, в сторону
+								увеличения на один индекс</p>
+							<p class="article__text text">Или можете посмотреть видео: <a class="link" target="_blank" href="https://www.youtube.com/watch?v=a4IQKxDyR6s">ссылка</a></p>
 						</section>
 						<section class="article__section">
 							<h2 class="article__title">JavaScript</h2>
@@ -102,7 +106,7 @@
                                                                 </div>
                                                                 <code class="code__text language-javascript">value = value.split(" ").map(item => +item);
 
-for (let i = 0; i < value.length; i++) {
+for (let i = 0; i &lt; value.length; i++) {
     let x = value[i];
     let j = i;
 
@@ -156,7 +160,10 @@ for (let i = 0; i < value.length; i++) {
 						</section>
 						<section class="article__section">
 							<h2 class="article__title">Python</h2>
-							<p class="article__text text"></p>
+							<p class="article__text text">Смотрим элементы массива от 2 до последнего
+								если число на позиции pos-1 больше числа на позиции pos
+								двигаем число на позиции pos влево, пока число перед ним не будет больше
+								либо пока число не встанет на 1 место массива</p>
 							<div class="code">
 								<div class="code__body">
 									<pre>
@@ -374,7 +381,7 @@ int main() {
 		</div>
 	</div>
 </div> -->
-	<script src="js/app.min.js?_v=20221002004320"></script>
+	<script src="js/app.min.js?_v=20221208180237"></script>
 
 
 </body>

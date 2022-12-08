@@ -6,14 +6,15 @@
 	<meta charset="UTF-8">
 	<meta name="format-detection" content="telephone=no">
 	<!-- <style>body{opacity: 0;}</style> -->
-	<link rel="stylesheet" href="css/style.min.css?_v=20221002004320">
+	<link rel="stylesheet" href="css/style.min.css?_v=20221208180237">
 	<link rel="shortcut icon" href="favicon.ico">
-	<!-- <meta name="robots" content="noindex, nofollow"> -->
+
+	<meta name="robots" content="index, follow">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 
 <body>
-	<div class="wrapper">
+	<div class="wrapper ADS" id="ADS-7">
 		<header data-lp class="header">
 			<div class="header__menu menu">
 				<nav class="menu__body">
@@ -62,13 +63,8 @@
 					<div class="card__body border-radius card-article">
 						<!-- <h1 class="card__title title">Задача о скобках</h1> -->
 						<!-- <img src="img/subjects/1.svg" alt="1"> -->
-						<p class="card__text text">На вход подаётся строка, состоящая из скобок. Программа должна
-							определить правильность введёного скобочного выражения.
-							Программа должна работать на русском языке: “Введите строку”, “Строка не существует”,
-							“Строка существует” и т.п.</p>
-						<p class="card__text text">Пункт 1: В строке будут скобки только одного типа: или “()”, или
-							“{}”, или “[]”</p>
-						<p class="card__text text">Пункт 2: В строке будут все три вида скобок</p>
+						<p class="card__text text">Дана последовательность чисел. Отсортировать и вывести
+							последовательность чисел, определённым методом</p>
 					</div>
 				</div>
 			</section>
@@ -79,31 +75,26 @@
 						<section class="article__section">
 							<h2 class="article__title">Принцип алгоритма</h2>
 							<h4 class="article__subtitle"></h4>
-							<p class="article__text text">Сначала мы перебираем каждый элемент строки. Если нам
-								попадается открывающаяся скобка, то мы добавляем её в стек. Стек
-								это такая структура даннных, которая работает по приципу "последним зашёл, первым ушёл".
-								Если нам попадается
-								закрывающаяся скобка, то из стека мы достаём открывающаюся. Если там эта скобка есть, то
-								всё отлично - мы нашли пару
-								скобок. Но если этой скобки там нет, то значит, что стек уже пустой. Следовательно в
-								строке есть лишние скобки. Функция
-								завершается. Но если интерация закончилась и функция не завершилась, то мы проверяем, не
-								пустой ли у нас стек. Если в
-								стеке что-то есть, то значит, что у нас открывающихся скобок было больше и строка
-								неправильная. Функция также
-								завершается. Но если и это условие не выполнилось, то значит, что всё отлично.</p>
+							<p class="article__text text">Хорошее объяснение можно посмотреть вот в этом видео: <a class="link" target="_blank" href="https://www.youtube.com/watch?v=7hSjLR0iM-Q">ссылка</a></p>
 							<p class="article__text text"></p>
+							<p class="article__text text">Этот алгоритм Дональд Шелл опубликовал почти 60 лет назад. Он
+								схож с алгоритмом <a href="ADS-4.html" target="_blank" class="link">сортировкой
+									расческой</a> и так же
+								основан
+								на сравнении элементов массива, расположенных на определенном расстоянии друг от друга,
+								которое постепенно уменьшается
+								до 1. Единственное отличие — сортировка расческой усовершенствует сортировку пузырьком,
+								а сортировка Шелла
+								усовершенствует <a href="ADS-5.html" target="_blank" class="link">сортировку
+									вставками</a>.</p>
+							<p class="article__text text">С точки зрения кода мы просто добавляем к коду сортировки
+								вставками еще один цикл со значением сдвига, уменьшающимся
+								каждую итерацию, и начинаем сортировку теперь от элемента с индексом, равным этому
+								значению</p>
 						</section>
 						<section class="article__section">
 							<h2 class="article__title">JavaScript</h2>
-							<h2 class="article__subtitle">Метод includes</h2>
-							<p class="article__text text">Проверяет, есть ли такое значение в массиве</p>
-							<h2 class="article__subtitle">Метод push</h2>
-							<p class="article__text text">Добаляет элеменет в конец массива</p>
-							<h2 class="article__subtitle">Метод pop</h2>
-							<p class="article__text text">Удаляет последний элемент массива (в нашем случае это
-								вершина стека) и возращает его. Это позволяет нам присвоить последний элемент в
-								переменную "lastElement"</p>
+							<p class="article__text text"></p>
 							<div class="code">
 								<div class="code__body">
 									<pre>
@@ -131,31 +122,29 @@
                                             <span>21</span>
                                             <span>22</span>
                                             <span>23</span>
-                                            <span>24</span>
                                         </div>
-                                        <code class="code__text language-javascript">function checkBrackets(str) {
-    let stack = [];
-    let brackets = ["[", "(", "{"];
-    let obj = {
-        "{" : "}",
-        "(" : ")",
-        "[" : "]",
-    }
+                                        <code class="code__text language-javascript">// Сортировка Шелла
+function ShellSorting(array) {
+    const l = array.length;
+    let gap = Math.floor(l / 2);
 
-    for (let i = 0; i &lt; str.length; i++) {
-        const bracket = str[i];
+    while (gap >= 1) {
+        for (let i = gap; i &lt; l; i++) {
+            const current = array[i];
+            let j = i;
 
-        if (brackets.includes(bracket)) {
-            stack.push(bracket);
-        } else {
-            const lastElement = stack.pop();
+            while (j > 0 && array[j - gap] > current) {
+                array[j] = array[j - gap];
+                j -= gap;
+            }
 
-            if (bracket !== obj[lastElement]) return false;
+            array[j] = current;
         }
+
+        gap = Math.floor(gap / 2);
     }
 
-    if (stack.length !== 0) return false;
-    return true;
+    return array;
 }</code>
                                     </pre>
 									<button class="button-copy _icon-save">скопировать</button>
@@ -164,12 +153,39 @@
 						</section>
 						<section class="article__section">
 							<h2 class="article__title">Пример работы</h2>
-							<h4 class="article__subtitle">Введите строку</h4>
-							<div class="article__example article__text">
-								<input class="article__input" placeholder="" type="text" id="string">
-								<button class="button" id="setString">проверить</button>
-							</div>
-							<h2 class="article__result text article__subtitle" id="code-result"></h2>
+							<form action="#">
+								<h4 class="article__subtitle">Введите последовательность</h4>
+
+								<div class="article__example article__text">
+									<input class="article__input" placeholder="" type="text" id="array">
+									<button type="button" class="button" id="sortArray">сортировать</button>
+								</div>
+
+								<p class="article__text text" id="showResult"></p>
+
+								<h4 class="article__subtitle">Или можете сгенерировать её</h4>
+
+
+								<div class="article__example article__text array-length-wrapper">
+									<p class="text array-describtion">По умолчанию длина последовательности равна 10, но
+										в
+										этом поле вы можете изменить это значение</p>
+									<input class="article__input array-length" placeholder="" type="text" id="arrayLength" value="10">
+								</div>
+
+
+								<div class="article__example article__text">
+									<input class="article__input" placeholder="" type="text" id="generatedArray">
+									<button type="button" class="button" id="setGeneratedArray">сгенерировать</button>
+									<button type="button" class="button" id="sortGeneratedArray">сортировать</button>
+								</div>
+
+								<p class="article__text text" id="showResultGenerated"></p>
+
+
+								<button class="button" id="buttonReset" type="button">сбросить</button>
+							</form>
+
 						</section>
 						<section class="article__section">
 							<h2 class="article__title">Python</h2>
@@ -179,61 +195,8 @@
 									<pre>
                                         <div class="code__lines">
                                             <span>1</span>
-                                            <span>2</span>
-                                            <span>3</span>
-                                            <span>4</span>
-                                            <span>5</span>
-                                            <span>6</span>
-                                            <span>7</span>
-                                            <span>8</span>
-                                            <span>9</span>
-                                            <span>10</span>
-                                            <span>11</span>
-                                            <span>12</span>
-                                            <span>13</span>
-                                            <span>14</span>
-                                            <span>15</span>
-                                            <span>16</span>
-                                            <span>17</span>
-                                            <span>18</span>
-                                            <span>19</span>
-                                            <span>20</span>
-                                            <span>21</span>
-                                            <span>22</span>
-                                            <span>23</span>
-                                            <span>24</span>
-                                            <span>25</span>
-                                            <span>26</span>
-                                            <span>27</span>
                                         </div>
-                                        <code class="code__text language-python">while True:
-    line = input("Введите строку:\n")
-    opposites = {
-        ")": "(",
-        "}": "{",
-        "]": "["
-    }
-
-    result, storage, count = True, [], -1
-
-    for char in line:
-        if char in opposites.values():
-            storage.append(char)
-            count += 1
-        else:
-            if count == -1:
-                result = False
-                break
-            count -= 1
-            if storage.pop() != opposites[char]:
-                result = False
-                break
-
-    if result and count == -1:
-        print("Строка является правильной скобочной последовательностью")
-    else:
-        print("Строка не является правильной скобочной последовательностью")
-</code>
+                                        <code class="code__text language-python"></code>
                                     </pre>
 									<button class="button-copy _icon-save">скопировать</button>
 								</div>
@@ -297,7 +260,7 @@
 		</div>
 	</div>
 </div> -->
-	<script src="js/app.min.js?_v=20221002004320"></script>
+	<script src="js/app.min.js?_v=20221208180237"></script>
 
 
 </body>

@@ -6,14 +6,15 @@
 	<meta charset="UTF-8">
 	<meta name="format-detection" content="telephone=no">
 	<!-- <style>body{opacity: 0;}</style> -->
-	<link rel="stylesheet" href="css/style.min.css?_v=20221002004320">
+	<link rel="stylesheet" href="css/style.min.css?_v=20221208180237">
 	<link rel="shortcut icon" href="favicon.ico">
-	<!-- <meta name="robots" content="noindex, nofollow"> -->
+
+	<meta name="robots" content="index, follow">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 
 <body>
-	<div class="wrapper">
+	<div class="wrapper ADS" id="ADS-4">
 		<header data-lp class="header">
 			<div class="header__menu menu">
 				<nav class="menu__body">
@@ -75,19 +76,122 @@
 						<section class="article__section">
 							<h2 class="article__title">Принцип алгоритма</h2>
 							<h4 class="article__subtitle"></h4>
-							<p class="article__text text">Так как шаг равен длине массива - 1
-								в начале программа сравнивает первый и последний элемент массива
-								если последний меньше первого меняем их местами
-								уменьшаем шаг на 1</p>
-							<p class="article__text text">Сравниваем первый и предпоследний, второй и последний
-								при необходимости меняем местами
-								уменьшаем шаг на 1</p>
-							<p class="article__text text">Продолжаем сравнивать элементы, которые находятся на
-								расстоянии step друг от друга
-								пока длина шага не станет равна 0 (то есть cравниваем соседние элементы)
-								это будет наша последняя прогонка
-								после этого наш массив отсортирован</p>
+							<p class="article__text text">Сортировка методом причёсывания представляет собой
+								улучшенный вариант сортировки пузырьком</p>
+							<p class="article__text text">Сортировка пузырьком основана на сравнении и перестановке
+								соседних элементов, то есть разница их индексов всегда равна
+								1. Но если увеличить ее и сравнивать элементы стоящие на большем расстоянии друг от
+								друга, то минимальные элементы,
+								находящиеся в конце массива, можно передвинуть в его начало за меньшее количество
+								перестановок</p>
+							<p class="article__text text">На каком же расстоянии стоит сравнивать элементы?</p>
+							<p class="article__text text">Во первых, это число зависит от длины самого массива — чем
+								больше массив, тем больший разрыв можно брать между
+								элементами</p>
+							<p class="article__text text">Во вторых, это расстояние должно постепенно уменьшиться до 1,
+								чтобы на последней итерации цикла мы смогли проверить все
+								элементы один за другим как в обычной сортировке пузырьком</p>
+							<p class="article__text text">Это хорошо видно на иллюстрации:</p>
+							<div class="article__text article__image">
+								<img src="img/ASD/combSorting.gif" alt="sortingBySelection">
+							</div>
+							<p class="article__text text">Число, на которое должен раз за разом уменьшаться разрыв, было
+								названо фактором уменьшения и выведено авторами
+								сортировки из формулы. Оно равно ~1.247. В своей программе я буду использовать именно
+								его, но можно просто каждый раз уменьшать шаг на 1. Поэтому за первоначальный шаг я беру
+								не длину массива минус один, а длину массива, деленного на фактор уменьшения и
+								округленного до целого. После каждой итерации я так же буду делить на этот фактор
+								уменьшения и округлять. Это будет продолжаться до тех пор, пока шаг не станет равным 1
+							</p>
+						</section>
+						<section class="article__section">
+							<h2 class="article__title">JavaScript</h2>
 							<p class="article__text text"></p>
+							<div class="code">
+								<div class="code__body">
+									<pre>
+                                                                <div class="code__lines">
+                                                                    <span>1</span>
+                                                                    <span>2</span>
+                                                                    <span>3</span>
+                                                                    <span>4</span>
+                                                                    <span>5</span>
+                                                                    <span>6</span>
+                                                                    <span>7</span>
+                                                                    <span>8</span>
+                                                                    <span>9</span>
+                                                                    <span>10</span>
+                                                                    <span>11</span>
+                                                                    <span>12</span>
+                                                                    <span>13</span>
+                                                                    <span>14</span>
+                                                                    <span>15</span>
+                                                                    <span>16</span>
+                                                                    <span>17</span>
+                                                                    <span>18</span>
+                                                                    <span>19</span>
+                                                                    <span>20</span>
+                                                                </div>
+                                                                <code class="code__text language-javascript">function CombSorting(array) {
+    let l = array.length;
+    let factor = 1.247;
+    let gapFactor = l / factor;
+
+    while (gapFactor > 1) {
+        let gap = Math.round(gapFactor); // тут нужно округлять до целого,
+                                         // так как мы делим наш шаг на 1.247, 
+                                         // что в итоге даёт нецелое число, 
+                                         // а шаг таким быть не может
+
+        for (let i = 0, j = gap; j &lt; l; i++, j++) {
+            if (array[i] > array[j]) {
+                [array[i], array[j]] = [array[j], array[i]];
+            }
+        }
+        gapFactor = gapFactor / factor;
+    }
+    return array;
+};</code>
+                                                            </pre>
+									<button class="button-copy _icon-save">скопировать</button>
+								</div>
+							</div>
+						</section>
+						<section class="article__section">
+							<h2 class="article__title">Пример работы</h2>
+							<form action="#">
+								<h4 class="article__subtitle">Введите последовательность</h4>
+
+								<div class="article__example article__text">
+									<input class="article__input" placeholder="" type="text" id="array">
+									<button type="button" class="button" id="sortArray">сортировать</button>
+								</div>
+
+								<p class="article__text text" id="showResult"></p>
+
+								<h4 class="article__subtitle">Или можете сгенерировать её</h4>
+
+
+								<div class="article__example article__text array-length-wrapper">
+									<p class="text array-describtion">По умолчанию длина последовательности равна 10, но
+										в
+										этом поле вы можете изменить это значение</p>
+									<input class="article__input array-length" placeholder="" type="text" id="arrayLength" value="10">
+								</div>
+
+
+								<div class="article__example article__text">
+									<input class="article__input" placeholder="" type="text" id="generatedArray">
+									<button type="button" class="button" id="setGeneratedArray">сгенерировать</button>
+									<button type="button" class="button" id="sortGeneratedArray">сортировать</button>
+								</div>
+
+								<p class="article__text text" id="showResultGenerated"></p>
+
+
+								<button class="button" id="buttonReset" type="button">сбросить</button>
+							</form>
+
 						</section>
 						<section class="article__section">
 							<h2 class="article__title">Python</h2>
@@ -300,7 +404,7 @@ int main() {
 		</div>
 	</div>
 </div> -->
-	<script src="js/app.min.js?_v=20221002004320"></script>
+	<script src="js/app.min.js?_v=20221208180237"></script>
 
 
 </body>
