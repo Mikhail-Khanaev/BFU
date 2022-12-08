@@ -1,88 +1,174 @@
 <!DOCTYPE html>
 <html lang="ru">
-@@include('html/_head.htm',{
-"title":"Алгоритмы и стуктуры данных"
-})
+
+<head>
+	<title>Алгоритмы и стуктуры данных</title>
+	<meta charset="UTF-8">
+	<meta name="format-detection" content="telephone=no">
+	<!-- <style>body{opacity: 0;}</style> -->
+	<link rel="stylesheet" href="css/style.min.css?_v=20221209012854">
+	<link rel="shortcut icon" href="favicon.ico">
+
+	<meta name="robots" content="index, follow">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
 
 <body>
-    <div class="wrapper">
-        @@include('html/_header.htm',{})
-        <main class="page">
+	<div class="wrapper">
+		<header data-lp class="header">
+			<div class="header__menu menu">
+				<nav class="menu__body">
+					<div class="menu__list">
+						<div class="menu-wrapper__container">
+							<h2 class="header__title title">Лабораторные работы</h2>
+							<ul class="menu-list">
+								<li class="menu__item footer__item"><a href="index.html">Главная</a></li>
+								<li class="menu__item footer__item"><a href="account.html">Личный кабинет</a></li>
+								<li class="menu__item footer__item"><a href="math.html">Математический анализ</a></li>
+								<li class="menu__item footer__item"><a href="ADS.html">Алгоритмы и структуры данных</a></li>
+								<li class="menu__item footer__item"><a href="RTS.html">Системы реального времени</a></li>
+								<li class="menu__item footer__item"><a href="basic-programming.html">Основы программирования</a>
+								</li>
+								<li class="menu__item footer__item"><a href="python.html">Язык Python</a></li>
+							</ul>
+							<div class="menu__socials menu-socials">
+								<ul class="menu-socials__list">
+									<a target="_blank" class="socials__link menu-socials__item _icon-1" href="https://vk.com/berl1ngo"></a>
+									<a target="_blank" class="socials__link menu-socials__item _icon-2" href="https://t.me/Berl1ngo"></a>
+									<a target="_blank" class="socials__link menu-socials__item _icon-3" href="https://github.com/Mikhail-Khanaev"></a>
+									<a target="_blank" class="socials__link menu-socials__item _icon-4" href="#"></a>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</nav>
+				<div class="icon-menu-wrapper">
+					<button type="button" class="menu__icon icon-menu">
+						<div><span></span></div>
+					</button>
+				</div>
+			</div>
+		</header>
+		<main class="page">
 
-            <section class="card">
-                <div class="card__container">
-                    <div class="card__body border-radius card-ads">
-                        <h1 class="card__title title">АСД</h1>
-                        <img src="@img/subjects/1.svg" alt="1">
-                    </div>
-                </div>
-            </section>
-            <!-- END card -->
-            <section class="labs">
-                <div class="labs__container">
-                    <div class="labs__body border-radius">
-                        <ol class="labs__list">
-                            <li class="labs__item"><a href="ADS-1.html">Задача о скобках</a></li>
-                            <li class="labs__item"><a href="ADS-2.html">Задача об арифмитическом выражении</a></li>
-                            <li class="labs__item disabled"><a href="ADS-3.html">Задача о простых множителях</a></li>
-                            <li class="labs__item"><a href="ADS-4.html">Методы сортировки. Сортировка методом
-                                    причёсывания</a>
-                            </li>
-                            <li class="labs__item"><a href="ADS-5.html">Методы сортировки. Сортировка вставками</a></li>
-                            <li class="labs__item"><a href="ADS-6.html">Методы сортировки. Сортировка посредством
-                                    выбора</a></li>
-                            <li class="labs__item"><a href="ADS-7.html">Методы сортировки. Сортировка методом
-                                    Шелла</a>
-                            </li>
-                            <li class="labs__item"><a href="ADS-8.html">Методы сортировки. Сортировка
-                                    поразрядная</a>
-                            </li>
-                            <li class="labs__item"><a href="ADS-9.html">Методы сортировки. Сортировка
-                                    пирамидальная</a>
-                            </li>
-                            <li class="labs__item disabled"><a href="ADS-10.html">Методы сортировки. Сортировка
-                                    слиянием</a></li>
-                            <li class="labs__item disabled"><a href="ADS-11.html">Методы сортировки. Быстрая
-                                    сортировка</a></li>
-                            <li class="labs__item disabled"><a href="ADS-12.html">Методы сортировки. Внешняя
-                                    многофазная</a></li>
-                            <li class="labs__item disabled"><a href="ADS-13.html">Выбрав некоторую хеш-функцию создать
-                                    хеш-таблицу с наложением</a></li>
-                            <li class="labs__item disabled"><a href="ADS-14.html">Выбрав некоторую хеш-функцию создать
-                                    хеш-таблицу со списками</a></li>
-                            <li class="labs__item disabled"><a href="ADS-15.html">"Рекурсивные обходы (прямой,
-                                    центральный, кольцевой)"</a></li>
-                            <li class="labs__item disabled"><a href="ADS-16.html">"Не рекурсивный прямой обход"</a></li>
-                            <li class="labs__item disabled"><a href="ADS-17.html">Операции над БДП: поиск, добавление,
-                                    удаление</a></li>
-                        </ol>
-                    </div>
-                </div>
-            </section>
-            <section class="exams">
-                <div class="exams__container">
-                    <div class="exams__body border-radius">
-                        <h2 class="exams__title title">Экзамены и зачёты</h2>
-                        <ul class="exams__list">
-                            <li class="exams__item"><span>Математический анализ</span><span>экзамен</span></li>
-                            <li class="exams__item"><span>Основы программирования</span><span>зачет</span></li>
-                            <li class="exams__item"><span>Иностранный язык</span><span>зачет</span></li>
-                            <li class="exams__item"><span>Физра</span><span>зачет</span></li>
-                            <li class="exams__item"><span>Математическа логика</span><span>зачет</span></li>
-                            <li class="exams__item"><span>Дифф. уравнения</span><span>зачет</span></li>
-                            <li class="exams__item"><span>АСД</span><span>экзамен</span></li>
-                            <li class="exams__item"><span>Язык Python</span><span>зачет</span></li>
-                        </ul>
-                        <img src="@img/subjects/4.svg" alt="1">
-                    </div>
-                </div>
-            </section>
-            <!-- END exams -->
-        </main>
-        @@include('html/_footer.htm',{})
-    </div>
-    @@include('html/_popup.htm',{})
-    @@include('html/_js.htm',{})
+			<section class="card">
+				<div class="card__container">
+					<div class="card__body border-radius card-ads">
+						<h1 class="card__title title">АСД</h1>
+						<img src="img/subjects/1.svg" alt="1">
+					</div>
+				</div>
+			</section>
+			<!-- END card -->
+			<section class="labs">
+				<div class="labs__container">
+					<div class="labs__body border-radius">
+						<ol class="labs__list">
+							<li class="labs__item"><a href="ADS-1.html">Задача о скобках</a></li>
+							<li class="labs__item"><a href="ADS-2.html">Задача об арифмитическом выражении</a></li>
+							<li class="labs__item disabled"><a href="ADS-3.html">Задача о простых множителях</a></li>
+							<li class="labs__item"><a href="ADS-4.html">Методы сортировки. Сортировка методом
+									причёсывания</a>
+							</li>
+							<li class="labs__item"><a href="ADS-5.html">Методы сортировки. Сортировка вставками</a></li>
+							<li class="labs__item"><a href="ADS-6.html">Методы сортировки. Сортировка посредством
+									выбора</a></li>
+							<li class="labs__item"><a href="ADS-7.html">Методы сортировки. Сортировка методом
+									Шелла</a>
+							</li>
+							<li class="labs__item"><a href="ADS-8.html">Методы сортировки. Сортировка
+									поразрядная</a>
+							</li>
+							<li class="labs__item"><a href="ADS-9.html">Методы сортировки. Сортировка
+									пирамидальная</a>
+							</li>
+							<li class="labs__item disabled"><a href="ADS-10.html">Методы сортировки. Сортировка
+									слиянием</a></li>
+							<li class="labs__item disabled"><a href="ADS-11.html">Методы сортировки. Быстрая
+									сортировка</a></li>
+							<li class="labs__item disabled"><a href="ADS-12.html">Методы сортировки. Внешняя
+									многофазная</a></li>
+							<li class="labs__item disabled"><a href="ADS-13.html">Выбрав некоторую хеш-функцию создать
+									хеш-таблицу с наложением</a></li>
+							<li class="labs__item disabled"><a href="ADS-14.html">Выбрав некоторую хеш-функцию создать
+									хеш-таблицу со списками</a></li>
+							<li class="labs__item disabled"><a href="ADS-15.html">"Рекурсивные обходы (прямой,
+									центральный, кольцевой)"</a></li>
+							<li class="labs__item disabled"><a href="ADS-16.html">"Не рекурсивный прямой обход"</a></li>
+							<li class="labs__item disabled"><a href="ADS-17.html">Операции над БДП: поиск, добавление,
+									удаление</a></li>
+						</ol>
+					</div>
+				</div>
+			</section>
+			<section class="exams">
+				<div class="exams__container">
+					<div class="exams__body border-radius">
+						<h2 class="exams__title title">Экзамены и зачёты</h2>
+						<ul class="exams__list">
+							<li class="exams__item"><span>Математический анализ</span><span>экзамен</span></li>
+							<li class="exams__item"><span>Основы программирования</span><span>зачет</span></li>
+							<li class="exams__item"><span>Иностранный язык</span><span>зачет</span></li>
+							<li class="exams__item"><span>Физра</span><span>зачет</span></li>
+							<li class="exams__item"><span>Математическа логика</span><span>зачет</span></li>
+							<li class="exams__item"><span>Дифф. уравнения</span><span>зачет</span></li>
+							<li class="exams__item"><span>АСД</span><span>экзамен</span></li>
+							<li class="exams__item"><span>Язык Python</span><span>зачет</span></li>
+						</ul>
+						<img src="img/subjects/4.svg" alt="1">
+					</div>
+				</div>
+			</section>
+			<!-- END exams -->
+		</main>
+		<footer class="footer">
+			<div class="footer__container">
+				<div class="footer__links">
+					<div class="footer__column">
+						<ul class="footer__list">
+							<li class="footer__item"><a href="index.html">Главная</a></li>
+							<li class="footer__item"><a href="account.html">Личный кабинет</a></li>
+							<li class="footer__item"><a href="math.html">Математический анализ</a></li>
+							<li class="footer__item"><a href="ADS.html">Алгоритмы и структуры данных</a></li>
+						</ul>
+					</div>
+					<div class="footer__column">
+						<ul class="footer__list">
+							<li class="footer__item"><a href="RTS.html">Системы реального времени</a></li>
+							<li class="footer__item"><a href="basic-programming.html">Основы программирования</a></li>
+							<li class="footer__item"><a href="python.html">Язык Python</a></li>
+						</ul>
+					</div>
+					<div class="footer__column footer__column-socials">
+						<div class="footer__socials socials">
+							<div class="socials__list">
+								<a target="_blank" class="socials__link _icon-1" href="https://vk.com/berl1ngo"></a>
+								<a target="_blank" class="socials__link _icon-2" href="https://t.me/Berl1ngo"></a>
+								<a target="_blank" class="socials__link _icon-3" href="https://github.com/Mikhail-Khanaev"></a>
+								<a target="_blank" class="socials__link _icon-4" href="#"></a>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="footer__copyright copyright">
+					<p class="copyright__text">Надизайнил - Михаил Ханаев</p>
+					<p class="copyright__text">Программирование - тоже Михаил Ханаев :)</p>
+					<p class="copyright__text">© 2022</p>
+				</div>
+			</div>
+		</footer>
+	</div>
+	<!-- <div id="popup" aria-hidden="true" class="popup">
+	<div class="popup__wrapper">
+		<div class="popup__content">
+			<button data-close type="button" class="popup__close">Закрыть</button>
+			<div class="popup__text">
+				Text
+			</div>
+		</div>
+	</div>
+</div> -->
+	<script src="js/app.min.js?_v=20221209012854"></script>
 </body>
 
 
