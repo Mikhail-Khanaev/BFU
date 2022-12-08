@@ -6,7 +6,7 @@
 	<meta charset="UTF-8">
 	<meta name="format-detection" content="telephone=no">
 	<!-- <style>body{opacity: 0;}</style> -->
-	<link rel="stylesheet" href="css/style.min.css?_v=20221208180237">
+	<link rel="stylesheet" href="css/style.min.css?_v=20221209012854">
 	<link rel="shortcut icon" href="favicon.ico">
 
 	<meta name="robots" content="index, follow">
@@ -14,7 +14,7 @@
 </head>
 
 <body>
-	<div class="wrapper">
+	<div class="wrapper ADS" id="ADS-9">
 		<header data-lp class="header">
 			<div class="header__menu menu">
 				<nav class="menu__body">
@@ -54,22 +54,14 @@
 				<div class="card__container">
 					<div class="card__body border-radius card-article">
 						<h1 class="card__title title">Методы сортировки. Сортировка пирамидальная</h1>
-						<!-- <img src="img/subjects/1.svg" alt="1"> -->
 					</div>
 				</div>
 			</section>
 			<section class="card card-text">
 				<div class="card__container">
 					<div class="card__body border-radius card-article">
-						<!-- <h1 class="card__title title">Задача о скобках</h1> -->
-						<!-- <img src="img/subjects/1.svg" alt="1"> -->
-						<p class="card__text text">На вход подаётся строка, состоящая из скобок. Программа должна
-							определить правильность введёного скобочного выражения.
-							Программа должна работать на русском языке: “Введите строку”, “Строка не существует”,
-							“Строка существует” и т.п.</p>
-						<p class="card__text text">Пункт 1: В строке будут скобки только одного типа: или “()”, или
-							“{}”, или “[]”</p>
-						<p class="card__text text">Пункт 2: В строке будут все три вида скобок</p>
+						<p class="card__text text">Дана последовательность чисел. Отсортировать и вывести
+							последовательность чисел, определённым методом</p>
 					</div>
 				</div>
 			</section>
@@ -79,102 +71,44 @@
 					<div class="article__body border-radius">
 						<section class="article__section">
 							<h2 class="article__title">Принцип алгоритма</h2>
-							<h4 class="article__subtitle"></h4>
-							<p class="article__text text">Сначала мы перебираем каждый элемент строки. Если нам
-								попадается открывающаяся скобка, то мы добавляем её в стек. Стек
-								это такая структура даннных, которая работает по приципу "последним зашёл, первым ушёл".
-								Если нам попадается
-								закрывающаяся скобка, то из стека мы достаём открывающаюся. Если там эта скобка есть, то
-								всё отлично - мы нашли пару
-								скобок. Но если этой скобки там нет, то значит, что стек уже пустой. Следовательно в
-								строке есть лишние скобки. Функция
-								завершается. Но если интерация закончилась и функция не завершилась, то мы проверяем, не
-								пустой ли у нас стек. Если в
-								стеке что-то есть, то значит, что у нас открывающихся скобок было больше и строка
-								неправильная. Функция также
-								завершается. Но если и это условие не выполнилось, то значит, что всё отлично.</p>
+							<h4 class="article__subtitle">YouTube</h4>
+							<p class="article__text text">в <a class="link" target="_blank" href="https://www.youtube.com/watch?v=DU1uG5310x0">этом</a> видео хорошо и наглядно
+								всё объясняют</p>
+
+							<h4 class="article__subtitle">Словами</h4>
+							<p class="article__text text">Пирамидальная сортировка (или сортировка кучей, HeapSort) —
+								это
+								метод сортировки сравнением, основанный на такой
+								структуре данных как двоичная куча. Она похожа на сортировку выбором, где мы сначала
+								ищем максимальный элемент и
+								помещаем его в конец. Далее мы повторяем ту же операцию для оставшихся элементов</p>
+							<h4 class="article__subtitle">Что такое двоичная куча?</h4>
+							<p class="article__text text">Давайте сначала определим законченное двоичное дерево.
+								Законченное двоичное дерево — это двоичное дерево, в котором
+								каждый уровень, за исключением, возможно, последнего, имеет полный набор узлов, и все
+								листья расположены как можно левее</p>
+							<p class="article__text text">Двоичная куча — это законченное двоичное дерево, в котором
+								элементы хранятся в особом порядке: значение в родительском
+								узле больше (или меньше) значений в его двух дочерних узлах. Первый вариант называется
+								max-heap, а второй — min-heap.
+								Куча может быть представлена двоичным деревом или массивом</p>
+
+
+							<h4 class="article__subtitle">Почему для двоичной кучи используется представление на основе
+								массива?</h4>
+							<p class="article__text text">Поскольку двоичная куча — это законченное двоичное дерево, ее
+								можно легко представить в виде массива, а представление на
+								основе массива является эффективным с точки зрения расхода памяти. Если родительский
+								узел хранится в индексе I, левый
+								дочерний элемент может быть вычислен как 2 I + 1, а правый дочерний элемент — как 2 I +
+								2 (при условии, что
+								индексирование начинается с 0)</p>
+
 							<p class="article__text text"></p>
+
 						</section>
 						<section class="article__section">
 							<h2 class="article__title">JavaScript</h2>
-							<h2 class="article__subtitle">Метод includes</h2>
-							<p class="article__text text">Проверяет, есть ли такое значение в массиве</p>
-							<h2 class="article__subtitle">Метод push</h2>
-							<p class="article__text text">Добаляет элеменет в конец массива</p>
-							<h2 class="article__subtitle">Метод pop</h2>
-							<p class="article__text text">Удаляет последний элемент массива (в нашем случае это
-								вершина стека) и возращает его. Это позволяет нам присвоить последний элемент в
-								переменную "lastElement"</p>
-							<div class="code">
-								<div class="code__body">
-									<pre>
-                                        <div class="code__lines">
-                                            <span>1</span>
-                                            <span>2</span>
-                                            <span>3</span>
-                                            <span>4</span>
-                                            <span>5</span>
-                                            <span>6</span>
-                                            <span>7</span>
-                                            <span>8</span>
-                                            <span>9</span>
-                                            <span>10</span>
-                                            <span>11</span>
-                                            <span>12</span>
-                                            <span>13</span>
-                                            <span>14</span>
-                                            <span>15</span>
-                                            <span>16</span>
-                                            <span>17</span>
-                                            <span>18</span>
-                                            <span>19</span>
-                                            <span>20</span>
-                                            <span>21</span>
-                                            <span>22</span>
-                                            <span>23</span>
-                                            <span>24</span>
-                                        </div>
-                                        <code class="code__text language-javascript">function checkBrackets(str) {
-    let stack = [];
-    let brackets = ["[", "(", "{"];
-    let obj = {
-        "{" : "}",
-        "(" : ")",
-        "[" : "]",
-    }
-
-    for (let i = 0; i &lt; str.length; i++) {
-        const bracket = str[i];
-
-        if (brackets.includes(bracket)) {
-            stack.push(bracket);
-        } else {
-            const lastElement = stack.pop();
-
-            if (bracket !== obj[lastElement]) return false;
-        }
-    }
-
-    if (stack.length !== 0) return false;
-    return true;
-}</code>
-                                    </pre>
-									<button class="button-copy _icon-save">скопировать</button>
-								</div>
-							</div>
-						</section>
-						<section class="article__section">
-							<h2 class="article__title">Пример работы</h2>
-							<h4 class="article__subtitle">Введите строку</h4>
-							<div class="article__example article__text">
-								<input class="article__input" placeholder="" type="text" id="string">
-								<button class="button" id="setString">проверить</button>
-							</div>
-							<h2 class="article__result text article__subtitle" id="code-result"></h2>
-						</section>
-						<section class="article__section">
-							<h2 class="article__title">Python</h2>
-							<p class="article__text text"></p>
 							<div class="code">
 								<div class="code__body">
 									<pre>
@@ -206,35 +140,121 @@
                                             <span>25</span>
                                             <span>26</span>
                                             <span>27</span>
+                                            <span>28</span>
+                                            <span>29</span>
+                                            <span>30</span>
+                                            <span>31</span>
+                                            <span>32</span>
+                                            <span>33</span>
+                                            <span>34</span>
+                                            <span>35</span>
+                                            <span>36</span>
+                                            <span>37</span>
+                                            <span>38</span>
+                                            <span>39</span>
+                                            <span>40</span>
+                                            <span>41</span>
+                                            <span>42</span>
+                                            <span>43</span>
+                                            <span>44</span>
+                                            <span>45</span>
                                         </div>
-                                        <code class="code__text language-python">while True:
-    line = input("Введите строку:\n")
-    opposites = {
-        ")": "(",
-        "}": "{",
-        "]": "["
+                                        <code class="code__text language-javascript">// Пирамидальная сортировка
+function HeapSort(array) {
+    // Вспомогательная функция,
+    // для преобразования в двоичную кучу поддерева с корневым узлом i, 
+    // что является индексом в arr[] 
+    // n - размер кучи
+    function heapify(array, n, i) {
+        var largest = i;            // Инициализируем наибольший как корневой
+        var leftChild = 2 * i + 1;  // left = 2*i + 1
+        var rightChild = 2 * i + 2; // right = 2*i + 2
+
+        // Проверяем существует ли левый дочерний элемент больший, чем корень
+        if (leftChild &lt; n && array[leftChild] > array[largest])
+            largest = leftChild;
+
+        // Проверяем существует ли правый дочерний элемент больший, чем корень
+        if (rightChild &lt; n && array[rightChild] > array[largest])
+            largest = rightChild;
+
+        // Если самый большой элемент не корень, заменяем
+        if (largest != i) {
+            [array[i], array[largest]] = [array[largest], array[i]];
+
+            // Применяем heapify к корню
+            heapify(array, n, largest);
+        }
     }
 
-    result, storage, count = True, [], -1
+    let n = array.length;
 
-    for char in line:
-        if char in opposites.values():
-            storage.append(char)
-            count += 1
-        else:
-            if count == -1:
-                result = False
-                break
-            count -= 1
-            if storage.pop() != opposites[char]:
-                result = False
-                break
+    // Построение max-heap
+    for (let i = Math.floor(n / 2) - 1; i >= 0; i--)
+        heapify(array, n, i);
 
-    if result and count == -1:
-        print("Строка является правильной скобочной последовательностью")
-    else:
-        print("Строка не является правильной скобочной последовательностью")
-</code>
+    // Один за другим извлекаем элементы из кучи
+    for (let i = n - 1; i > 0; i--) {
+        // Перемещаем корень в конец
+        [array[0], array[i]] = [array[i], array[0]];
+
+        // вызываем max heapify уже для уменьшенной кучи
+        heapify(array, i, 0);
+    }
+
+    return array;
+}</code>
+                                    </pre>
+									<button class="button-copy _icon-save">скопировать</button>
+								</div>
+							</div>
+						</section>
+						<section class="article__section">
+							<h2 class="article__title">Пример работы</h2>
+							<form action="#">
+								<h4 class="article__subtitle">Введите последовательность</h4>
+
+								<div class="article__example article__text">
+									<input class="article__input" placeholder="" type="text" id="array">
+									<button type="button" class="button" id="sortArray">сортировать</button>
+								</div>
+
+								<p class="article__text text" id="showResult"></p>
+
+								<h4 class="article__subtitle">Или можете сгенерировать её</h4>
+
+
+								<div class="article__example article__text array-length-wrapper">
+									<p class="text array-describtion">По умолчанию длина последовательности равна 10, но
+										в
+										этом поле вы можете изменить это значение</p>
+									<input class="article__input array-length" placeholder="" type="text" id="arrayLength" value="10">
+								</div>
+
+
+								<div class="article__example article__text">
+									<input class="article__input" placeholder="" type="text" id="generatedArray">
+									<button type="button" class="button" id="setGeneratedArray">сгенерировать</button>
+									<button type="button" class="button" id="sortGeneratedArray">сортировать</button>
+								</div>
+
+								<p class="article__text text" id="showResultGenerated"></p>
+
+
+								<button class="button" id="buttonReset" type="button">сбросить</button>
+							</form>
+
+						</section>
+						<section class="article__section">
+							<h2 class="article__title">Python</h2>
+							<p class="article__text text"></p>
+							<div class="code">
+								<div class="code__body">
+									<pre>
+                                        <div class="code__lines">
+                                            <span>1</span>
+                                        </div>
+                                        <code class="code__text language-python"></code>
                                     </pre>
 									<button class="button-copy _icon-save">скопировать</button>
 								</div>
@@ -298,7 +318,7 @@
 		</div>
 	</div>
 </div> -->
-	<script src="js/app.min.js?_v=20221208180237"></script>
+	<script src="js/app.min.js?_v=20221209012854"></script>
 
 
 </body>

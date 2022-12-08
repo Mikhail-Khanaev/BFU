@@ -211,6 +211,11 @@ section:not(:last-child) {
   margin-bottom: 0.125rem;
 }
 
+hr {
+  margin-bottom: 3.125rem;
+  border-bottom: 4px solid #fff;
+}
+
 .title {
   font-family: "Ambidexter";
   text-align: center;

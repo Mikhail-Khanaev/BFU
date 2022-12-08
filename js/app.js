@@ -1537,8 +1537,8 @@
         };
       u();
     }
-    let P, O, F;
-    function D() {
+    let P, O, D;
+    function F() {
       return (
         P ||
           (P = (function () {
@@ -1576,7 +1576,7 @@
         O ||
           (O = (function (e) {
             let { userAgent: t } = void 0 === e ? {} : e;
-            const n = D(),
+            const n = F(),
               s = g(),
               i = s.navigator.platform,
               r = t || s.navigator.userAgent,
@@ -1620,8 +1620,8 @@
     }
     function z() {
       return (
-        F ||
-          (F = (function () {
+        D ||
+          (D = (function () {
             const e = g();
             return {
               isSafari: (function () {
@@ -1637,7 +1637,7 @@
               ),
             };
           })()),
-        F
+        D
       );
     }
     const B = {
@@ -3613,7 +3613,7 @@
         }
         const r = this;
         (r.__swiper__ = !0),
-          (r.support = D()),
+          (r.support = F()),
           (r.device = I({ userAgent: t.userAgent })),
           (r.browser = z()),
           (r.eventsListeners = {}),
@@ -5087,17 +5087,17 @@
                     var _ = E[0],
                       P = C.slice(0, A),
                       O = C.slice(A + _.length),
-                      F = T + C.length;
-                    u && F > u.reach && (u.reach = F);
-                    var D = x.prev;
+                      D = T + C.length;
+                    u && D > u.reach && (u.reach = D);
+                    var F = x.prev;
                     if (
-                      (P && ((D = d(t, D, P)), (T += P.length)),
-                      c(t, D, k),
-                      (x = d(t, D, new r(p, m ? i.tokenize(_, m) : _, y, _))),
+                      (P && ((F = d(t, F, P)), (T += P.length)),
+                      c(t, F, k),
+                      (x = d(t, F, new r(p, m ? i.tokenize(_, m) : _, y, _))),
                       O && d(t, x, O),
                       k > 1)
                     ) {
-                      var I = { cause: p + "," + h, reach: F };
+                      var I = { cause: p + "," + h, reach: D };
                       o(e, t, n, x.prev, T, I),
                         u && I.reach > u.reach && (u.reach = I.reach);
                     }
@@ -5635,38 +5635,75 @@
       }
       return e;
     }
-    if (
-      (null != ye &&
-        ye.addEventListener("click", () => {
-          let e = document.getElementById("string").value;
-          console.log(typeof e),
-            0 == e.length
-              ? ((document.querySelector("#code-result").style.color =
-                  "#D0722E"),
-                (document.querySelector("#code-result").innerHTML =
-                  "Я же вижу, что это пустая строка..."))
-              : !(function (e) {
-                  let t = [],
-                    n = ["[", "(", "{"],
-                    s = { "{": "}", "(": ")", "[": "]" };
-                  for (let i = 0; i < e.length; i++) {
-                    const r = e[i];
-                    if (n.includes(r)) t.push(r);
-                    else {
-                      if (r !== s[t.pop()]) return !1;
-                    }
+    function Ee(e) {
+      let t = ((e) => {
+        let t = 0;
+        for (let s = 0; s < e.length; s++)
+          t = Math.max(
+            t,
+            0 === (n = e[s]) ? 1 : Math.floor(Math.log10(Math.abs(n))) + 1
+          );
+        var n;
+        return t;
+      })(e);
+      for (let i = 0; i < t; i++) {
+        let t = Array.from({ length: 10 }, () => []);
+        for (let r = 0; r < e.length; r++) {
+          t[
+            ((n = e[r]),
+            (s = i),
+            Math.floor(Math.abs(n) / Math.pow(10, s)) % 10)
+          ].push(e[r]);
+        }
+        e = [].concat(...t);
+      }
+      var n, s;
+      return e;
+    }
+    function ke(e) {
+      function t(e, n, s) {
+        var i = s,
+          r = 2 * s + 1,
+          a = 2 * s + 2;
+        r < n && e[r] > e[i] && (i = r),
+          a < n && e[a] > e[i] && (i = a),
+          i != s && (([e[s], e[i]] = [e[i], e[s]]), t(e, n, i));
+      }
+      let n = e.length;
+      for (let s = Math.floor(n / 2) - 1; s >= 0; s--) t(e, n, s);
+      for (let s = n - 1; s > 0; s--) ([e[0], e[s]] = [e[s], e[0]]), t(e, s, 0);
+      return e;
+    }
+    null != ye &&
+      ye.addEventListener("click", () => {
+        let e = document.getElementById("string").value;
+        console.log(typeof e),
+          0 == e.length
+            ? ((document.querySelector("#code-result").style.color = "#D0722E"),
+              (document.querySelector("#code-result").innerHTML =
+                "Я же вижу, что это пустая строка..."))
+            : !(function (e) {
+                let t = [],
+                  n = ["[", "(", "{"],
+                  s = { "{": "}", "(": ")", "[": "]" };
+                for (let i = 0; i < e.length; i++) {
+                  const r = e[i];
+                  if (n.includes(r)) t.push(r);
+                  else {
+                    if (r !== s[t.pop()]) return !1;
                   }
-                  return 0 === t.length;
-                })(e)
-              ? ((document.querySelector("#code-result").style.color =
-                  "#E06363"),
-                (document.querySelector("#code-result").innerHTML =
-                  "Такой строки не может быть!"))
-              : ((document.querySelector("#code-result").style.color =
-                  "#3CA478"),
-                (document.querySelector("#code-result").innerHTML =
-                  "Такая строка существует!"));
-        }),
+                }
+                return 0 === t.length;
+              })(e)
+            ? ((document.querySelector("#code-result").style.color = "#E06363"),
+              (document.querySelector("#code-result").innerHTML =
+                "Такой строки не может быть!"))
+            : ((document.querySelector("#code-result").style.color = "#3CA478"),
+              (document.querySelector("#code-result").innerHTML =
+                "Такая строка существует!"));
+      });
+    if (
+      (console.log(ke([12, 11, 13, 5, 6, 7, 98, 321, -312])),
       document.querySelector(".ADS"))
     ) {
       let e = document.getElementById("array"),
@@ -5710,12 +5747,16 @@
           let e = s.value.split(" ").map((e) => +e);
           we(e)
             ? ("ADS-4" == o.getAttribute("id")
-                ? Se(e)
+                ? (e = Se(e))
                 : "ADS-5" == o.getAttribute("id")
-                ? xe(e)
+                ? (e = xe(e))
                 : "ADS-6" == o.getAttribute("id")
-                ? Te(e)
-                : "ADS-7" == o.getAttribute("id") && Ce(e),
+                ? (e = Te(e))
+                : "ADS-7" == o.getAttribute("id")
+                ? (e = Ce(e))
+                : "ADS-8" == o.getAttribute("id")
+                ? (e = Ee(e))
+                : "ADS-9" == o.getAttribute("id") && (e = ke(e)),
               (document.querySelector("#showResultGenerated").style.color =
                 "#3CA478"),
               (document.querySelector("#showResultGenerated").innerHTML =
@@ -5734,7 +5775,11 @@
                 ? xe(t)
                 : "ADS-6" == o.getAttribute("id")
                 ? Te(t)
-                : "ADS-7" == o.getAttribute("id") && Ce(t),
+                : "ADS-7" == o.getAttribute("id")
+                ? Ce(t)
+                : "ADS-8" == o.getAttribute("id")
+                ? Ee(t)
+                : "ADS-9" == o.getAttribute("id") && (t = ke(t)),
               (document.querySelector("#showResult").style.color = "#3CA478"),
               (document.querySelector("#showResult").innerHTML = t.join(", ")))
             : ((document.querySelector("#showResult").style.color = "#E06363"),
@@ -5742,7 +5787,7 @@
                 "В последовательности есть ошибка"));
         });
     }
-    function Ee(e) {
+    function Ae(e) {
       return [
         "воскресенье",
         "понедельник",
@@ -5767,7 +5812,7 @@
           s = document.querySelectorAll(".table-schedule__title");
         for (let i = 0; i < s.length; i++) {
           s[i].innerHTML =
-            i % 2 == 0 ? `${Ee(e)}, ${n} неделя` : `${Ee(t)}, ${n} неделя`;
+            i % 2 == 0 ? `${Ae(e)}, ${n} неделя` : `${Ae(t)}, ${n} неделя`;
         }
       })();
       let e = new Date().getWeek() % 2 == 0 ? "верхняя" : "нижняя",
@@ -6282,14 +6327,14 @@
           localStorage.setItem("group", e.value);
         });
     }
-    let ke = localStorage.getItem("group");
-    if (null != ke) {
-      ke = +ke[0];
+    let $e = localStorage.getItem("group");
+    if (null != $e) {
+      $e = +$e[0];
       let e = document.querySelectorAll(".tabs__title");
       for (let t = 0; t < e.length; t++) {
         const n = e[t];
         n.classList.remove("_tab-active"),
-          t == ke && n.classList.add("_tab-active");
+          t == $e && n.classList.add("_tab-active");
       }
     }
     (window.FLS = !0),
