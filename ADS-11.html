@@ -6,7 +6,7 @@
 	<meta charset="UTF-8">
 	<meta name="format-detection" content="telephone=no">
 	<!-- <style>body{opacity: 0;}</style> -->
-	<link rel="stylesheet" href="css/style.min.css?_v=20221209012854">
+	<link rel="stylesheet" href="css/style.min.css?_v=20221210025114">
 	<link rel="shortcut icon" href="favicon.ico">
 
 	<meta name="robots" content="index, follow">
@@ -77,6 +77,93 @@
 							<h4 class="article__subtitle"></h4>
 							<p class="article__text text"></p>
 							<p class="article__text text"></p>
+						</section>
+						<section class="article__section">
+							<h2 class="article__title">JavaScript</h2>
+
+							<div class="code">
+								<div class="code__body">
+									<pre>
+                                        <div class="code__lines">
+                                            <span>1</span>
+                                            <span>2</span>
+                                            <span>3</span>
+                                            <span>4</span>
+                                            <span>5</span>
+                                            <span>6</span>
+                                            <span>7</span>
+                                            <span>8</span>
+                                            <span>9</span>
+                                            <span>10</span>
+                                            <span>11</span>
+                                            <span>12</span>
+                                            <span>13</span>
+                                            <span>14</span>
+                                            <span>15</span>
+                                            <span>16</span>
+                                            <span>17</span>
+                                            <span>18</span>
+                                            <span>19</span>
+                                            <span>20</span>
+                                            <span>21</span>
+                                            <span>22</span>
+                                            <span>23</span>
+                                            <span>24</span>
+                                            <span>25</span>
+                                            <span>26</span>
+                                            <span>27</span>
+                                            <span>28</span>
+                                            <span>29</span>
+                                            <span>30</span>
+                                            <span>31</span>
+                                            <span>32</span>
+                                            <span>33</span>
+                                            <span>34</span>
+                                            <span>35</span>
+                                            <span>36</span>
+                                            <span>37</span>
+                                        </div>
+                                        <code class="code__text language-javascript">function QuickSort(array, low = 0, hi = array.length - 1) {
+
+    let partition = (array, low, hi) => {
+        let pivotPosition = Math.floor(Math.random() * array.length);
+        let pivot = array[pivotPosition];
+
+
+        while (hi >= low) {
+            while (array[hi] > pivot) {
+                hi--;
+            }
+
+            while (array[low] &lt; pivot) {
+                low++;
+            }
+
+            if (hi >= low) {
+                [array[hi], array[low]] = [array[low], array[hi]];
+                hi--;
+                low++;
+            }
+        }
+
+        return low;
+    }
+
+    if (low &lt; hi) {
+        let index = partition(array, low, hi);
+
+        if (array.length > 1) {
+            if (low &lt; index - 1) QuickSort(array, low, index - 1);
+            if (index &lt; hi) QuickSort(array, index, hi);
+        }
+    }
+
+    return array;
+}</code>
+                                    </pre>
+									<button class="button-copy _icon-save">скопировать</button>
+								</div>
+							</div>
 						</section>
 						<section class="article__section">
 							<h2 class="article__title">C++</h2>
@@ -194,7 +281,7 @@
 		</div>
 	</div>
 </div> -->
-	<script src="js/app.min.js?_v=20221209012854"></script>
+	<script src="js/app.min.js?_v=20221210025114"></script>
 
 
 </body>
