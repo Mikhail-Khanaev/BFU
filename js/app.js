@@ -1413,10 +1413,10 @@
       Object.defineProperty(y.fn, e, { value: x[e], writable: !0 });
     });
     const T = y;
-    function C(e, t) {
+    function E(e, t) {
       return void 0 === t && (t = 0), setTimeout(e, t);
     }
-    function E() {
+    function C() {
       return Date.now();
     }
     function k(e, t) {
@@ -1475,17 +1475,17 @@
         "Object" === Object.prototype.toString.call(e).slice(8, -1)
       );
     }
-    function $(e) {
+    function L(e) {
       return "undefined" != typeof window && void 0 !== window.HTMLElement
         ? e instanceof HTMLElement
         : e && (1 === e.nodeType || 11 === e.nodeType);
     }
-    function L() {
+    function $() {
       const e = Object(arguments.length <= 0 ? void 0 : arguments[0]),
         t = ["__proto__", "constructor", "prototype"];
       for (let n = 1; n < arguments.length; n += 1) {
         const i = n < 0 || arguments.length <= n ? void 0 : arguments[n];
-        if (null != i && !$(i)) {
+        if (null != i && !L(i)) {
           const n = Object.keys(Object(i)).filter((e) => t.indexOf(e) < 0);
           for (let t = 0, s = n.length; t < s; t += 1) {
             const s = n[t],
@@ -1495,9 +1495,9 @@
               (A(e[s]) && A(i[s])
                 ? i[s].__swiper__
                   ? (e[s] = i[s])
-                  : L(e[s], i[s])
+                  : $(e[s], i[s])
                 : !A(e[s]) && A(i[s])
-                ? ((e[s] = {}), i[s].__swiper__ ? (e[s] = i[s]) : L(e[s], i[s]))
+                ? ((e[s] = {}), i[s].__swiper__ ? (e[s] = i[s]) : $(e[s], i[s]))
                 : (e[s] = i[s]));
           }
         }
@@ -1640,7 +1640,7 @@
         D
       );
     }
-    const B = {
+    const q = {
       on(e, t, n) {
         const i = this;
         if (!i.eventsListeners || i.destroyed) return i;
@@ -1727,7 +1727,7 @@
         );
       },
     };
-    const q = {
+    const B = {
       updateSize: function () {
         const e = this;
         let t, n;
@@ -1809,22 +1809,22 @@
             (M(e.wrapperEl, "--swiper-centered-offset-before", ""),
             M(e.wrapperEl, "--swiper-centered-offset-after", ""));
         const T = i.grid && i.grid.rows > 1 && e.grid;
-        let C;
+        let E;
         T && e.grid.initSlides(u);
-        const E =
+        const C =
           "auto" === i.slidesPerView &&
           i.breakpoints &&
           Object.keys(i.breakpoints).filter(
             (e) => void 0 !== i.breakpoints[e].slidesPerView
           ).length > 0;
         for (let s = 0; s < u; s += 1) {
-          C = 0;
+          E = 0;
           const a = c.eq(s);
           if (
             (T && e.grid.updateSlide(s, a, u, t), "none" !== a.css("display"))
           ) {
             if ("auto" === i.slidesPerView) {
-              E && (c[s].style[t("width")] = "");
+              C && (c[s].style[t("width")] = "");
               const r = getComputedStyle(a[0]),
                 o = a[0].style.transform,
                 l = a[0].style.webkitTransform;
@@ -1833,7 +1833,7 @@
                 l && (a[0].style.webkitTransform = "none"),
                 i.roundLengths)
               )
-                C = e.isHorizontal() ? a.outerWidth(!0) : a.outerHeight(!0);
+                E = e.isHorizontal() ? a.outerWidth(!0) : a.outerHeight(!0);
               else {
                 const e = n(r, "width"),
                   t = n(r, "padding-left"),
@@ -1841,23 +1841,23 @@
                   s = n(r, "margin-left"),
                   o = n(r, "margin-right"),
                   l = r.getPropertyValue("box-sizing");
-                if (l && "border-box" === l) C = e + s + o;
+                if (l && "border-box" === l) E = e + s + o;
                 else {
                   const { clientWidth: n, offsetWidth: r } = a[0];
-                  C = e + t + i + s + o + (r - n);
+                  E = e + t + i + s + o + (r - n);
                 }
               }
               o && (a[0].style.transform = o),
                 l && (a[0].style.webkitTransform = l),
-                i.roundLengths && (C = Math.floor(C));
+                i.roundLengths && (E = Math.floor(E));
             } else
-              (C = (r - (i.slidesPerView - 1) * y) / i.slidesPerView),
-                i.roundLengths && (C = Math.floor(C)),
-                c[s] && (c[s].style[t("width")] = `${C}px`);
-            c[s] && (c[s].swiperSlideSize = C),
-              h.push(C),
+              (E = (r - (i.slidesPerView - 1) * y) / i.slidesPerView),
+                i.roundLengths && (E = Math.floor(E)),
+                c[s] && (c[s].style[t("width")] = `${E}px`);
+            c[s] && (c[s].swiperSlideSize = E),
+              h.push(E),
               i.centeredSlides
-                ? ((w = w + C / 2 + S / 2 + y),
+                ? ((w = w + E / 2 + S / 2 + y),
                   0 === S && 0 !== s && (w = w - r / 2 - y),
                   0 === s && (w = w - r / 2 - y),
                   Math.abs(w) < 0.001 && (w = 0),
@@ -1869,9 +1869,9 @@
                     e.params.slidesPerGroup ==
                     0 && p.push(w),
                   f.push(w),
-                  (w = w + C + y)),
-              (e.virtualSize += C + y),
-              (S = C),
+                  (w = w + E + y)),
+              (e.virtualSize += E + y),
+              (S = E),
               (x += 1);
           }
         }
@@ -1883,7 +1883,7 @@
             s.css({ width: `${e.virtualSize + i.spaceBetween}px` }),
           i.setWrapperSize &&
             s.css({ [t("width")]: `${e.virtualSize + i.spaceBetween}px` }),
-          T && e.grid.updateWrapperSize(C, p, t),
+          T && e.grid.updateWrapperSize(E, p, t),
           !i.centeredSlides)
         ) {
           const t = [];
@@ -2632,7 +2632,7 @@
                     )
                     .eq(0)
                     .index()),
-                  C(() => {
+                  E(() => {
                     e.slideTo(r);
                   }))
                 : e.slideTo(r)
@@ -2644,7 +2644,7 @@
                   )
                   .eq(0)
                   .index()),
-                C(() => {
+                E(() => {
                   e.slideTo(r);
                 }))
               : e.slideTo(r);
@@ -2807,7 +2807,7 @@
         }),
         (a.startX = p),
         (a.startY = h),
-        (s.touchStartTime = E()),
+        (s.touchStartTime = C()),
         (t.allowClick = !0),
         t.updateSize(),
         (t.swipeDirection = void 0),
@@ -2866,7 +2866,7 @@
               currentX: c,
               currentY: u,
             }),
-            (i.touchStartTime = E()))
+            (i.touchStartTime = C()))
           )
         );
       if (i.isTouchEvent && s.touchReleaseOnEdges && !s.loop)
@@ -3026,7 +3026,7 @@
         n.isTouched &&
         (!0 === t.allowSlideNext || !0 === t.allowSlidePrev) &&
         t.setGrabCursor(!1);
-      const d = E(),
+      const d = C(),
         c = d - n.touchStartTime;
       if (t.allowClick) {
         const e = l.path || (l.composedPath && l.composedPath());
@@ -3037,8 +3037,8 @@
             t.emit("doubleTap doubleClick", l);
       }
       if (
-        ((n.lastClickTime = E()),
-        C(() => {
+        ((n.lastClickTime = C()),
+        E(() => {
           t.destroyed || (t.allowClick = !0);
         }),
         !n.isTouched ||
@@ -3261,7 +3261,7 @@
           });
         const p = l.direction && l.direction !== s.direction,
           f = s.loop && (l.slidesPerView !== s.slidesPerView || p);
-        p && n && e.changeDirection(), L(e.params, l);
+        p && n && e.changeDirection(), $(e.params, l);
         const h = e.params.enabled;
         Object.assign(e, {
           allowTouchMove: e.params.allowTouchMove,
@@ -3462,14 +3462,14 @@
                   "enabled" in e[i] ||
                   (e[i].enabled = !0),
                 e[i] || (e[i] = { enabled: !1 }),
-                L(t, n))
-              : L(t, n))
-          : L(t, n);
+                $(t, n))
+              : $(t, n))
+          : $(t, n);
       };
     }
     const re = {
-        eventsEmitter: B,
-        update: q,
+        eventsEmitter: q,
+        update: B,
         translate: N,
         transition: {
           setTransition: function (e, t) {
@@ -3598,14 +3598,14 @@
             ? (t = i[0])
             : ([e, t] = i),
           t || (t = {}),
-          (t = L({}, t)),
+          (t = $({}, t)),
           e && !t.el && (t.el = e),
           t.el && T(t.el).length > 1)
         ) {
           const e = [];
           return (
             T(t.el).each((n) => {
-              const i = L({}, t, { el: n });
+              const i = $({}, t, { el: n });
               e.push(new oe(i));
             }),
             e
@@ -3631,11 +3631,11 @@
             emit: r.emit.bind(r),
           });
         });
-        const o = L({}, ie, a);
+        const o = $({}, ie, a);
         return (
-          (r.params = L({}, o, ae, t)),
-          (r.originalParams = L({}, r.params)),
-          (r.passedParams = L({}, t)),
+          (r.params = $({}, o, ae, t)),
+          (r.originalParams = $({}, r.params)),
+          (r.passedParams = $({}, t)),
           r.params &&
             r.params.on &&
             Object.keys(r.params.on).forEach((e) => {
@@ -3690,7 +3690,7 @@
               startTranslate: void 0,
               allowThresholdMove: void 0,
               focusableElements: r.params.focusableElements,
-              lastClickTime: E(),
+              lastClickTime: C(),
               clickTimeout: void 0,
               velocities: [],
               allowMomentumBounce: void 0,
@@ -3992,7 +3992,7 @@
         );
       }
       static extendDefaults(e) {
-        L(ae, e);
+        $(ae, e);
       }
       static get extendedDefaults() {
         return ae;
@@ -4620,7 +4620,7 @@
         e.attr("data-swiper-autoplay") &&
           (i = e.attr("data-swiper-autoplay") || n.params.autoplay.delay),
           clearTimeout(t),
-          (t = C(() => {
+          (t = E(() => {
             let e;
             n.params.autoplay.reverseDirection
               ? n.params.loop
@@ -5061,33 +5061,33 @@
                   x !== t.tail && !(u && T >= u.reach);
                   T += x.value.length, x = x.next
                 ) {
-                  var C = x.value;
+                  var E = x.value;
                   if (t.length > e.length) return;
-                  if (!(C instanceof r)) {
-                    var E,
+                  if (!(E instanceof r)) {
+                    var C,
                       k = 1;
                     if (b) {
-                      if (!(E = a(S, T, e, v)) || E.index >= e.length) break;
-                      var A = E.index,
-                        $ = E.index + E[0].length,
-                        L = T;
-                      for (L += x.value.length; A >= L; )
-                        L += (x = x.next).value.length;
-                      if (((T = L -= x.value.length), x.value instanceof r))
+                      if (!(C = a(S, T, e, v)) || C.index >= e.length) break;
+                      var A = C.index,
+                        L = C.index + C[0].length,
+                        $ = T;
+                      for ($ += x.value.length; A >= $; )
+                        $ += (x = x.next).value.length;
+                      if (((T = $ -= x.value.length), x.value instanceof r))
                         continue;
                       for (
                         var M = x;
-                        M !== t.tail && (L < $ || "string" == typeof M.value);
+                        M !== t.tail && ($ < L || "string" == typeof M.value);
                         M = M.next
                       )
-                        k++, (L += M.value.length);
-                      k--, (C = e.slice(T, L)), (E.index -= T);
-                    } else if (!(E = a(S, 0, C, v))) continue;
-                    A = E.index;
-                    var _ = E[0],
-                      P = C.slice(0, A),
-                      O = C.slice(A + _.length),
-                      D = T + C.length;
+                        k++, ($ += M.value.length);
+                      k--, (E = e.slice(T, $)), (C.index -= T);
+                    } else if (!(C = a(S, 0, E, v))) continue;
+                    A = C.index;
+                    var _ = C[0],
+                      P = E.slice(0, A),
+                      O = E.slice(A + _.length),
+                      D = T + E.length;
                     u && D > u.reach && (u.reach = D);
                     var F = x.prev;
                     if (
@@ -5588,122 +5588,6 @@
         },
       });
     let ye = document.querySelector("#setString");
-    function we(e) {
-      for (let t = 0; t < e.length; t++) if (isNaN((e[t] = +e[t]))) return !1;
-      return !0;
-    }
-    function Se(e) {
-      let t = e.length,
-        n = t / 1.247;
-      for (; n > 1; ) {
-        for (let i = 0, s = Math.round(n); s < t; i++, s++)
-          e[i] > e[s] && ([e[i], e[s]] = [e[s], e[i]]);
-        n /= 1.247;
-      }
-      return e;
-    }
-    function xe(e) {
-      for (let t = 0; t < e.length; t++) {
-        let n = e[t],
-          i = t;
-        for (; i > 0 && e[i - 1] > n; ) (e[i] = e[i - 1]), (i -= 1);
-        e[i] = n;
-      }
-    }
-    function Te(e) {
-      let t = e.length,
-        n = t - 1;
-      for (let i = 0; i < n; i++) {
-        let n = i;
-        for (let s = i + 1; s < t; s++) e[n] > e[s] && (n = s);
-        n !== i && ([e[i], e[n]] = [e[n], e[i]]);
-      }
-      return e;
-    }
-    function Ce(e) {
-      const t = e.length;
-      let n = Math.floor(t / 2);
-      for (; n >= 1; ) {
-        for (let i = n; i < t; i++) {
-          const t = e[i];
-          let s = i;
-          for (; s > 0 && e[s - n] > t; ) (e[s] = e[s - n]), (s -= n);
-          e[s] = t;
-        }
-        n = Math.floor(n / 2);
-      }
-      return e;
-    }
-    function Ee(e) {
-      let t = ((e) => {
-        let t = 0;
-        for (let i = 0; i < e.length; i++)
-          t = Math.max(
-            t,
-            0 === (n = e[i]) ? 1 : Math.floor(Math.log10(Math.abs(n))) + 1
-          );
-        var n;
-        return t;
-      })(e);
-      for (let s = 0; s < t; s++) {
-        let t = Array.from({ length: 10 }, () => []);
-        for (let r = 0; r < e.length; r++) {
-          t[
-            ((n = e[r]),
-            (i = s),
-            Math.floor(Math.abs(n) / Math.pow(10, i)) % 10)
-          ].push(e[r]);
-        }
-        e = [].concat(...t);
-      }
-      var n, i;
-      return e;
-    }
-    function ke(e) {
-      function t(e, n, i) {
-        var s = i,
-          r = 2 * i + 1,
-          a = 2 * i + 2;
-        r < n && e[r] > e[s] && (s = r),
-          a < n && e[a] > e[s] && (s = a),
-          s != i && (([e[i], e[s]] = [e[s], e[i]]), t(e, n, s));
-      }
-      let n = e.length;
-      for (let i = Math.floor(n / 2) - 1; i >= 0; i--) t(e, n, i);
-      for (let i = n - 1; i > 0; i--) ([e[0], e[i]] = [e[i], e[0]]), t(e, i, 0);
-      return e;
-    }
-    function Ae(e) {
-      if (e.length <= 1) return e;
-      let t = Math.floor(e.length / 2),
-        n = e.slice(0, t),
-        i = e.slice(t);
-      return ((e, t) => {
-        let n = [],
-          i = 0,
-          s = 0;
-        for (; i < e.length && s < t.length; )
-          e[i] < t[s] ? (n.push(e[i]), i++) : (n.push(t[s]), s++);
-        for (; i < e.length; ) n.push(e[i]), i++;
-        for (; s < t.length; ) n.push(t[s]), s++;
-        return n;
-      })(Ae(n), Ae(i));
-    }
-    function $e(e, t = 0, n = e.length - 1) {
-      if (t < n) {
-        let i = ((e, t, n) => {
-          let i = e[Math.floor(Math.random() * e.length)];
-          for (; n >= t; ) {
-            for (; e[n] > i; ) n--;
-            for (; e[t] < i; ) t++;
-            n >= t && (([e[n], e[t]] = [e[t], e[n]]), n--, t++);
-          }
-          return t;
-        })(e, t, n);
-        e.length > 1 && (t < i - 1 && $e(e, t, i - 1), i < n && $e(e, i, n));
-      }
-      return e;
-    }
     null != ye &&
       ye.addEventListener("click", () => {
         let e = document.getElementById("string").value;
@@ -5732,10 +5616,160 @@
               (document.querySelector("#code-result").innerHTML =
                 "Такая строка существует!"));
       });
-    if (
-      (console.log($e([12, 11, 13, 5, 6, 7, 7, 312, -213, 0, 98, 321, -312])),
-      document.querySelector(".ADS"))
-    ) {
+    let we = document.querySelector("#setNumber");
+    if (document.querySelector("#ADS-3") && we) {
+      we.addEventListener("click", () => {
+        let e = +document.getElementById("string").value;
+        if (0 == e)
+          (document.querySelector("#code-result").style.color = "#D0722E"),
+            (document.querySelector("#code-result").innerHTML =
+              "Я же вижу, что это пустая строка...");
+        else if (isNaN(e))
+          (document.querySelector("#code-result").style.color = "#E06363"),
+            (document.querySelector("#code-result").innerHTML =
+              "Допущена ошибка при вводе");
+        else {
+          let t = (function (e) {
+            let t = [];
+            for (let n = 1; n <= e; n++) {
+              let e = 0,
+                i = 0,
+                s = 0,
+                r = n;
+              for (; r % 3 == 0; ) e++, (r /= 3);
+              for (; r % 5 == 0; ) i++, (r /= 5);
+              for (; r % 7 == 0; ) s++, (r /= 7);
+              1 == r && t.push(n);
+            }
+            return t;
+          })(e);
+          (document.querySelector("#code-result").style.color = "#3CA478"),
+            (document.querySelector("#code-result").innerHTML = t.join(", "));
+        }
+      }),
+        document
+          .querySelector("#buttonResetNumber")
+          .addEventListener("click", () => {
+            document.querySelector("#code-result").innerHTML = " ";
+          });
+    }
+    function Se(e) {
+      for (let t = 0; t < e.length; t++) if (isNaN((e[t] = +e[t]))) return !1;
+      return !0;
+    }
+    function xe(e) {
+      let t = e.length,
+        n = t / 1.247;
+      for (; n > 1; ) {
+        for (let i = 0, s = Math.round(n); s < t; i++, s++)
+          e[i] > e[s] && ([e[i], e[s]] = [e[s], e[i]]);
+        n /= 1.247;
+      }
+      return e;
+    }
+    function Te(e) {
+      for (let t = 0; t < e.length; t++) {
+        let n = e[t],
+          i = t;
+        for (; i > 0 && e[i - 1] > n; ) (e[i] = e[i - 1]), (i -= 1);
+        e[i] = n;
+      }
+    }
+    function Ee(e) {
+      let t = e.length,
+        n = t - 1;
+      for (let i = 0; i < n; i++) {
+        let n = i;
+        for (let s = i + 1; s < t; s++) e[n] > e[s] && (n = s);
+        n !== i && ([e[i], e[n]] = [e[n], e[i]]);
+      }
+      return e;
+    }
+    function Ce(e) {
+      const t = e.length;
+      let n = Math.floor(t / 2);
+      for (; n >= 1; ) {
+        for (let i = n; i < t; i++) {
+          const t = e[i];
+          let s = i;
+          for (; s > 0 && e[s - n] > t; ) (e[s] = e[s - n]), (s -= n);
+          e[s] = t;
+        }
+        n = Math.floor(n / 2);
+      }
+      return e;
+    }
+    function ke(e) {
+      let t = ((e) => {
+        let t = 0;
+        for (let i = 0; i < e.length; i++)
+          t = Math.max(
+            t,
+            0 === (n = e[i]) ? 1 : Math.floor(Math.log10(Math.abs(n))) + 1
+          );
+        var n;
+        return t;
+      })(e);
+      for (let s = 0; s < t; s++) {
+        let t = Array.from({ length: 10 }, () => []);
+        for (let r = 0; r < e.length; r++) {
+          t[
+            ((n = e[r]),
+            (i = s),
+            Math.floor(Math.abs(n) / Math.pow(10, i)) % 10)
+          ].push(e[r]);
+        }
+        e = [].concat(...t);
+      }
+      var n, i;
+      return e;
+    }
+    function Ae(e) {
+      function t(e, n, i) {
+        var s = i,
+          r = 2 * i + 1,
+          a = 2 * i + 2;
+        r < n && e[r] > e[s] && (s = r),
+          a < n && e[a] > e[s] && (s = a),
+          s != i && (([e[i], e[s]] = [e[s], e[i]]), t(e, n, s));
+      }
+      let n = e.length;
+      for (let i = Math.floor(n / 2) - 1; i >= 0; i--) t(e, n, i);
+      for (let i = n - 1; i > 0; i--) ([e[0], e[i]] = [e[i], e[0]]), t(e, i, 0);
+      return e;
+    }
+    function Le(e) {
+      if (e.length <= 1) return e;
+      let t = Math.floor(e.length / 2),
+        n = e.slice(0, t),
+        i = e.slice(t);
+      return ((e, t) => {
+        let n = [],
+          i = 0,
+          s = 0;
+        for (; i < e.length && s < t.length; )
+          e[i] < t[s] ? (n.push(e[i]), i++) : (n.push(t[s]), s++);
+        for (; i < e.length; ) n.push(e[i]), i++;
+        for (; s < t.length; ) n.push(t[s]), s++;
+        return n;
+      })(Le(n), Le(i));
+    }
+    function $e(e, t = 0, n = e.length - 1) {
+      if (t < n) {
+        let i = ((e, t, n) => {
+          let i = e[Math.floor((t + n) / 2)];
+          for (; n >= t; ) {
+            for (; e[n] > i; ) n--;
+            for (; e[t] < i; ) t++;
+            n >= t && (([e[n], e[t]] = [e[t], e[n]]), n--, t++);
+          }
+          return t;
+        })(e, t, n);
+        e.length > 1 && (t < i - 1 && $e(e, t, i - 1), i < n && $e(e, i, n));
+      }
+      return e;
+    }
+    if (document.querySelector(".ADS-sortings")) {
       let e = document.getElementById("array"),
         t = document.getElementById("sortArray"),
         n = Number(document.getElementById("arrayLength").value),
@@ -5756,8 +5790,8 @@
       }),
         r.addEventListener("click", () => {
           let e = i.value.split(" ").map((e) => +e);
-          we(e)
-            ? ("ADS-5" == o.getAttribute("id") ? xe(e) : console.log(""),
+          Se(e)
+            ? ("ADS-5" == o.getAttribute("id") ? Te(e) : console.log(""),
               (document.querySelector("#showResultGenerated").style.color =
                 "#3CA478"),
               (document.querySelector("#showResultGenerated").innerHTML =
@@ -5775,21 +5809,21 @@
         }),
         r.addEventListener("click", () => {
           let e = i.value.split(" ").map((e) => +e);
-          we(e)
+          Se(e)
             ? ("ADS-4" == o.getAttribute("id")
-                ? (e = Se(e))
-                : "ADS-5" == o.getAttribute("id")
                 ? (e = xe(e))
-                : "ADS-6" == o.getAttribute("id")
+                : "ADS-5" == o.getAttribute("id")
                 ? (e = Te(e))
+                : "ADS-6" == o.getAttribute("id")
+                ? (e = Ee(e))
                 : "ADS-7" == o.getAttribute("id")
                 ? (e = Ce(e))
                 : "ADS-8" == o.getAttribute("id")
-                ? (e = Ee(e))
-                : "ADS-9" == o.getAttribute("id")
                 ? (e = ke(e))
-                : "ADS-10" == o.getAttribute("id")
+                : "ADS-9" == o.getAttribute("id")
                 ? (e = Ae(e))
+                : "ADS-10" == o.getAttribute("id")
+                ? (e = Le(e))
                 : "ADS-11" == o.getAttribute("id") && (e = $e(e)),
               (document.querySelector("#showResultGenerated").style.color =
                 "#3CA478"),
@@ -5802,21 +5836,21 @@
         }),
         t.addEventListener("click", () => {
           let t = e.value.split(" ").map((e) => +e);
-          we(t)
+          Se(t)
             ? ("ADS-4" == o.getAttribute("id")
-                ? (t = Se(t))
-                : "ADS-5" == o.getAttribute("id")
                 ? (t = xe(t))
-                : "ADS-6" == o.getAttribute("id")
+                : "ADS-5" == o.getAttribute("id")
                 ? (t = Te(t))
+                : "ADS-6" == o.getAttribute("id")
+                ? (t = Ee(t))
                 : "ADS-7" == o.getAttribute("id")
                 ? (t = Ce(t))
                 : "ADS-8" == o.getAttribute("id")
-                ? (t = Ee(t))
-                : "ADS-9" == o.getAttribute("id")
                 ? (t = ke(t))
-                : "ADS-10" == o.getAttribute("id")
+                : "ADS-9" == o.getAttribute("id")
                 ? (t = Ae(t))
+                : "ADS-10" == o.getAttribute("id")
+                ? (t = Le(t))
                 : "ADS-11" == o.getAttribute("id") && (t = $e(t)),
               (document.querySelector("#showResult").style.color = "#3CA478"),
               (document.querySelector("#showResult").innerHTML = t.join(", ")))
@@ -5825,7 +5859,7 @@
                 "В последовательности есть ошибка"));
         });
     }
-    function Le(e) {
+    function Me(e) {
       return [
         "воскресенье",
         "понедельник",
@@ -5850,7 +5884,7 @@
           i = document.querySelectorAll(".table-schedule__title");
         for (let s = 0; s < i.length; s++) {
           i[s].innerHTML =
-            s % 2 == 0 ? `${Le(e)}, ${n} неделя` : `${Le(t)}, ${n} неделя`;
+            s % 2 == 0 ? `${Me(e)}, ${n} неделя` : `${Me(t)}, ${n} неделя`;
         }
       })();
       let e = new Date().getWeek() % 2 == 0 ? "верхняя" : "нижняя",
@@ -6365,14 +6399,14 @@
           localStorage.setItem("group", e.value);
         });
     }
-    let Me = localStorage.getItem("group");
-    if (null != Me) {
-      Me = +Me[0];
+    let _e = localStorage.getItem("group");
+    if (null != _e) {
+      _e = +_e[0];
       let e = document.querySelectorAll(".tabs__title");
       for (let t = 0; t < e.length; t++) {
         const n = e[t];
         n.classList.remove("_tab-active"),
-          t == Me && n.classList.add("_tab-active");
+          t == _e && n.classList.add("_tab-active");
       }
     }
     (window.FLS = !0),

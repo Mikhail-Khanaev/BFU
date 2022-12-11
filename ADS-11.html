@@ -6,7 +6,7 @@
 	<meta charset="UTF-8">
 	<meta name="format-detection" content="telephone=no">
 	<!-- <style>body{opacity: 0;}</style> -->
-	<link rel="stylesheet" href="css/style.min.css?_v=20221210025114">
+	<link rel="stylesheet" href="css/style.min.css?_v=20221211021010">
 	<link rel="shortcut icon" href="favicon.ico">
 
 	<meta name="robots" content="index, follow">
@@ -14,7 +14,7 @@
 </head>
 
 <body>
-	<div class="wrapper">
+	<div class="wrapper ADS ADS-sortings" id="ADS-11">
 		<header data-lp class="header">
 			<div class="header__menu menu">
 				<nav class="menu__body">
@@ -166,6 +166,42 @@
 							</div>
 						</section>
 						<section class="article__section">
+							<h2 class="article__title">Пример работы</h2>
+							<form action="#">
+								<h4 class="article__subtitle">Введите последовательность</h4>
+
+								<div class="article__example article__text">
+									<input class="article__input" placeholder="" type="text" id="array">
+									<button type="button" class="button" id="sortArray">сортировать</button>
+								</div>
+
+								<p class="article__text text" id="showResult"></p>
+
+								<h4 class="article__subtitle">Или можете сгенерировать её</h4>
+
+
+								<div class="article__example article__text array-length-wrapper">
+									<p class="text array-describtion">По умолчанию длина последовательности равна 10, но
+										в
+										этом поле вы можете изменить это значение</p>
+									<input class="article__input array-length" placeholder="" type="text" id="arrayLength" value="10">
+								</div>
+
+
+								<div class="article__example article__text">
+									<input class="article__input" placeholder="" type="text" id="generatedArray">
+									<button type="button" class="button" id="setGeneratedArray">сгенерировать</button>
+									<button type="button" class="button" id="sortGeneratedArray">сортировать</button>
+								</div>
+
+								<p class="article__text text" id="showResultGenerated"></p>
+
+
+								<button class="button" id="buttonReset" type="button">сбросить</button>
+							</form>
+
+						</section>
+						<section class="article__section">
 							<h2 class="article__title">C++</h2>
 							<div class="code">
 								<div class="code__body">
@@ -281,7 +317,7 @@
 		</div>
 	</div>
 </div> -->
-	<script src="js/app.min.js?_v=20221210025114"></script>
+	<script src="js/app.min.js?_v=20221211021010"></script>
 
 
 </body>
