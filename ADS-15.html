@@ -2,11 +2,11 @@
 <html lang="ru">
 
 <head>
-	<title>Методы сортировки. Сортировка посредством выбора</title>
+	<title>Рекурсивные обходы (прямой, центральный, кольцевой)</title>
 	<meta charset="UTF-8">
 	<meta name="format-detection" content="telephone=no">
 	<!-- <style>body{opacity: 0;}</style> -->
-	<link rel="stylesheet" href="css/style.min.css?_v=20221210025114">
+	<link rel="stylesheet" href="css/style.min.css?_v=20221215025346">
 	<link rel="shortcut icon" href="favicon.ico">
 
 	<meta name="robots" content="index, follow">
@@ -14,7 +14,7 @@
 </head>
 
 <body>
-	<div class="wrapper ADS" id="ADS-6">
+	<div class="wrapper ADS ADS-binaryThree" id="ADS-15">
 		<header data-lp class="header">
 			<div class="header__menu menu">
 				<nav class="menu__body">
@@ -53,8 +53,7 @@
 			<section class="card">
 				<div class="card__container">
 					<div class="card__body border-radius card-article">
-						<h1 class="card__title title">Методы сортировки. Сортировка посредством выбора</h1>
-						<!-- <img src="img/subjects/1.svg" alt="1"> -->
+						<h1 class="card__title title">Рекурсивные обходы (прямой, центральный, кольцевой)</h1>
 					</div>
 				</div>
 			</section>
@@ -63,8 +62,9 @@
 					<div class="card__body border-radius card-article">
 						<!-- <h1 class="card__title title">Задача о скобках</h1> -->
 						<!-- <img src="img/subjects/1.svg" alt="1"> -->
-						<p class="card__text text">Дана последовательность чисел. Отсортировать и вывести
-							последовательность чисел, определённым методом</p>
+						<p class="card__text text">В качестве входной информации для следующих лабораторных работ
+							вводится символьная строка (бинарное дерево) с помощью линейно-скобочной записи. Например 8
+							(3 (1, 6 (4, 7), 10 (, 14 (13,))))</p>
 					</div>
 				</div>
 			</section>
@@ -75,20 +75,6 @@
 						<section class="article__section">
 							<h2 class="article__title">Принцип алгоритма</h2>
 							<h4 class="article__subtitle"></h4>
-							<p class="article__text text">Суть алгоритма — за каждый проход по массиву выбрать
-								минимальный элемент
-								(для сортировки по возрастанию) и поменять его местами с
-								первым элементом в еще не отсортированном участке массива, тем самым уменьшив длину
-								этого участка на один, и так до тех
-								пор пока не будут отсортированы все элементы.</p>
-							<p class="article__text text">
-							<p class="article__text text">
-								Этот подход хорошо виден на иллюстрации:
-							</p>
-							<div class="article__image">
-								<img src="img/ASD/sortingBySelection.gif" alt="sortingBySelection">
-							</div>
-							</p>
 						</section>
 						<section class="article__section">
 							<h2 class="article__title">JavaScript</h2>
@@ -96,41 +82,166 @@
 							<div class="code">
 								<div class="code__body">
 									<pre>
-                                                                                        <div class="code__lines">
-                                                                                            <span>1</span>
-                                                                                            <span>2</span>
-                                                                                            <span>3</span>
-                                                                                            <span>4</span>
-                                                                                            <span>5</span>
-                                                                                            <span>6</span>
-                                                                                            <span>7</span>
-                                                                                            <span>8</span>
-                                                                                            <span>9</span>
-                                                                                            <span>10</span>
-                                                                                            <span>11</span>
-                                                                                            <span>12</span>
-                                                                                            <span>13</span>
-                                                                                            <span>14</span>
-                                                                                            <span>15</span>
-                                                                                            <span>16</span>
-                                                                                            <span>17</span>
-                                                                                        </div>
-                                                                                        <code class="code__text language-javascript">// Сортировка посредством выбора
-function SortingBySelection(array) {
-    let arrayLength = array.length;
-    let k = arrayLength - 1;
-    for (let i = 0; i &lt; k; i++) {
-        let indexMin = i;
-        for (let j = i + 1; j &lt; arrayLength; j++) {
-            if (array[indexMin] > array[j]) {
-                indexMin = j;
+                                        <div class="code__lines">
+                                            <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>10</span><span>11</span><span>12</span><span>13</span><span>14</span><span>15</span><span>16</span><span>17</span><span>18</span><span>19</span><span>20</span><span>21</span><span>22</span><span>23</span><span>24</span><span>25</span><span>26</span><span>27</span><span>28</span><span>29</span><span>30</span><span>31</span><span>32</span><span>33</span><span>34</span><span>35</span><span>36</span><span>37</span><span>38</span><span>39</span><span>40</span><span>41</span><span>42</span><span>43</span><span>44</span><span>45</span><span>46</span><span>47</span><span>48</span><span>49</span><span>50</span><span>51</span><span>52</span><span>53</span><span>54</span><span>55</span><span>56</span><span>57</span><span>58</span><span>59</span><span>60</span><span>61</span><span>62</span><span>63</span><span>64</span><span>65</span><span>66</span><span>67</span><span>68</span><span>69</span><span>70</span><span>71</span><span>72</span><span>73</span><span>74</span><span>75</span><span>76</span><span>77</span><span>78</span><span>79</span><span>80</span><span>81</span><span>82</span><span>83</span><span>84</span><span>85</span><span>86</span><span>87</span><span>88</span><span>89</span><span>90</span><span>91</span><span>92</span><span>93</span><span>94</span><span>95</span><span>96</span><span>97</span><span>98</span><span>99</span><span>100</span><span>101</span><span>102</span><span>103</span><span>104</span><span>105</span><span>106</span><span>107</span><span>108</span><span>109</span><span>110</span><span>111</span><span>112</span><span>113</span><span>114</span><span>115</span><span>116</span><span>117</span><span>118</span><span>119</span><span>120</span><span>121</span><span>122</span><span>123</span><span>124</span><span>125</span><span>126</span><span>127</span><span>128</span><span>129</span><span>130</span><span>131</span><span>132</span><span>133</span><span>134</span><span>135</span><span>136</span><span>137</span><span>138</span><span>139</span><span>140</span><span>141</span><span>142</span><span>143</span><span>144</span><span>145</span><span>146</span><span>147</span><span>148</span><span>149</span><span>150</span><span>151</span><span>152</span><span>153</span><span>154</span><span>155</span><span>156</span><span>157</span><span>158</span>
+                                        </div>
+                                        <code class="code__text language-javascript">// Класс для создания узлов в дереве
+class Node {
+    constructor(value) {
+        this.value = value;
+        this.left = null;
+        this.right = null;
+    }
+}
+
+class BinaryThree {
+    constructor() {
+        this.root = null; // По умолчанию корень дерева равен null
+    }
+
+    // Метод добавления элементов в дерево
+    add(value) {
+        let newNode = new Node(value);
+
+        // Если нет корня, то добавляем его 
+        if (!this.root) {
+            this.root = newNode;
+            return;
+        }
+
+        // Проходим с помощью цикла по всем элементам дерева
+        let currentNode = this.root; // Начинаем с корневого элемента
+        while (currentNode) {
+            // Если новый элемент меньше, то помещаем его влево
+            if (newNode.value < currentNode.value) {
+                if (!currentNode.left) {
+                    currentNode.left = newNode;
+                    return;
+                }
+
+                // но если там уже "занято", 
+                // то спускаемся на один уровень вниз
+                currentNode = currentNode.left;
+            } else {
+                // Если новый элемент больше, то помещаем его впрово
+                if (!currentNode.right) {
+                    currentNode.right = newNode;
+                    return;
+                }
+
+                // но если там уже "занято",
+                // то спускаемся на один уровень вниз
+                currentNode = currentNode.right;
             }
         }
-        if (indexMin !== i) {
-            [array[i], array[indexMin]] = [array[indexMin], array[i]];
+    }
+
+    // Прямой обход
+    // Сначала корневой узел
+    // Потом все узлы левого поддереве
+    // Потом все узлы правого поддрева
+    preOrder(node, callback) {
+
+        if (!node) {
+            return;
+        }
+
+        // Сначала корневой узел
+        if (callback) {
+            callback(node);
+        }
+
+        // Потом все узлы левого поддереве
+        this.preOrder(node.left, callback);
+        // Потом все узлы правого поддрева
+        this.preOrder(node.right, callback);
+
+    }
+
+    // Центральный обход
+    // Сначала все узлы левого поддерева
+    // Потом корневой узел
+    // Потом все узлы правого поддрева
+    inOrder(node, callback) {
+        if (!node) {
+            return;
+        }
+
+        // Сначала все узлы левого поддереве
+        this.inOrder(node.left, callback);
+
+        // Потом корневой узел
+        if (callback) {
+            callback(node);
+        }
+
+        // Потом все узлы правого поддрева
+        this.inOrder(node.right, callback);
+    }
+
+    // Обратный обход (или же концевой)
+    // Сначала все узлы левого поддерева
+    // Потом все узлы правого поддрева
+    // Потом корневой узел
+    postOrder(node, callback) {
+        if (!node) {
+            return;
+        }
+
+        // Сначала все узлы левого поддереве
+        this.postOrder(node.left, callback);
+
+        // Потом все узлы правого поддрева
+        this.postOrder(node.right, callback);
+
+        // Потом корневой узел
+        if (callback) {
+            callback(node);
         }
     }
-    return array;
+
+
+    // Обход дерева в глубину (от корня)
+    // Depth Firts Search
+    traverseDFS(callback, method) {
+        if (method === 'preOrder') {
+            return this.preOrder(this.root, callback);
+        }
+        if (method === 'inOrder') {
+            return this.inOrder(this.root, callback);
+        }
+
+        return this.postOrder(this.root, callback);
+    }
+
+    // Обход дерева в ширину (по уровням)
+    // Или же нерекурсивный прямой обход 
+    // Breadth First Seacrh
+    // Я буду использовать структуру данных "очередь"
+    // Первым пришёл - первым ушёл 
+    // First in first out (FIFO)
+    traverseBFS(callback) {
+        // делаем очередь, с первым корневым элементом
+        // (так как он, очевидно, на 1 уровне)
+        const queue = [this.root];
+
+        // пока очередь существует
+        while (queue.length) {
+            let node = queue.shift(); // Достаем элемент из очереди
+            callback(node) // Печатаем наш элемент
+
+            // если у элемента был левый узел, 
+            // то добавляем его в очередь
+            if (node.left) {
+                queue.push(node.left);
+            }
+
+            // Аналогично с правым
+            if (node.right) {
+                queue.push(node.right);
+            }
+        }
+    }
 }</code></pre>
 									<button class="button-copy _icon-save">скопировать</button>
 								</div>
@@ -140,13 +251,14 @@ function SortingBySelection(array) {
 							<h2 class="article__title">Пример работы</h2>
 							<form action="#">
 								<h4 class="article__subtitle">Введите последовательность</h4>
+								<p class="article__text text">Не обязательно вводить именно линейно-скобочную запись.
+									Она в итоге даёт то же самое, что и обычный порядок чисел. Но если очень хочется, то
+									можно</p>
+
 
 								<div class="article__example article__text">
 									<input class="article__input" placeholder="" type="text" id="array">
-									<button type="button" class="button" id="sortArray">сортировать</button>
 								</div>
-
-								<p class="article__text text" id="showResult"></p>
 
 								<h4 class="article__subtitle">Или можете сгенерировать её</h4>
 
@@ -162,10 +274,16 @@ function SortingBySelection(array) {
 								<div class="article__example article__text">
 									<input class="article__input" placeholder="" type="text" id="generatedArray">
 									<button type="button" class="button" id="setGeneratedArray">сгенерировать</button>
-									<button type="button" class="button" id="sortGeneratedArray">сортировать</button>
 								</div>
 
-								<p class="article__text text" id="showResultGenerated"></p>
+								<h4 class="article__subtitle">Каким методом будем делать обход?</h4>
+								<div class="article__example article__text buttonsForBinaryThree">
+									<button type="button" class="button" id="preOrder">прямым</button>
+									<button type="button" class="button" id="inOrder">центральным</button>
+									<button type="button" class="button" id="postOrder">обратным</button>
+								</div>
+
+								<p class="article__text text" id="showResult"></p>
 
 
 								<button class="button" id="buttonReset" type="button">сбросить</button>
@@ -180,30 +298,8 @@ function SortingBySelection(array) {
 									<pre>
                                         <div class="code__lines">
                                             <span>1</span>
-                                            <span>2</span>
-                                            <span>3</span>
-                                            <span>4</span>
-                                            <span>5</span>
-                                            <span>6</span>
-                                            <span>7</span>
-                                            <span>8</span>
-                                            <span>9</span>
-                                            <span>10</span>
-                                            <span>11</span>
-                                            <span>12</span>
                                         </div>
-                                        <code class="code__text language-python">nums = list(map(int, input("Введите числовую последовательность\n").split(" ")))
-MIN_VALUE = 2**15 + 1
-
-for i in range(len(nums)):
-    min_value, pos = MIN_VALUE, 0
-    for j in range(i, len(nums)):
-        if nums[j] &lt; min_value:
-            min_value = nums[j]
-            pos = j
-    nums[pos], nums[i] = nums[i], nums[pos]
-print("Отсортированная последовательность")
-print(*nums)</code>
+                                        <code class="code__text language-python"></code>
                                     </pre>
 									<button class="button-copy _icon-save">скопировать</button>
 								</div>
@@ -217,108 +313,8 @@ print(*nums)</code>
 									<pre>
                                         <div class="code__lines">
                                                     <span>1</span>
-                                                    <span>2</span>
-                                                    <span>3</span>
-                                                    <span>4</span>
-                                                    <span>5</span>
-                                                    <span>6</span>
-                                                    <span>7</span>
-                                                    <span>8</span>
-                                                    <span>9</span>
-                                                    <span>10</span>
-                                                    <span>11</span>
-                                                    <span>12</span>
-                                                    <span>13</span>
-                                                    <span>14</span>
-                                                    <span>15</span>
-                                                    <span>16</span>
-                                                    <span>17</span>
-                                                    <span>18</span>
-                                                    <span>19</span>
-                                                    <span>20</span>
-                                                    <span>21</span>
-                                                    <span>22</span>
-                                                    <span>23</span>
-                                                    <span>24</span>
-                                                    <span>25</span>
-                                                    <span>26</span>
-                                                    <span>27</span>
-                                                    <span>28</span>
-                                                    <span>29</span>
-                                                    <span>30</span>
-                                                    <span>31</span>
-                                                    <span>32</span>
-                                                    <span>33</span>
-                                                    <span>34</span>
-                                                    <span>35</span>
-                                                    <span>36</span>
-                                                    <span>37</span>
-                                                    <span>38</span>
-                                                    <span>39</span>
-                                                    <span>40</span>
-                                                    <span>41</span>
-                                                    <span>42</span>
-                                                    <span>43</span>
-                                                    <span>44</span>
-                                                    <span>45</span>
-                                                    <span>46</span>
-                                                    <span>47</span>
-                                                    <span>48</span>
-                                                    <span>49</span>
-                                                    <span>50</span>
-                                                    <span>51</span>
                                         </div>
-                                        <code class="code__text language-c">#include &lt;iostream>
-#include &lt;vector>
-#include &lt;limits>
-
-using namespace std;
-
-vector&lt;int> input() {
-  vector&lt;int> storage;
-  int n;
-
-  cin >> n;
-
-  for (int i = 0; i &lt; n; i++) {
-    int temp;
-    cin >> temp;
-    storage.push_back(temp);
-  }
-  return storage;
-}
-
-void printer(vector&lt;int> arr) {
-  for (int i = 0; i &lt; arr.size(); i++) {
-    cout &lt;&lt; arr[i] &lt;&lt; " ";
-  }
-  cout &lt;&lt; endl;
-}
-
-
-void lab6() {
-  vector&lt;int> storage = input();
-  int min_value, pos;
-  for (int i = 0; i &lt; storage.size(); i++) {
-    min_value = numeric_limits&lt;int>::max();
-    pos = 0;
-    for (int j = i; j &lt; storage.size(); j++) {
-      if (storage[j] &lt; min_value) {
-        min_value = storage[j];
-        pos = j;
-      }
-    }
-    int buffer = storage[pos];
-    storage[pos] = storage[i];
-    storage[i] = buffer;
-  }
-  printer(storage);
-}
-
-int main() {
-  lab6();
-  return 0;
-}</code>
+                                        <code class="code__text language-c"></code>
                                     </pre>
 									<button class="button-copy _icon-save">скопировать</button>
 								</div>
@@ -382,7 +378,7 @@ int main() {
 		</div>
 	</div>
 </div> -->
-	<script src="js/app.min.js?_v=20221210025114"></script>
+	<script src="js/app.min.js?_v=20221215025346"></script>
 
 
 </body>
