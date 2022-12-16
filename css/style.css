@@ -961,6 +961,65 @@ hr {
   }
 }
 
+.hash-table {
+  margin-bottom: 20px;
+}
+.hash-table__body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3125rem;
+}
+.hash-table__line {
+  display: flex;
+  gap: 0.125rem;
+}
+.hash-table__number {
+  flex: 0 0 80px;
+  height: 80px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #1e1e1e;
+  background-color: #fff;
+  border-radius: 1.25rem;
+}
+@supports (font-size: clamp( 0.875rem , 0.5197368421rem  +  1.5789473684vw , 2rem )) {
+  .hash-table__number {
+    font-size: clamp( 0.875rem , 0.5197368421rem  +  1.5789473684vw , 2rem );
+  }
+}
+@supports not (font-size: clamp( 0.875rem , 0.5197368421rem  +  1.5789473684vw , 2rem )) {
+  .hash-table__number {
+    font-size: calc(0.875rem + 1.125 * (100vw - 22.5rem) / 71.25);
+  }
+}
+@media (max-width: 48em) {
+  .hash-table__number {
+    flex: 0 0 60px;
+    height: 60px;
+    border-radius: 0.625rem;
+  }
+}
+@media (max-width: 30em) {
+  .hash-table__number {
+    flex: 0 0 40px;
+    height: 40px;
+  }
+}
+.hash-table__text {
+  padding: 0.625rem 1.25rem;
+  flex: 1 1 auto;
+  display: flex;
+  align-items: center;
+  border: 2px solid #fff;
+  border-radius: 1.25rem;
+}
+@media (max-width: 48em) {
+  .hash-table__text {
+    border-radius: 0.625rem;
+  }
+}
+
 .header {
   width: 100%;
   color: #fff;
@@ -1956,6 +2015,12 @@ pre[class*=language-] {
 
 .token.entity {
   cursor: help;
+}
+
+.block-highlight {
+  width: 100%;
+  display: inline-block;
+  background-color: #8292a2;
 }
 .swiper {
   overflow: hidden;

@@ -1618,7 +1618,7 @@
         O
       );
     }
-    function z() {
+    function q() {
       return (
         D ||
           (D = (function () {
@@ -1640,7 +1640,7 @@
         D
       );
     }
-    const q = {
+    const z = {
       on(e, t, n) {
         const r = this;
         if (!r.eventsListeners || r.destroyed) return r;
@@ -2337,7 +2337,7 @@
         );
       },
     };
-    function G(e) {
+    function H(e) {
       let { swiper: t, runCallbacks: n, direction: r, step: i } = e;
       const { activeIndex: s, previousIndex: a } = t;
       let o = r;
@@ -2651,7 +2651,7 @@
         } else e.slideTo(s);
       },
     };
-    const H = {
+    const G = {
       loopCreate: function () {
         const e = this,
           t = f(),
@@ -3468,7 +3468,7 @@
       };
     }
     const se = {
-        eventsEmitter: q,
+        eventsEmitter: z,
         update: B,
         translate: N,
         transition: {
@@ -3483,7 +3483,7 @@
               { params: r } = n;
             r.cssMode ||
               (r.autoHeight && n.updateAutoHeight(),
-              G({ swiper: n, runCallbacks: e, direction: t, step: "Start" }));
+              H({ swiper: n, runCallbacks: e, direction: t, step: "Start" }));
           },
           transitionEnd: function (e, t) {
             void 0 === e && (e = !0);
@@ -3492,11 +3492,11 @@
             (n.animating = !1),
               r.cssMode ||
                 (n.setTransition(0),
-                G({ swiper: n, runCallbacks: e, direction: t, step: "End" }));
+                H({ swiper: n, runCallbacks: e, direction: t, step: "End" }));
           },
         },
         slide: j,
-        loop: H,
+        loop: G,
         grabCursor: {
           setGrabCursor: function (e) {
             const t = this;
@@ -3615,7 +3615,7 @@
         (s.__swiper__ = !0),
           (s.support = F()),
           (s.device = I({ userAgent: t.userAgent })),
-          (s.browser = z()),
+          (s.browser = q()),
           (s.eventsListeners = {}),
           (s.eventsAnyListeners = []),
           (s.modules = [...s.__modules__]),
@@ -5807,38 +5807,43 @@
                 "В последовательности есть ошибка"));
         });
     }
-    let Le = document.querySelector("#setString");
-    null != Le &&
-      Le.addEventListener("click", () => {
-        let e = document.getElementById("string").value;
-        console.log(typeof e),
-          0 == e.length
-            ? ((document.querySelector("#code-result").style.color = "#D0722E"),
-              (document.querySelector("#code-result").innerHTML =
-                "Я же вижу, что это пустая строка..."))
-            : !(function (e) {
-                let t = [],
-                  n = ["[", "(", "{"],
-                  r = { "{": "}", "(": ")", "[": "]" };
-                for (let i = 0; i < e.length; i++) {
-                  const s = e[i];
-                  if (n.includes(s)) t.push(s);
-                  else {
-                    if (s !== r[t.pop()]) return !1;
+    if (document.querySelector(".ADS-brackets")) {
+      let e = document.querySelector("#setString");
+      null != e &&
+        e.addEventListener("click", () => {
+          let e = document.getElementById("string").value;
+          console.log(typeof e),
+            0 == e.length
+              ? ((document.querySelector("#code-result").style.color =
+                  "#D0722E"),
+                (document.querySelector("#code-result").innerHTML =
+                  "Я же вижу, что это пустая строка..."))
+              : !(function (e) {
+                  let t = [],
+                    n = ["[", "(", "{"],
+                    r = { "{": "}", "(": ")", "[": "]" };
+                  for (let i = 0; i < e.length; i++) {
+                    const s = e[i];
+                    if (n.includes(s)) t.push(s);
+                    else {
+                      if (s !== r[t.pop()]) return !1;
+                    }
                   }
-                }
-                return 0 === t.length;
-              })(e)
-            ? ((document.querySelector("#code-result").style.color = "#E06363"),
-              (document.querySelector("#code-result").innerHTML =
-                "Такой строки не может быть!"))
-            : ((document.querySelector("#code-result").style.color = "#3CA478"),
-              (document.querySelector("#code-result").innerHTML =
-                "Такая строка существует!"));
-      });
-    let Me = document.querySelector("#setNumber");
-    if (document.querySelector("#ADS-3") && Me) {
-      Me.addEventListener("click", () => {
+                  return 0 === t.length;
+                })(e)
+              ? ((document.querySelector("#code-result").style.color =
+                  "#E06363"),
+                (document.querySelector("#code-result").innerHTML =
+                  "Такой строки не может быть!"))
+              : ((document.querySelector("#code-result").style.color =
+                  "#3CA478"),
+                (document.querySelector("#code-result").innerHTML =
+                  "Такая строка существует!"));
+        });
+    }
+    let Le = document.querySelector("#setNumber");
+    if (document.querySelector("#ADS-3") && Le) {
+      Le.addEventListener("click", () => {
         let e = +document.getElementById("string").value;
         if (0 == e)
           (document.querySelector("#code-result").style.color = "#D0722E"),
@@ -5872,6 +5877,52 @@
           .addEventListener("click", () => {
             document.querySelector("#code-result").innerHTML = " ";
           });
+    }
+    class Me {
+      constructor() {
+        this.array = Array(20).fill(null);
+      }
+      hash(e) {
+        let t = 0;
+        for (let n = 0; n < e.length; n++) t += e.charCodeAt(n);
+        return t % 20;
+      }
+      set(e) {
+        let t = this.hash(e);
+        null == this.array[t] && (this.array[t] = []), this.array[t].push(e);
+      }
+    }
+    if (document.querySelector(".ADS-hash-tables")) {
+      let e = document.querySelector("#setString"),
+        t = document.querySelector("#string"),
+        n = document.querySelectorAll(".hash-table__text"),
+        r = document.getElementById("buttonReset"),
+        i = /[a-zA-Zа-яА-Я0-9]+/g;
+      r.addEventListener("click", () => {
+        (t.innerHTML = ""), (t.value = "");
+        for (let e = 0; e < n.length; e++) {
+          n[e].innerHTML = "";
+        }
+      }),
+        e.addEventListener("click", () => {
+          for (let e = 0; e < n.length; e++) {
+            n[e].innerHTML = "";
+          }
+          let e = new Me(),
+            r = t.value;
+          (r = r.match(i)), null == r && (r = 0);
+          for (let t = 0; t < r.length; t++) e.set(r[t]);
+          if (0 != r.length) {
+            for (let t = 0; t < n.length; t++) {
+              let r = n[t];
+              e.array[t] && (r.innerHTML = e.array[t].join(", "));
+            }
+            document.querySelector("#code-result").innerHTML = "";
+          } else
+            (document.querySelector("#code-result").style.color = "#D0722E"),
+              (document.querySelector("#code-result").innerHTML =
+                "Я же вижу, что это пустая строка...");
+        });
     }
     class $e {
       constructor(e) {
@@ -5931,68 +5982,95 @@
         n = Number(document.getElementById("arrayLength").value);
       };
       let a = [];
-      i.addEventListener("click", function () {
-        e.value = "";
-        for (let e = 0; e < n; e++)
-          a.push(((t = 100), Math.floor(Math.random() * t)));
-        var t;
-        (r.value = a.join(" ")), (a = []);
-      }),
+      if (
+        (i.addEventListener("click", function () {
+          e.value = "";
+          for (let e = 0; e < n; e++)
+            a.push(((t = 100), Math.floor(Math.random() * t)));
+          var t;
+          (r.value = a.join(" ")), (a = []);
+        }),
         s.addEventListener("click", () => {
           (document.querySelector("#showResult").innerHTML = " "),
             (r.value = " "),
             (e.value = " ");
-        });
-      let o = document.querySelector("#preOrder"),
-        l = document.querySelector("#inOrder"),
-        d = document.querySelector("#postOrder");
-      o.addEventListener("click", function () {
-        let n,
-          i = new _e();
-        0 == e.value.length
-          ? (n = r.value.match(t).map((e) => +e))
-          : 0 != e.value.length && (n = e.value.match(t).map((e) => +e));
-        let s = [];
-        if (n) {
-          for (let e = 0; e < n.length; e++) i.add(n[e]);
-          console.log(i),
-            i.traverseDFS((e) => {
-              s.push(e.value);
-            }, "preOrder"),
-            (document.querySelector("#showResult").style.color = "#3CA478"),
-            (document.querySelector("#showResult").innerHTML = s.join(", "));
-        }
-      }),
-        l.addEventListener("click", function () {
-          let n,
-            i = new _e(),
-            s = [];
-          0 == e.value.length
-            ? (n = r.value.match(t).map((e) => +e))
-            : 0 != e.value.length && (n = e.value.match(t).map((e) => +e));
-          for (let e = 0; e < n.length; e++) i.add(n[e]);
-          console.log(i),
-            i.traverseDFS((e) => {
-              s.push(e.value);
-            }, "inOrder"),
-            (document.querySelector("#showResult").style.color = "#3CA478"),
-            (document.querySelector("#showResult").innerHTML = s.join(", "));
         }),
-        d.addEventListener("click", function () {
+        "ADS-15" ==
+          document.querySelector(".ADS-binaryThree").getAttribute("id"))
+      ) {
+        let n = document.querySelector("#preOrder"),
+          i = document.querySelector("#inOrder"),
+          s = document.querySelector("#postOrder");
+        n.addEventListener("click", function () {
           let n,
-            i = new _e(),
-            s = [];
+            i = new _e();
           0 == e.value.length
             ? (n = r.value.match(t).map((e) => +e))
             : 0 != e.value.length && (n = e.value.match(t).map((e) => +e));
-          for (let e = 0; e < n.length; e++) i.add(n[e]);
-          console.log(i),
-            i.traverseDFS((e) => {
-              s.push(e.value);
-            }, "postOrder"),
-            (document.querySelector("#showResult").style.color = "#3CA478"),
-            (document.querySelector("#showResult").innerHTML = s.join(", "));
-        });
+          let s = [];
+          if (n) {
+            for (let e = 0; e < n.length; e++) i.add(n[e]);
+            console.log(i),
+              i.traverseDFS((e) => {
+                s.push(e.value);
+              }, "preOrder"),
+              (document.querySelector("#showResult").style.color = "#3CA478"),
+              (document.querySelector("#showResult").innerHTML = s.join(", "));
+          }
+        }),
+          i.addEventListener("click", function () {
+            let n,
+              i = new _e(),
+              s = [];
+            0 == e.value.length
+              ? (n = r.value.match(t).map((e) => +e))
+              : 0 != e.value.length && (n = e.value.match(t).map((e) => +e));
+            for (let e = 0; e < n.length; e++) i.add(n[e]);
+            console.log(i),
+              i.traverseDFS((e) => {
+                s.push(e.value);
+              }, "inOrder"),
+              (document.querySelector("#showResult").style.color = "#3CA478"),
+              (document.querySelector("#showResult").innerHTML = s.join(", "));
+          }),
+          s.addEventListener("click", function () {
+            let n,
+              i = new _e(),
+              s = [];
+            0 == e.value.length
+              ? (n = r.value.match(t).map((e) => +e))
+              : 0 != e.value.length && (n = e.value.match(t).map((e) => +e));
+            for (let e = 0; e < n.length; e++) i.add(n[e]);
+            console.log(i),
+              i.traverseDFS((e) => {
+                s.push(e.value);
+              }, "postOrder"),
+              (document.querySelector("#showResult").style.color = "#3CA478"),
+              (document.querySelector("#showResult").innerHTML = s.join(", "));
+          });
+      }
+      if (
+        "ADS-16" ==
+        document.querySelector(".ADS-binaryThree").getAttribute("id")
+      ) {
+        document
+          .querySelector("#traverseBFS")
+          .addEventListener("click", function () {
+            let n,
+              i = new _e(),
+              s = [];
+            0 == e.value.length
+              ? (n = r.value.match(t).map((e) => +e))
+              : 0 != e.value.length && (n = e.value.match(t).map((e) => +e));
+            for (let e = 0; e < n.length; e++) i.add(n[e]);
+            console.log(i),
+              i.traverseBFS((e) => {
+                s.push(e.value);
+              }),
+              (document.querySelector("#showResult").style.color = "#3CA478"),
+              (document.querySelector("#showResult").innerHTML = s.join(", "));
+          });
+      }
     }
     function Pe(e) {
       return [

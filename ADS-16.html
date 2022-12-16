@@ -2,11 +2,11 @@
 <html lang="ru">
 
 <head>
-	<title>Методы сортировки. Сортировка посредством выбора</title>
+	<title>Нерекурсивыный прямой обход</title>
 	<meta charset="UTF-8">
 	<meta name="format-detection" content="telephone=no">
 	<!-- <style>body{opacity: 0;}</style> -->
-	<link rel="stylesheet" href="css/style.min.css?_v=20221215025346">
+	<link rel="stylesheet" href="css/style.min.css?_v=20221216020357">
 	<link rel="shortcut icon" href="favicon.ico">
 
 	<meta name="robots" content="index, follow">
@@ -53,7 +53,7 @@
 			<section class="card">
 				<div class="card__container">
 					<div class="card__body border-radius card-article">
-						<h1 class="card__title title">Методы сортировки. Сортировка посредством выбора</h1>
+						<h1 class="card__title title">Нерекурсивыный прямой обход</h1>
 						<!-- <img src="img/subjects/1.svg" alt="1"> -->
 					</div>
 				</div>
@@ -61,10 +61,9 @@
 			<section class="card card-text">
 				<div class="card__container">
 					<div class="card__body border-radius card-article">
-						<!-- <h1 class="card__title title">Задача о скобках</h1> -->
-						<!-- <img src="img/subjects/1.svg" alt="1"> -->
-						<p class="card__text text">Дана последовательность чисел. Отсортировать и вывести
-							последовательность чисел, определённым методом</p>
+						<p class="card__text text">В качестве входной информации для следующих лабораторных работ
+							вводится символьная строка (бинарное дерево) с помощью линейно-скобочной записи. Например 8
+							(3 (1, 6 (4, 7), 10 (, 14 (13,))))</p>
 					</div>
 				</div>
 			</section>
@@ -75,20 +74,6 @@
 						<section class="article__section">
 							<h2 class="article__title">Принцип алгоритма</h2>
 							<h4 class="article__subtitle"></h4>
-							<p class="article__text text">Суть алгоритма — за каждый проход по массиву выбрать
-								минимальный элемент
-								(для сортировки по возрастанию) и поменять его местами с
-								первым элементом в еще не отсортированном участке массива, тем самым уменьшив длину
-								этого участка на один, и так до тех
-								пор пока не будут отсортированы все элементы.</p>
-							<p class="article__text text">
-							<p class="article__text text">
-								Этот подход хорошо виден на иллюстрации:
-							</p>
-							<div class="article__image">
-								<img src="img/ASD/sortingBySelection.gif" alt="sortingBySelection">
-							</div>
-							</p>
 						</section>
 						<section class="article__section">
 							<h2 class="article__title">JavaScript</h2>
@@ -127,7 +112,7 @@ class BinaryThree {
         let currentNode = this.root; // Начинаем с корневого элемента
         while (currentNode) {
             // Если новый элемент меньше, то помещаем его влево
-            if (newNode.value < currentNode.value) {
+            if (newNode.value &lt; currentNode.value) {
                 if (!currentNode.left) {
                     currentNode.left = newNode;
                     return;
@@ -234,6 +219,7 @@ class BinaryThree {
     // Я буду использовать структуру данных "очередь"
     // Первым пришёл - первым ушёл 
     // First in first out (FIFO)
+
     traverseBFS(callback) {
         // делаем очередь, с первым корневым элементом
         // (так как он, очевидно, на 1 уровне)
@@ -243,13 +229,12 @@ class BinaryThree {
         while (queue.length) {
             let node = queue.shift(); // Достаем элемент из очереди
             callback(node) // Печатаем наш элемент
-
-            // если у элемента был левый узел, 
+            
+            // если у элемента был левый узел,
             // то добавляем его в очередь
             if (node.left) {
                 queue.push(node.left);
             }
-
             // Аналогично с правым
             if (node.right) {
                 queue.push(node.right);
@@ -265,13 +250,14 @@ class BinaryThree {
 							<h2 class="article__title">Пример работы</h2>
 							<form action="#">
 								<h4 class="article__subtitle">Введите последовательность</h4>
+								<p class="article__text text">Не обязательно вводить именно линейно-скобочную запись.
+									Она в итоге даёт то же самое, что и обычный порядок чисел. Но если очень хочется, то
+									можно</p>
+
 
 								<div class="article__example article__text">
 									<input class="article__input" placeholder="" type="text" id="array">
-									<button type="button" class="button" id="sortArray">сортировать</button>
 								</div>
-
-								<p class="article__text text" id="showResult"></p>
 
 								<h4 class="article__subtitle">Или можете сгенерировать её</h4>
 
@@ -287,10 +273,14 @@ class BinaryThree {
 								<div class="article__example article__text">
 									<input class="article__input" placeholder="" type="text" id="generatedArray">
 									<button type="button" class="button" id="setGeneratedArray">сгенерировать</button>
-									<button type="button" class="button" id="sortGeneratedArray">сортировать</button>
 								</div>
 
-								<p class="article__text text" id="showResultGenerated"></p>
+								<h4 class="article__subtitle">Нерекурсивный прямой обход</h4>
+								<div class="article__example article__text buttonsForBinaryThree">
+									<button type="button" class="button" id="traverseBFS">проверить</button>
+								</div>
+
+								<p class="article__text text" id="showResult"></p>
 
 
 								<button class="button" id="buttonReset" type="button">сбросить</button>
@@ -305,30 +295,8 @@ class BinaryThree {
 									<pre>
                                         <div class="code__lines">
                                             <span>1</span>
-                                            <span>2</span>
-                                            <span>3</span>
-                                            <span>4</span>
-                                            <span>5</span>
-                                            <span>6</span>
-                                            <span>7</span>
-                                            <span>8</span>
-                                            <span>9</span>
-                                            <span>10</span>
-                                            <span>11</span>
-                                            <span>12</span>
                                         </div>
-                                        <code class="code__text language-python">nums = list(map(int, input("Введите числовую последовательность\n").split(" ")))
-MIN_VALUE = 2**15 + 1
-
-for i in range(len(nums)):
-    min_value, pos = MIN_VALUE, 0
-    for j in range(i, len(nums)):
-        if nums[j] &lt; min_value:
-            min_value = nums[j]
-            pos = j
-    nums[pos], nums[i] = nums[i], nums[pos]
-print("Отсортированная последовательность")
-print(*nums)</code>
+                                        <code class="code__text language-python"></code>
                                     </pre>
 									<button class="button-copy _icon-save">скопировать</button>
 								</div>
@@ -342,114 +310,14 @@ print(*nums)</code>
 									<pre>
                                         <div class="code__lines">
                                                     <span>1</span>
-                                                    <span>2</span>
-                                                    <span>3</span>
-                                                    <span>4</span>
-                                                    <span>5</span>
-                                                    <span>6</span>
-                                                    <span>7</span>
-                                                    <span>8</span>
-                                                    <span>9</span>
-                                                    <span>10</span>
-                                                    <span>11</span>
-                                                    <span>12</span>
-                                                    <span>13</span>
-                                                    <span>14</span>
-                                                    <span>15</span>
-                                                    <span>16</span>
-                                                    <span>17</span>
-                                                    <span>18</span>
-                                                    <span>19</span>
-                                                    <span>20</span>
-                                                    <span>21</span>
-                                                    <span>22</span>
-                                                    <span>23</span>
-                                                    <span>24</span>
-                                                    <span>25</span>
-                                                    <span>26</span>
-                                                    <span>27</span>
-                                                    <span>28</span>
-                                                    <span>29</span>
-                                                    <span>30</span>
-                                                    <span>31</span>
-                                                    <span>32</span>
-                                                    <span>33</span>
-                                                    <span>34</span>
-                                                    <span>35</span>
-                                                    <span>36</span>
-                                                    <span>37</span>
-                                                    <span>38</span>
-                                                    <span>39</span>
-                                                    <span>40</span>
-                                                    <span>41</span>
-                                                    <span>42</span>
-                                                    <span>43</span>
-                                                    <span>44</span>
-                                                    <span>45</span>
-                                                    <span>46</span>
-                                                    <span>47</span>
-                                                    <span>48</span>
-                                                    <span>49</span>
-                                                    <span>50</span>
-                                                    <span>51</span>
                                         </div>
-                                        <code class="code__text language-c">#include &lt;iostream>
-#include &lt;vector>
-#include &lt;limits>
-
-using namespace std;
-
-vector&lt;int> input() {
-  vector&lt;int> storage;
-  int n;
-
-  cin >> n;
-
-  for (int i = 0; i &lt; n; i++) {
-    int temp;
-    cin >> temp;
-    storage.push_back(temp);
-  }
-  return storage;
-}
-
-void printer(vector&lt;int> arr) {
-  for (int i = 0; i &lt; arr.size(); i++) {
-    cout &lt;&lt; arr[i] &lt;&lt; " ";
-  }
-  cout &lt;&lt; endl;
-}
-
-
-void lab6() {
-  vector&lt;int> storage = input();
-  int min_value, pos;
-  for (int i = 0; i &lt; storage.size(); i++) {
-    min_value = numeric_limits&lt;int>::max();
-    pos = 0;
-    for (int j = i; j &lt; storage.size(); j++) {
-      if (storage[j] &lt; min_value) {
-        min_value = storage[j];
-        pos = j;
-      }
-    }
-    int buffer = storage[pos];
-    storage[pos] = storage[i];
-    storage[i] = buffer;
-  }
-  printer(storage);
-}
-
-int main() {
-  lab6();
-  return 0;
-}</code>
+                                        <code class="code__text language-c"></code>
                                     </pre>
 									<button class="button-copy _icon-save">скопировать</button>
 								</div>
 							</div>
 						</section>
-						<a target="_blank" href="https://github.com/Mikhail-Khanaev/BFU/blob/archives/lab1.rar" class="button-download _icon-download" download>Скачать архив с
+						<a target="_blank" href="https://github.com/Mikhail-Khanaev/BFU/blob/archives/lab1.rar" class="button-download _icon-downlo ad" download>Скачать архив с
 							кодом</a>
 					</div>
 				</div>
@@ -507,7 +375,7 @@ int main() {
 		</div>
 	</div>
 </div> -->
-	<script src="js/app.min.js?_v=20221215025346"></script>
+	<script src="js/app.min.js?_v=20221216020357"></script>
 
 
 </body>
