@@ -190,6 +190,11 @@ body {
   margin: 0 auto;
   padding: 0 0.625rem;
 }
+@media (max-width: 48em) {
+  [class*=__container] {
+    padding: 0 2px;
+  }
+}
 
 [class*=-ibg] {
   position: relative;
@@ -556,6 +561,17 @@ hr {
 }
 .article__text {
   margin-bottom: 3.125rem;
+}
+.article__list li {
+  margin-left: 60px;
+}
+@media (max-width: 48em) {
+  .article__list li {
+    margin-left: 20px;
+  }
+}
+.article__list li:not(:last-child) {
+  margin-bottom: 30px;
 }
 @supports (margin-bottom: clamp( 4.375rem , 3.3881578947rem  +  4.3859649123vw , 7.5rem )) {
   .article__section:not(:last-child) {

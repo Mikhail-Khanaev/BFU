@@ -6,7 +6,7 @@
 	<meta charset="UTF-8">
 	<meta name="format-detection" content="telephone=no">
 	<!-- <style>body{opacity: 0;}</style> -->
-	<link rel="stylesheet" href="css/style.min.css?_v=20221216020357">
+	<link rel="stylesheet" href="css/style.min.css?_v=20221223214222">
 	<link rel="shortcut icon" href="favicon.ico">
 
 	<meta name="robots" content="index, follow">
@@ -60,7 +60,8 @@
 			<section class="card card-text">
 				<div class="card__container">
 					<div class="card__body border-radius card-article">
-						<p class="card__text text"></p>
+						<p class="card__text text">Дана последовательность чисел. Отсортировать и вывести
+							последовательность чисел, определённым методом</p>
 					</div>
 				</div>
 			</section>
@@ -78,6 +79,24 @@
 							</p>
 							<p class="article__text text">Лучше посмотреть их именно в таком порядке, чтобы было
 								понятнее</p>
+							<h4 class="article__subtitle">Словами</h4>
+							<p class="article__text text">Алгоритм можно условно разделить на две составляющих</p>
+							<p class="article__text text">1) разбиение входного массива данных на более мелкие, затем
+								снова
+								их дробление и так до тех пор, пока не останутся части из
+								одного элемента;</p>
+							<p class="article__text text">2) слияние в правильном порядке (по умолчанию мы рассматриваем
+								сортировку по возрастанию) всех мелких частей снова в более
+								и более крупные и получение в итоге единого отсортированного массива</p>
+							<p class="article__text text">На иллюстрации можно увидеть как это происходит на примере
+								массива из восьми чисел</p>
+							<div class="article__text article__image">
+								<img src="img/ASD/mergeSort.gif" alt="mergeSort">
+							</div>
+
+
+							<p class="article__text text">Сложность алгоритма —
+								O(n log n), но при этом он задействует O(n) дополнительной памяти</p>
 						</section>
 						<section class="article__section">
 							<h2 class="article__title">JavaScript</h2>
@@ -319,7 +338,7 @@ function MergeSort(array) {
 		</div>
 	</div>
 </div> -->
-	<script src="js/app.min.js?_v=20221216020357"></script>
+	<script src="js/app.min.js?_v=20221223214222"></script>
 
 
 </body>
