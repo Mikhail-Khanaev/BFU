@@ -251,6 +251,27 @@ hr {
   }
 }
 
+.button-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+@media (max-width: 48em) {
+  .button-wrapper {
+    margin-bottom: 30px;
+  }
+}
+@supports (margin-top: clamp( 1.875rem , 0.7720588235rem  +  4.9019607843vw , 3.125rem )) {
+  .button-wrapper {
+    margin-top: clamp( 1.875rem , 0.7720588235rem  +  4.9019607843vw , 3.125rem );
+  }
+}
+@supports not (margin-top: clamp( 1.875rem , 0.7720588235rem  +  4.9019607843vw , 3.125rem )) {
+  .button-wrapper {
+    margin-top: calc(1.875rem + 1.25 * (100vw - 22.5rem) / 25.5);
+  }
+}
+
 .button {
   line-height: 120%;
   border-radius: 1.25rem;
