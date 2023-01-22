@@ -6536,7 +6536,7 @@
     function De() {
       let e = new Date(),
         t = new Date(e.getFullYear(), e.getMonth(), e.getDate() + 1),
-        n = e.getWeek() % 2 == 0 ? "верхняя" : "нижняя",
+        n = e.getWeek() % 2 != 0 ? "верхняя" : "нижняя",
         r = document.querySelectorAll(".table-schedule__title");
       for (let i = 0; i < r.length; i++) {
         const s = r[i];
@@ -6553,7 +6553,7 @@
       document.querySelector(".schedule"))
     ) {
       De();
-      let e = new Date().getWeek() % 2 == 0 ? "верхняя" : "нижняя",
+      let e = new Date().getWeek() % 2 != 0 ? "верхняя" : "нижняя",
         t = new Date().getDay(),
         n = new Date(
           new Date().getFullYear(),
@@ -6627,7 +6627,7 @@
           "пятница",
           "суббота",
         ],
-        t = new Date().getWeek() % 2 == 0 ? "верхняя" : "нижняя",
+        t = new Date().getWeek() % 2 != 0 ? "верхняя" : "нижняя",
         n = document.querySelectorAll(".table-schedule-first");
       for (let r = 0; r < n.length; r++) {
         let i = n[r].querySelector(".table-schedule__title"),

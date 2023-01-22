@@ -7,9 +7,9 @@
   font-style: normal;
 }
 @font-face {
-  font-family: icons;
+  font-family: FemmeFatale;
   font-display: swap;
-  src: url("../fonts/icons.woff2") format("woff2"), url("../fonts/icons.woff") format("woff");
+  src: url("../fonts/FemmeFatale-Regular.woff2") format("woff2"), url("../fonts/FemmeFatale-Regular.woff") format("woff");
   font-weight: 400;
   font-style: normal;
 }
@@ -23,15 +23,22 @@
 @font-face {
   font-family: NeueMachina;
   font-display: swap;
-  src: url("../fonts/NeueMachina-Ultrabold.woff2") format("woff2"), url("../fonts/NeueMachina-Ultrabold.woff") format("woff");
+  src: url("../fonts/NeueMachina-Regular.woff2") format("woff2"), url("../fonts/NeueMachina-Regular.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: icons;
+  font-display: swap;
+  src: url("../fonts/icons.woff2") format("woff2"), url("../fonts/icons.woff") format("woff");
   font-weight: 400;
   font-style: normal;
 }
 @font-face {
   font-family: NeueMachina;
   font-display: swap;
-  src: url("../fonts/NeueMachina-Regular.woff2") format("woff2"), url("../fonts/NeueMachina-Regular.woff") format("woff");
-  font-weight: 400;
+  src: url("../fonts/NeueMachina-Ultrabold.woff2") format("woff2"), url("../fonts/NeueMachina-Ultrabold.woff") format("woff");
+  font-weight: 800;
   font-style: normal;
 }
 [class*=_icon-]:before {
@@ -222,18 +229,18 @@ hr {
 }
 
 .title {
-  font-family: "Ambidexter";
+  font-family: "FemmeFatale";
   text-align: center;
   line-height: 120%;
 }
-@supports (font-size: clamp( 2.125rem , 0.2302631579rem  +  8.4210526316vw , 8.125rem )) {
+@supports (font-size: clamp( 2.125rem , 0.8223684211rem  +  5.7894736842vw , 6.25rem )) {
   .title {
-    font-size: clamp( 2.125rem , 0.2302631579rem  +  8.4210526316vw , 8.125rem );
+    font-size: clamp( 2.125rem , 0.8223684211rem  +  5.7894736842vw , 6.25rem );
   }
 }
-@supports not (font-size: clamp( 2.125rem , 0.2302631579rem  +  8.4210526316vw , 8.125rem )) {
+@supports not (font-size: clamp( 2.125rem , 0.8223684211rem  +  5.7894736842vw , 6.25rem )) {
   .title {
-    font-size: calc(2.125rem + 6 * (100vw - 22.5rem) / 71.25);
+    font-size: calc(2.125rem + 4.125 * (100vw - 22.5rem) / 71.25);
   }
 }
 
